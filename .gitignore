@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Image assets
+public/homepage/chapters/*
+public/homepage/hero/*
+public/homepage/scripts/*
