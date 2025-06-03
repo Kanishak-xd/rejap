@@ -4,7 +4,7 @@ export default function Chapters(){
             <section id="chaptersSection" className="h-screen flex justify-center items-center mt-50">
                 <div id="chaptersPage" className="w-[85%] h-[80%] flex flex-row">
                     <div id="chapLeft" className="h-full w-[45%] flex items-center">
-                        <div className="w-[100%] h-[96%] bg-[url('https://res.cloudinary.com/dykzzd9sy/image/upload/v1748958693/chapLeft_hoegrp.webp')] bg-cover font-outfit text-white flex flex-col justify-end">
+                        <div className="w-[100%] h-[100%] bg-[url('https://res.cloudinary.com/dykzzd9sy/image/upload/v1748958693/chapLeft_hoegrp.webp')] bg-cover font-outfit text-white flex flex-col justify-end">
                             <p className="font-bold text-7xl ml-10 text-shadow-lg cursor-default">GET STARTED</p>
                             <p className="font-light text-3xl mb-8 ml-10 text-shadow-lg cursor-default">START WITH CHAPTER ONE</p>
                         </div>
@@ -41,8 +41,8 @@ export default function Chapters(){
                                 </div>
                             </div>
                             <div id="archiveButton" className="h-full w-[30%]">
-                                <div className="h-full w-[85%] flex">
-                                    <a href="#" className="bg-[url('https://res.cloudinary.com/dykzzd9sy/image/upload/v1748962013/archiveButton_tjjimm.png')] bg-cover h-[96%] w-[99%] flex justify-center items-end group">
+                                <div className="h-full w-[85%]">
+                                    <a href="#" className="bg-[url('https://res.cloudinary.com/dykzzd9sy/image/upload/v1748962013/archiveButton_tjjimm.png')] bg-cover h-[96%] w-[95%] flex justify-center items-end group">
                                         <div className="font-outfit text-white flex flex-col mb-6 mr-6 group-hover:text-black">
                                             <p className="font-bold text-3xl text-shadow-lg text-center">ARCHIVE</p>
                                             <p className="font-light text-2xl text-shadow-lg text-center">RESOURCES</p>
