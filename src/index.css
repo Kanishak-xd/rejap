@@ -24,6 +24,7 @@
   }
 }
 
+/* Float animation */
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
@@ -32,7 +33,19 @@
     transform: translateY(-10px);
   }
 }
-
 .animate-float {
   animation: float 3s ease-in-out infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 8px;
 }

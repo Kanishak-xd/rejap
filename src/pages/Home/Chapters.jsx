@@ -5,13 +5,13 @@ export default function Chapters(){
                 <div id="chaptersPage" className="w-[85%] h-[80%] flex flex-row">
                     <div id="chapLeft" className="h-full w-[45%] flex items-center">
                         <div className="w-[100%] h-[96%] bg-[url('https://res.cloudinary.com/dykzzd9sy/image/upload/v1748958693/chapLeft_hoegrp.webp')] bg-cover font-outfit text-white flex flex-col justify-end">
-                            <p className="font-bold text-7xl ml-10 text-shadow-lg">GET STARTED</p>
-                            <p className="font-light text-3xl mb-8 ml-10 text-shadow-lg">START WITH CHAPTER ONE</p>
+                            <p className="font-bold text-7xl ml-10 text-shadow-lg cursor-default">GET STARTED</p>
+                            <p className="font-light text-3xl mb-8 ml-10 text-shadow-lg cursor-default">START WITH CHAPTER ONE</p>
                         </div>
                     </div>
                     <div id="chapRight" className="h-full w-[55%] flex flex-col">
                         <div id="theChaptersTitle" className="w-full h-[20%]">
-                            <p className="font-outfit font-bold text-white text-[7rem] leading-none mt-2 ml-6">THE CHAPTERS</p>
+                            <p className="font-outfit font-bold text-white text-[7rem] leading-none mt-2 ml-6 cursor-default">THE CHAPTERS</p>
                         </div>
                         <div id="theChaptersButtons" className="w-full h-[80%] flex flex-row animate-float">
                             <div id="chapterButtons" className="h-full w-[70%] flex flex-col">

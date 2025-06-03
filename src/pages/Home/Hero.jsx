@@ -5,8 +5,8 @@ export default function Hero(){
                 <div className=" h-170 w-340 mt-15 flex justify-between items-center">
                     <div className="h-140 w-200 flex justify-center items-center flex-col ml-20">
                         <div className=" h-4/6 w-full flex flex-col items-start">
-                            <p className="font-outfit font-bold text-6xl/18  text-[#F3F3EE] mt-5">Master Japanese — <br/>One Lesson at a Time</p>
-                            <p className="font-outfit font-regular text-[2.3rem] text-[#F3F3EE] mt-3">Learn Japanese Scripts, time <br/>expressions, and more through <br/>fun quizzes & puzzles for free.</p>
+                            <p className="font-outfit font-bold text-6xl/18  text-[#F3F3EE] mt-5 cursor-default">Master Japanese — <br/>One Lesson at a Time</p>
+                            <p className="font-outfit font-regular text-[2.3rem] text-[#F3F3EE] mt-3 cursor-default">Learn Japanese Scripts, time <br/>expressions, and more through <br/>fun quizzes & puzzles for free.</p>
                         </div>
                         <div className="h-1/6 w-full flex font-outfit text-3xl">
                             <a href="#scriptsSection">
