@@ -1,4 +1,4 @@
-export default function Chapters(){
+export default function Chapters() {
     return (
         <>
             <section id="chaptersSection" className="h-screen flex justify-center items-center mt-50">
@@ -11,38 +11,38 @@ export default function Chapters(){
                     </div>
                     <div id="chapRight" className="h-full w-[55%] flex flex-col">
                         <div id="theChaptersTitle" className="w-full h-[20%]">
-                            <p className="font-outfit font-bold text-white text-[7rem] leading-none mt-2 ml-6 cursor-default">THE CHAPTERS</p>
+                            <p className="font-outfit font-bold text-white text-[6.15rem] leading-none mt-2 ml-6 cursor-default">THE CHAPTERS</p>
                         </div>
-                        <div id="theChaptersButtons" className="w-full h-[80%] flex flex-row animate-float">
-                            <div id="chapterButtons" className="h-full w-[70%] flex flex-col">
-                                <div id="chapOneTwoBtns" className="w-full h-[48%] flex flex-row items-start px-8">
-                                    <a href="#" className="group bg-[#1F1F1F] rounded-[14%] w-[50%] h-[93%] ml-1 flex flex-col justify-center hover:bg-white transition-colors duration-200">
-                                        <img className="h-35 w-35 ml-13" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874109/ch1ico_kfuyz7.webp"></img>
-                                        <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 ml-8 group-hover:text-black">CHAPTER 1</p>
-                                        <p className="font-outfit font-light text-2xl text-white text-shadow-lg ml-8 group-hover:text-black">HIRAGANA</p>
+                        <div id="theChaptersButtons" className="w-full h-[80%] flex flex-row animate-float mt-15">
+                            <div id="chapterButtons" className="h-full w-[55%] flex flex-col ml-1">
+                                <div id="chapOneTwoBtns" className="w-full h-[48%] flex flex-row justify-between items-start ml-6">
+                                    <a href="#" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
+                                        <img className="h-35 w-35" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874109/ch1ico_kfuyz7.webp"></img>
+                                        <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 group-hover:text-black">CHAPTER 1</p>
+                                        <p className="font-outfit font-light text-2xl text-white text-shadow-lg group-hover:text-black">HIRAGANA</p>
                                     </a>
-                                    <a href="#" className="bg-[#1F1F1F] rounded-[14%] w-[50%] h-[93%] ml-10 flex flex-col justify-center group hover:bg-white transition-colors duration-200">
-                                        <img className="h-35 w-35 ml-13" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874110/ch2ico_dmx7mg.webp"></img>
-                                        <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 ml-8 group-hover:text-black">CHAPTER 2</p>
-                                        <p className="font-outfit font-light text-2xl text-white text-shadow-lg ml-8 group-hover:text-black">KATAKANA</p>
+                                    <a href="#" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
+                                        <img className="h-35 w-35" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874110/ch2ico_dmx7mg.webp"></img>
+                                        <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 group-hover:text-black">CHAPTER 2</p>
+                                        <p className="font-outfit font-light text-2xl text-white text-shadow-lg group-hover:text-black">KATAKANA</p>
                                     </a>
                                 </div>
-                                <div id="chapThreeFourBtns" className="w-full h-[48%] flex flex-row items-end px-8">
-                                    <a href="#" className="bg-[#1F1F1F] rounded-[14%] w-[50%] h-[93%] ml-1 flex flex-col justify-center group hover:bg-white transition-colors duration-200">
-                                        <img className="h-35 w-35 ml-11" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874110/ch3ico_rdnmzq.webp"></img>
-                                        <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 ml-8 group-hover:text-black">CHAPTER 3</p>
-                                        <p className="font-outfit font-light text-2xl text-white text-shadow-lg ml-8 group-hover:text-black">KANJI</p>
+                                <div id="chapThreeFourBtns" className="w-full h-[48%] flex flex-row items-start justify-between ml-6">
+                                    <a href="#" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
+                                        <img className="h-35 w-35 pr-5" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874110/ch3ico_rdnmzq.webp"></img>
+                                        <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 group-hover:text-black">CHAPTER 3</p>
+                                        <p className="font-outfit font-light text-2xl text-white text-shadow-lg group-hover:text-black">KANJI</p>
                                     </a>
-                                    <a href="#" className="bg-[#1F1F1F] rounded-[14%] w-[50%] h-[93%] ml-10 flex flex-col justify-center group hover:bg-white transition-colors duration-200">
-                                        <img className="h-35 w-35 ml-17" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874110/ch4ico_nkrxm1.webp"></img>
-                                        <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 ml-8 group-hover:text-black">CHAPTER 4</p>
-                                        <p className="font-outfit font-light text-2xl text-white text-shadow-lg ml-8 group-hover:text-black">TIME</p>
+                                    <a href="#" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
+                                        <img className="h-35 w-35 pl-3" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874110/ch4ico_nkrxm1.webp"></img>
+                                        <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 group-hover:text-black">CHAPTER 4</p>
+                                        <p className="font-outfit font-light text-2xl text-white text-shadow-lg group-hover:text-black">TIME</p>
                                     </a>
                                 </div>
                             </div>
-                            <div id="archiveButton" className="h-full w-[30%]">
-                                <div className="h-full w-[85%]">
-                                    <a href="#" className="bg-[url('https://res.cloudinary.com/dykzzd9sy/image/upload/v1748962013/archiveButton_tjjimm.png')] bg-cover h-[96%] w-[95%] flex justify-center items-end group">
+                            <div id="archiveButton" className="h-[96%] w-[25%] ml-12">
+                                <div className="h-full w-full">
+                                    <a href="#" className="bg-[url('https://res.cloudinary.com/dykzzd9sy/image/upload/v1748962013/archiveButton_tjjimm.png')] bg-cover h-[96%] w-[94%] flex justify-center items-end group">
                                         <div className="font-outfit text-white flex flex-col mb-6 mr-6 group-hover:text-black">
                                             <p className="font-bold text-3xl text-shadow-lg text-center">ARCHIVE</p>
                                             <p className="font-light text-2xl text-shadow-lg text-center">RESOURCES</p>
