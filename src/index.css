@@ -61,7 +61,7 @@
 }
 
 .purple-grad {
-  background-image: linear-gradient(180deg, rgba(194, 57, 248, 1), rgba(48, 53, 97, 1) 55%, rgba(0, 0, 0, 1));
+  background-image: linear-gradient(180deg, #FDE2F3, #E5BEEC, #917FB3 55%, #2A2F4F);
 }
 
 .border-fade {

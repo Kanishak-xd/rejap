@@ -42,7 +42,7 @@ export default function Chapters() {
                             </div>
                             <div id="archiveButton" className="h-[96%] w-[25%] ml-12">
                                 <div className="h-full w-full">
-                                    <a href="#" className="bg-[url('https://res.cloudinary.com/dykzzd9sy/image/upload/v1748962013/archiveButton_tjjimm.png')] bg-cover h-[96%] w-[94%] flex justify-center items-end group">
+                                    <a href="#" className="bg-[url('https://res.cloudinary.com/dykzzd9sy/image/upload/v1748962013/archiveButton_tjjimm.png')] bg-cover h-[96%] w-[93%] flex justify-center items-end group">
                                         <div className="font-outfit text-white flex flex-col mb-6 mr-6 group-hover:text-black">
                                             <p className="font-bold text-3xl text-shadow-lg text-center">ARCHIVE</p>
                                             <p className="font-light text-2xl text-shadow-lg text-center">RESOURCES</p>
