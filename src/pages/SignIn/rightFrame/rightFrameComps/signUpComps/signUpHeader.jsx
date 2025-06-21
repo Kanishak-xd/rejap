@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function SignUpEmail() {
+export default function SignUpHeader() {
     return (
         <div className='w-full h-[20%] flex flex-col justify-start items-center'>
             <h2 className='text-[#F3F3EE] font-outfit font-semibold text-5xl/15 cursor-default'>Sign Up</h2>
