@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Chapters() {
     return (
         <>
@@ -16,28 +18,28 @@ export default function Chapters() {
                         <div id="theChaptersButtons" className="w-full h-[80%] flex flex-row animate-float mt-15">
                             <div id="chapterButtons" className="h-full w-[55%] flex flex-col ml-1">
                                 <div id="chapOneTwoBtns" className="w-full h-[48%] flex flex-row justify-between items-start ml-6">
-                                    <a href="#" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
+                                    <Link to="/levels#hiragana" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
                                         <img className="h-35 w-35" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874109/ch1ico_kfuyz7.webp"></img>
                                         <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 group-hover:text-black">CHAPTER 1</p>
                                         <p className="font-outfit font-light text-2xl text-white text-shadow-lg group-hover:text-black">HIRAGANA</p>
-                                    </a>
-                                    <a href="#" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
+                                    </Link>
+                                    <Link to="/levels#katakana" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
                                         <img className="h-35 w-35" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874110/ch2ico_dmx7mg.webp"></img>
                                         <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 group-hover:text-black">CHAPTER 2</p>
                                         <p className="font-outfit font-light text-2xl text-white text-shadow-lg group-hover:text-black">KATAKANA</p>
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div id="chapThreeFourBtns" className="w-full h-[48%] flex flex-row items-start justify-between ml-6">
-                                    <a href="#" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
+                                    <Link to="/levels#kanji" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
                                         <img className="h-35 w-35 pr-5" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874110/ch3ico_rdnmzq.webp"></img>
                                         <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 group-hover:text-black">CHAPTER 3</p>
                                         <p className="font-outfit font-light text-2xl text-white text-shadow-lg group-hover:text-black">KANJI</p>
-                                    </a>
-                                    <a href="#" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
+                                    </Link>
+                                    <Link to="/levels#time" className="group bg-[#1F1F1F] rounded-[10%] h-[93%] p-12 flex flex-col justify-center hover:bg-white transition-colors duration-200">
                                         <img className="h-35 w-35 pl-3" src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874110/ch4ico_nkrxm1.webp"></img>
                                         <p className="font-outfit font-bold text-2xl text-white text-shadow-lg mt-4 group-hover:text-black">CHAPTER 4</p>
                                         <p className="font-outfit font-light text-2xl text-white text-shadow-lg group-hover:text-black">TIME</p>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                             <div id="archiveButton" className="h-[96%] w-[25%] ml-12">
