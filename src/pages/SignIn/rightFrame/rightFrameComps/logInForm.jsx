@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../../../../firebase';
 import { doc, getDoc } from "firebase/firestore";
@@ -8,14 +9,17 @@ import LogInEmail from './logInComps/LogInEmail';
 import LogInPwd from './logInComps/LogInPwd';
 import LogInFooter from './logInComps/LogInFooter';
 
+
 export default function LogInForm({ setMode }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [status, setStatus] = useState('');
 
+    const navigate = useNavigate();
+
     const handleLogin = () => {
         if (!email || !password) {
-            setStatus('❗ Please enter both email and password.');
+            setStatus('Please enter both email and password.');
             return;
         }
 
@@ -27,9 +31,10 @@ export default function LogInForm({ setMode }) {
 
                 if (docSnap.exists()) {
                     const userData = docSnap.data();
-                    console.log("👤 Username:", userData.username);
+                    console.log("Username:", userData.username);
                 }
                 setStatus('Logged in successfully!');
+                navigate("/");
             })
             .catch((error) => {
                 setStatus(error.message);
