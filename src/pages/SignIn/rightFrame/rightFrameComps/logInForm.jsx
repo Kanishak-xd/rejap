@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, db } from '../../../../firebase';
 import { doc, getDoc } from "firebase/firestore";
+import { useToast } from '../../../../context/ToastContext';
 
 import LogInHeader from './logInComps/LogInHeader';
 import LogInEmail from './logInComps/LogInEmail';
@@ -16,6 +17,7 @@ export default function LogInForm({ setMode }) {
     const [status, setStatus] = useState('');
 
     const navigate = useNavigate();
+    const { showToast } = useToast();
 
     const handleLogin = () => {
         if (!email || !password) {
@@ -31,9 +33,9 @@ export default function LogInForm({ setMode }) {
 
                 if (docSnap.exists()) {
                     const userData = docSnap.data();
-                    console.log("Username:", userData.username);
+                    showToast(`Welcome back, ${userData.username}!`);
                 }
-                setStatus('Logged in successfully!');
+                setStatus("Logged in successfully!");
                 navigate("/");
             })
             .catch((error) => {

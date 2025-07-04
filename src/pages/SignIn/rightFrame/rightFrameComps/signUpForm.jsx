@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from '../../../../firebase';
+import { useToast } from '../../../../context/ToastContext';
+import { useNavigate } from 'react-router-dom';
 
 import SignUpHeader from './signUpComps/signUpHeader';
 import SignUpEmail from './signUpComps/signUpEmail';
@@ -10,6 +12,9 @@ import SignUpPwd from './signUpComps/SignUpPwd';
 import SignUpFooter from './signUpComps/SignUpFooter';
 
 export default function SignUpForm({ setMode }) {
+    const navigate = useNavigate();
+    const { showToast } = useToast();
+
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -36,7 +41,7 @@ export default function SignUpForm({ setMode }) {
                 });
             })
             .then(() => {
-                setStatus("Account created. Please log in.");
+                showToast("Account created. Please log in.");
                 setMode('login');
             })
             .catch((err) => {

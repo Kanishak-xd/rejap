@@ -55,3 +55,29 @@
   -webkit-mask-image: linear-gradient(to bottom, white 30%, transparent);
   mask-image: linear-gradient(to bottom, white 30%, transparent);
 }
+
+@keyframes toast-slide {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) translateX(-50%);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(40px) translateX(-50%);
+  }
+}
+
+.animate-toast-slide {
+  animation: toast-slide 3s ease-in-out forwards;
+}
