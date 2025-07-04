@@ -81,3 +81,19 @@
 .animate-toast-slide {
   animation: toast-slide 3s ease-in-out forwards;
 }
+
+@keyframes toast-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) translateX(-50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateX(-50%);
+  }
+}
+
+.animate-toast-slide-in {
+  animation: toast-slide-in 0.3s ease-out forwards;
+}

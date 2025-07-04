@@ -30,3 +30,4 @@ public/homepage/scripts/*
 
 # Secrets
 src/firebase.jsx
+backend/.env
