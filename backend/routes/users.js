@@ -29,17 +29,42 @@ router.post("/upsert", async (req, res) => {
   }
 });
 
-router.get("/:uid", async (req, res) => {
-    const { uid } = req.params;
-  
-    try {
-      const user = await db.collection("users").findOne({ _id: uid });
-      if (!user) return res.status(404).send("User not found");
-      res.json(user);
-    } catch (err) {
-      console.error(err);
-      res.status(500).send("Error fetching user");
-    }
+router.post('/progress', async (req, res) => {
+  const { uid, chapter, level } = req.body;
+
+  console.log("Incoming progress update:", { uid, chapter, level });
+
+  try {
+    const filter = { _id: uid };
+    const update = {
+      $addToSet: {
+        [`progress.${chapter}`]: level
+      }
+    };
+    const options = { upsert: true };
+
+    const result = await db.collection("users").updateOne(filter, update, options);
+    console.log("MongoDB update result:", result);
+
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("Mongo error:", err);
+    res.status(500).json({ error: "Failed to update progress" });
+  }
+});
+
+router.get("/progress/:uid", async (req, res) => {
+  const { uid } = req.params;
+
+  try {
+    const user = await db.collection("users").findOne({ _id: uid });
+    if (!user) return res.status(404).send("User not found");
+
+    res.json({ progress: user.progress || {} });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Error fetching user progress");
+  }
 });
 
 export default router;
