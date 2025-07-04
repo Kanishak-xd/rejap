@@ -28,10 +28,7 @@ export default function Sidebar({ isOpen, setIsOpen, username, email }) {
                 Your Profile
             </Link>
 
-            <button
-                onClick={handleLogout}
-                className="w-full pl-3 text-white text-left py-2 rounded-md hover:bg-neutral-800 hover:cursor-pointer transition"
-            >
+            <button onClick={handleLogout} className="w-full pl-3 text-white text-left py-2 rounded-md hover:bg-neutral-800 hover:cursor-pointer transition">
                 Log Out
             </button>
         </div>

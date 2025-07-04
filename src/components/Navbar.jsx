@@ -32,7 +32,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="text-[#F3F3EE] font-outfit flex justify-between items-center px-10 py-4 fixed top-0 left-0 w-full z-50 bg-[#000]">
+            <nav className="text-[#F3F3EE] font-outfit flex justify-between items-center px-10 py-4 fixed top-0 left-0 w-full z-50">
                 <Link to="/" className="text-inherit text-4xl font-semibold">
                     REJAP
                 </Link>
@@ -41,7 +41,7 @@ export default function Navbar() {
                     <li><Link to="/resources">RESOURCES</Link></li>
                     {username ? (
                         <li>
-                            <button onClick={() => setIsSidebarOpen(true)} className="hover:cursor-pointer">
+                            <button onClick={() => setIsSidebarOpen(true)} className="hover:cursor-pointer uppercase">
                                 {username}
                             </button>
                         </li>
@@ -51,14 +51,7 @@ export default function Navbar() {
                 </ul>
             </nav>
 
-            {username && (
-                <Sidebar
-                    isOpen={isSidebarOpen}
-                    setIsOpen={setIsSidebarOpen}
-                    username={username}
-                    email={email}
-                />
-            )}
+            {username && (<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} username={username} email={email} />)}
         </>
     );
 }
