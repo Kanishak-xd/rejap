@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword, updateProfile, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from '../../../../firebase';
 import { useToast } from '../../../../context/ToastContext';
@@ -27,24 +27,37 @@ export default function SignUpForm({ setMode }) {
         }
 
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then(async (userCredential) => {
                 const user = userCredential.user;
 
-                // Store username in Firestore
-                return setDoc(doc(db, "users", user.uid), {
-                    username: username,
+                // Store in Firestore
+                await setDoc(doc(db, "users", user.uid), {
+                    username,
                     email: user.email,
                     createdAt: new Date()
-                }).then(() => {
-                    // Sign out user after storing username
-                    return signOut(auth);
                 });
-            })
-            .then(() => {
+
+                // Store in MongoDB
+                await fetch("http://localhost:3001/api/users/upsert", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        uid: user.uid,
+                        username,
+                        email: user.email,
+                        profilePic: ""
+                    })
+                });
+
+                // Sign out user
+                await signOut(auth);
+
+                // Show toast & switch to login
                 showToast("Account created. Please log in.");
                 setMode('login');
             })
             .catch((err) => {
+                console.error("Sign-up error:", err);
                 setStatus(err.message);
             });
     };

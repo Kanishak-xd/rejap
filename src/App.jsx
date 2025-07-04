@@ -5,6 +5,7 @@ import SignIn from './pages/SignIn/SignIn'
 import Levels from './pages/Levels/Levels'
 import LevelIntro from './pages/LevelIntro/LevelIntro'
 import QuizPage from './pages/Quiz/QuizPage'
+import Profile from './pages/Profile/Profile'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/levels" element={<Levels />} />
         <Route path="/levels/:chapterId/:levelId" element={<LevelIntro />} />
         <Route path="/levels/:chapter/:level/quiz" element={<QuizPage />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
     </BrowserRouter>
   )
