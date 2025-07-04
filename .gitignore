@@ -27,3 +27,6 @@ dist-ssr
 public/homepage/chapters/*
 public/homepage/hero/*
 public/homepage/scripts/*
+
+# Secrets
+src/firebase.jsx
