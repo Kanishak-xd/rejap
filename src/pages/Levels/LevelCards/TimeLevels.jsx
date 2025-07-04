@@ -1,30 +1,35 @@
 import { useNavigate } from "react-router-dom";
 
+const levels = [
+    { level: 1, bg: "#e1f7d5" },
+    { level: 2, bg: "#ffbdbd" },
+    { level: 3, bg: "#c9c9ff" },
+    { level: 4, bg: "#ffffff" },
+    { level: 5, bg: "#f1cbff" },
+    { level: 6, bg: "#e1f7d5" },
+    { level: 7, bg: "#ffbdbd" },
+    { level: 8, bg: "#c9c9ff" },
+    { level: 9, bg: "#ffffff" },
+    { level: 10, bg: "#f1cbff" },
+];
+
 export default function TimeLevels() {
     const navigate = useNavigate();
 
     return (
         <div className="flex gap-[20px] h-full">
-            <div className="grow bg-[#e1f7d5] cursor-pointer transition-all rounded-lg"
-                onClick={() => navigate("/quiz/time/1")}>
-                1
-            </div>
-            <div className="grow bg-[#ffbdbd] cursor-pointer transition-all rounded-lg"
-                onClick={() => navigate("/quiz/time/2")}>
-                2
-            </div>
-            <div className="grow bg-[#c9c9ff] cursor-pointer transition-all rounded-lg"
-                onClick={() => navigate("/quiz/time/3")}>
-                3
-            </div>
-            <div className="grow bg-[#ffffff] cursor-pointer transition-all rounded-lg"
-                onClick={() => navigate("/quiz/time/4")}>
-                4
-            </div>
-            <div className="grow bg-[#f1cbff] cursor-pointer transition-all rounded-lg"
-                onClick={() => navigate("/quiz/time/5")}>
-                5
-            </div>
+            {levels.map(({ level, bg }) => (
+                <div
+                    key={level}
+                    className="grow cursor-pointer transition-all rounded-lg"
+                    style={{ backgroundColor: bg }}
+                    onClick={() => navigate(`/levels/time/${level}`)}
+                >
+                    <div className="w-full h-full flex items-center justify-center text-2xl font-bold">
+                        {level}
+                    </div>
+                </div>
+            ))}
         </div>
     );
 }
