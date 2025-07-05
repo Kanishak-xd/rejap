@@ -54,6 +54,18 @@ router.post('/progress', async (req, res) => {
   }
 });
 
+router.post("/change-role", async (req, res) => {
+  const { uid, role } = req.body;
+
+  try {
+    await db.collection("users").updateOne({ _id: uid }, { $set: { role } });
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("Failed to change role:", err);
+    res.status(500).send("Role update failed");
+  }
+});
+
 router.get("/progress/:uid", async (req, res) => {
   const { uid } = req.params;
 
