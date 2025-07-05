@@ -1,8 +1,30 @@
+import { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import { Link } from "react-router-dom";
 
 export default function Sidebar({ isOpen, setIsOpen, username, email }) {
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        const user = auth.currentUser;
+        if (!user) return;
+
+        const checkAdmin = async () => {
+            try {
+                const res = await fetch(`http://localhost:3001/api/users/${user.uid}`);
+                const data = await res.json();
+                if (data.role === "Admin") {
+                    setIsAdmin(true);
+                }
+            } catch (err) {
+                console.error("Error checking admin role:", err);
+            }
+        };
+
+        checkAdmin();
+    }, []);
+
     const handleLogout = async () => {
         await signOut(auth);
         setIsOpen(false);
@@ -20,15 +42,26 @@ export default function Sidebar({ isOpen, setIsOpen, username, email }) {
 
             <p className="text-sm text-gray-400 mb-4">{email}</p>
 
-            <Link
-                to="/profile"
+            <Link to="/profile"
                 className="block w-full pl-3 text-white text-left py-2 rounded-md mb-4 hover:bg-neutral-800 transition"
                 onClick={() => setIsOpen(false)}
             >
                 Your Profile
             </Link>
 
-            <button onClick={handleLogout} className="w-full pl-3 text-white text-left py-2 rounded-md hover:bg-neutral-800 hover:cursor-pointer transition">
+            {isAdmin && (
+                <Link to="/admin-dashboard"
+                    className="block w-full pl-3 text-white text-left py-2 rounded-md mb-4 hover:bg-neutral-800 transition"
+                    onClick={() => setIsOpen(false)}
+                >
+                    Admin Dashboard
+                </Link>
+            )}
+
+            <button
+                onClick={handleLogout}
+                className="w-full pl-3 text-white text-left py-2 rounded-md hover:bg-neutral-800 hover:cursor-pointer transition"
+            >
                 Log Out
             </button>
         </div>
