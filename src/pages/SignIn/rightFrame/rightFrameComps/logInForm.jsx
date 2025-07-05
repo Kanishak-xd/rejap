@@ -39,7 +39,11 @@ export default function LogInForm({ setMode }) {
                 navigate("/");
             })
             .catch((error) => {
-                setStatus(error.message);
+                if (error.code === 'auth/user-disabled') {
+                    setStatus("This account has been disabled by an administrator.");
+                } else {
+                    setStatus(error.message);
+                }
             });
     };
 
