@@ -95,6 +95,16 @@ router.get("/leaderboard", async (req, res) => {
   }
 });
 
+router.get('/all', async (req, res) => {
+  try {
+    const users = await db.collection("users").find().toArray();
+    res.json(users);
+  } catch (err) {
+    console.error("Error fetching all users:", err);
+    res.status(500).send("Error retrieving users");
+  }
+});
+
 router.get("/:uid", async (req, res) => {
   const { uid } = req.params;
 
@@ -117,5 +127,7 @@ router.get("/:uid", async (req, res) => {
     res.status(500).send("Error fetching user");
   }
 });
+
+
 
 export default router;
