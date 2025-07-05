@@ -7,10 +7,12 @@ import LevelIntro from './pages/LevelIntro/LevelIntro';
 import QuizPage from './pages/Quiz/QuizPage';
 import Profile from './pages/Profile/Profile';
 import Leaderboard from './pages/Rankings/Leaderboard'
+import AdminDashboard from './pages/Admin/AdminDashboard'
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './context/ProtectedRoute';
+import AdminRoute from './context/AdminRoute';
 
 export default function App() {
   return (
@@ -32,6 +34,9 @@ export default function App() {
           <Route path="/levels/:chapterId/:levelId" element={<ProtectedRoute> <LevelIntro /> </ProtectedRoute>} />
           <Route path="/levels/:chapter/:level/quiz" element={<ProtectedRoute> <QuizPage /> </ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute> <Profile /> </ProtectedRoute>} />
+
+          {/* Admin Routes */}
+          <Route path="/admin-dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
 
         </Routes>
       </BrowserRouter>

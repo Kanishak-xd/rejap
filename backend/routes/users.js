@@ -17,6 +17,7 @@ router.post("/upsert", async (req, res) => {
         },
         $setOnInsert: {
           createdAt: new Date(),
+          role: "User",
         },
       },
       { upsert: true }
