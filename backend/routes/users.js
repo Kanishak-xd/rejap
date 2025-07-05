@@ -10,9 +10,9 @@ router.post("/upsert", async (req, res) => {
       { _id: uid },
       {
         $set: {
-          username,
-          email,
-          profilePic: profilePic || "",
+          ...(username && { username }),
+          ...(email && { email }),
+          ...(profilePic && { profilePic }),
           updatedAt: new Date(),
         },
         $setOnInsert: {
@@ -64,6 +64,56 @@ router.get("/progress/:uid", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send("Error fetching user progress");
+  }
+});
+
+router.get("/leaderboard", async (req, res) => {
+  try {
+    const users = await db.collection("users").find().toArray();
+
+    const processed = users.map(user => {
+      let count = 0;
+      const progress = user.progress || {};
+      Object.values(progress).forEach(arr => {
+        count += Array.isArray(arr) ? arr.length : 0;
+      });
+
+      return {
+        username: user.username,
+        profilePic: user.profilePic,
+        levelsCompleted: count,
+      };
+    });
+
+    const sorted = processed.sort((a, b) => b.levelsCompleted - a.levelsCompleted);
+
+    res.json(sorted);
+  } catch (err) {
+    console.error("Leaderboard fetch error:", err);
+    res.status(500).send("Failed to fetch leaderboard");
+  }
+});
+
+router.get("/:uid", async (req, res) => {
+  const { uid } = req.params;
+
+  try {
+    const user = await db.collection("users").findOne({ _id: uid });
+
+    if (!user) {
+      // Create a default record if not found (optional fallback)
+      return res.status(200).json({
+        username: "",
+        email: "",
+        profilePic: "",
+        progress: {},
+      });
+    }
+
+    res.json(user);
+  } catch (err) {
+    console.error("Error fetching user:", err);
+    res.status(500).send("Error fetching user");
   }
 });
 

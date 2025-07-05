@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import ProfilePicture from './ProfilePicture';
-import { auth } from '../../firebase';
+import { useAuth } from '../../context/AuthContext';
 
 export default function Profile() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -10,26 +10,32 @@ export default function Profile() {
     const [profilePic, setProfilePic] = useState('');
     const [uid, setUid] = useState('');
 
+    const { user, loading } = useAuth();
+
     useEffect(() => {
+        if (loading || !user?.uid) return;
+
         const fetchUser = async () => {
-            const user = auth.currentUser;
-            if (!user) return;
-
-            setUid(user.uid);
-
             try {
                 const res = await fetch(`http://localhost:3001/api/users/${user.uid}`);
+                if (!res.ok) throw new Error("User fetch failed");
                 const data = await res.json();
-                setUsername(data.username);
-                setEmail(data.email);
+
+                setUid(user.uid);
+                setUsername(data.username || "Unnamed");
+                setEmail(data.email || user.email || "No email");
                 setProfilePic(data.profilePic || '');
             } catch (err) {
-                console.error("Failed to fetch user:", err);
+                console.error("Failed to fetch user data:", err);
             }
         };
 
         fetchUser();
-    }, []);
+    }, [user, loading]);
+
+    if (loading) {
+        return <div className="text-white text-center pt-24">Loading profile...</div>;
+    }
 
     const handleSave = async () => {
         if (!selectedFile || !uid) return;
@@ -60,6 +66,8 @@ export default function Profile() {
                 }),
             });
 
+            console.log("Profile API response:", data);
+
             setProfilePic(imageUrl);
             setSelectedFile(null);
             setPreviewUrl(null);
@@ -80,8 +88,8 @@ export default function Profile() {
             />
 
             <div className="text-center mt-6">
-                <h2 className="text-3xl font-semibold">{username}</h2>
-                <p className="text-gray-400">{email}</p>
+                <h2 className="text-3xl font-semibold">{username || "Unnamed"}</h2>
+                <p className="text-gray-400">{email || "No email"}</p>
             </div>
 
             <button className="mt-6 bg-blue-600 px-6 py-2 rounded hover:bg-blue-700 transition">

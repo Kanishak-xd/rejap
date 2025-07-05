@@ -6,6 +6,7 @@ import Levels from './pages/Levels/Levels';
 import LevelIntro from './pages/LevelIntro/LevelIntro';
 import QuizPage from './pages/Quiz/QuizPage';
 import Profile from './pages/Profile/Profile';
+import Leaderboard from './pages/Rankings/Leaderboard'
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/log-in" element={<Navigate to="/sign-in" />} />
           <Route path="/sign-up" element={<Navigate to="/sign-in" />} />
           <Route path="/levels" element={<Levels />} />
+          <Route path="/rankings" element={<Leaderboard />} />
 
           {/* Protected Routes */}
           <Route path="/levels/:chapterId/:levelId" element={<ProtectedRoute> <LevelIntro /> </ProtectedRoute>} />
