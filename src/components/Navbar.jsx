@@ -9,21 +9,23 @@ import Sidebar from "./Sidebar";
 export default function Navbar() {
     const [username, setUsername] = useState(null);
     const [email, setEmail] = useState(null);
+    const [profilePic, setProfilePic] = useState(null);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
             if (user) {
-                const docRef = doc(db, "users", user.uid);
-                const docSnap = await getDoc(docRef);
-                if (docSnap.exists()) {
-                    const userData = docSnap.data();
+                const res = await fetch(`http://localhost:3001/api/users/${user.uid}`);
+                if (res.ok) {
+                    const userData = await res.json();
                     setUsername(userData.username);
                     setEmail(userData.email);
+                    setProfilePic(userData.profilePic);
                 }
             } else {
                 setUsername(null);
                 setEmail(null);
+                setProfilePic(null);
             }
         });
 
@@ -52,7 +54,7 @@ export default function Navbar() {
                 </ul>
             </nav>
 
-            {username && (<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} username={username} email={email} />)}
+            {username && (<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} username={username} email={email} profilePic={profilePic} />)}
         </>
     );
 }
