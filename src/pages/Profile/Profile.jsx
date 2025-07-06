@@ -15,9 +15,23 @@ export default function Profile() {
     const [showResetPopup, setShowResetPopup] = useState(false);
     const [resetEmail, setResetEmail] = useState('');
     const [status, setStatus] = useState('');
+    const [createdAt, setCreatedAt] = useState('');
+    const [progress, setProgress] = useState({});
 
     const { user, loading } = useAuth();
     const navigate = useNavigate();
+
+    const getChapterProgress = (chapterKey) => {
+        const chapterLevels = progress[chapterKey] || [];
+        const completed = Array.isArray(chapterLevels) ? chapterLevels.length : 0;
+        const percentage = Math.min((completed / 10) * 100, 100);
+        return { completed, percentage };
+    };
+
+    const { completed: hDone, percentage: hWidth } = getChapterProgress("hiragana");
+    const { completed: kDone, percentage: kWidth } = getChapterProgress("katakana");
+    const { completed: kjDone, percentage: kjWidth } = getChapterProgress("kanji");
+    const { completed: tDone, percentage: tWidth } = getChapterProgress("time");
 
     useEffect(() => {
         if (loading || !user?.uid) return;
@@ -33,6 +47,8 @@ export default function Profile() {
                 setEmail(data.email || user.email || "No email");
                 setProfilePic(data.profilePic || '');
                 setResetEmail(data.email || user.email || '');
+                setCreatedAt(data.createdAt);
+                setProgress(data.progress || {});
             } catch (err) {
                 console.error("Failed to fetch user data:", err);
             }
@@ -141,7 +157,9 @@ export default function Profile() {
                     />
                     <div className="text-left flex flex-col gap-3 pl-5">
                         <p className="text-neutral-200 text-5xl font-semibold">{username || "Unnamed"}</p>
-                        <p className="text-neutral-300 text-4xl font-medium">Joined Sep 09, 1996</p>
+                        <p className="text-neutral-300 text-4xl font-medium">
+                            Joined {createdAt ? new Date(createdAt).toLocaleDateString(undefined, { month: 'short', day: '2-digit', year: 'numeric' }) : 'N/A'}
+                        </p>
                         <p className="text-neutral-400 text-2xl">{email || "No email"}</p>
                     </div>
                 </div>
@@ -156,9 +174,9 @@ export default function Profile() {
                         </div>
                         <div className="basis-2/3 flex flex-col justify-center">
                             <p className='font-semibold text-xl'>Chapter 1: Hiragana</p>
-                            <p className='font-regular text-lg'>Levels completed: 3</p>
+                            <p className='font-regular text-lg'>Levels completed: {hDone}</p>
                             <div className="w-5/7 mt-2 bg-gray-200 rounded-xs dark:bg-black flex justify-start items-center h-3">
-                                <div className="bg-[#BFECFF] h-[70%] p-0.5 leading-none w-[45%] mx-0.5 rounded-xs"></div>
+                                <div className="bg-[#BFECFF] h-[70%] p-0.5 leading-none mx-0.5 rounded-xs" style={{ width: `${hWidth}%` }}></div>
                             </div>
                         </div>
                     </div>
@@ -170,9 +188,9 @@ export default function Profile() {
                         </div>
                         <div className="basis-2/3 flex flex-col justify-center">
                             <p className='font-semibold text-xl'>Chapter 2: Katakana</p>
-                            <p className='font-regular text-lg'>Levels completed: 3</p>
+                            <p className='font-regular text-lg'>Levels completed: {kDone}</p>
                             <div className="w-5/7 mt-2 bg-gray-200 rounded-xs dark:bg-black flex justify-start items-center h-3">
-                                <div className="bg-[#CDC1FF] h-[70%] p-0.5 leading-none w-[45%] mx-0.5 rounded-xs"></div>
+                                <div className="bg-[#CDC1FF] h-[70%] p-0.5 leading-none mx-0.5 rounded-xs" style={{ width: `${kWidth}%` }}></div>
                             </div>
                         </div>
                     </div>
@@ -184,9 +202,9 @@ export default function Profile() {
                         </div>
                         <div className="basis-2/3 flex flex-col justify-center">
                             <p className='font-semibold text-xl'>Chapter 3: Kanji</p>
-                            <p className='font-regular text-lg'>Levels completed: 3</p>
+                            <p className='font-regular text-lg'>Levels completed: {kjDone}</p>
                             <div className="w-5/7 mt-2 bg-gray-200 rounded-xs dark:bg-black flex justify-start items-center h-3">
-                                <div className="bg-[#FFF6E3] h-[70%] p-0.5 leading-none w-[45%] mx-0.5 rounded-xs"></div>
+                                <div className="bg-[#FFF6E3] h-[70%] p-0.5 leading-none mx-0.5 rounded-xs" style={{ width: `${kjWidth}%` }}></div>
                             </div>
                         </div>
                     </div>
@@ -198,9 +216,9 @@ export default function Profile() {
                         </div>
                         <div className="basis-2/3 flex flex-col justify-center">
                             <p className='font-semibold text-xl'>Chapter 4: Time</p>
-                            <p className='font-regular text-lg'>Levels completed: 3</p>
+                            <p className='font-regular text-lg'>Levels completed: {tDone}</p>
                             <div className="w-5/7 mt-2 bg-gray-200 rounded-xs dark:bg-black flex justify-start items-center h-3">
-                                <div className="bg-[#FFCCEA] h-[70%] p-0.5 leading-none w-[45%] mx-0.5 rounded-xs"></div>
+                                <div className="bg-[#FFCCEA] h-[70%] p-0.5 leading-none mx-0.5 rounded-xs" style={{ width: `${tWidth}%` }}></div>
                             </div>
                         </div>
                     </div>
