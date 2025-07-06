@@ -5,18 +5,25 @@ export default function AuditLogs() {
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
     const [loading, setLoading] = useState(false);
+    const [fetchedPages, setFetchedPages] = useState(new Set());
     const observerRef = useRef(null);
+    const logIds = useRef(new Set());
 
     const fetchLogs = async (pageNum) => {
+        if (loading || !hasMore) return;
+
         setLoading(true);
         try {
             const res = await fetch(`http://localhost:3001/api/logs?page=${pageNum}&limit=20`);
             const data = await res.json();
 
-            if (data.length === 0) {
+            const newLogs = data.filter(log => !logIds.current.has(log._id));
+            newLogs.forEach(log => logIds.current.add(log._id));
+
+            if (newLogs.length === 0) {
                 setHasMore(false);
             } else {
-                setLogs(prev => [...data, ...prev]);
+                setLogs(prev => [...prev, ...newLogs]);
             }
         } catch (err) {
             console.error("Failed to fetch logs:", err);
@@ -40,12 +47,11 @@ export default function AuditLogs() {
             { threshold: 1 }
         );
 
-        if (observerRef.current) {
-            observer.observe(observerRef.current);
-        }
+        const ref = observerRef.current;
+        if (ref) observer.observe(ref);
 
         return () => {
-            if (observerRef.current) observer.unobserve(observerRef.current);
+            if (ref) observer.unobserve(ref);
         };
     }, [hasMore, loading]);
 
