@@ -1,5 +1,5 @@
 export default function ProfilePicture({ selectedFile, setSelectedFile, previewUrl, setPreviewUrl }) {
-    const defaultPic = "https://res.cloudinary.com/demo/image/upload/sample.jpg";
+    const defaultPic = "public/default-avatar.webp";
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];

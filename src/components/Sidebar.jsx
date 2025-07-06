@@ -54,7 +54,7 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
                     <div className="avatar">
                         <div className="mask mask-squircle h-9 w-9">
                             <img
-                                src={profilePic && profilePic.trim() !== "" ? profilePic : "https://ui-avatars.com/api/?name=U"}
+                                src={profilePic && profilePic.trim() !== "" ? profilePic : "public/default-avatar.webp"}
                                 alt="User Avatar"
                             />
                         </div>
