@@ -108,7 +108,7 @@ export default function UserTable() {
     };
 
     return (
-        <div className="bg-neutral-950 w-full rounded-lg max-w-8xl max-h-118 overflow-y-auto">
+        <div className="bg-neutral-950 w-full rounded-lg max-w-8xl max-h-119 overflow-y-auto border-2 border-neutral-900">
             {/* Filters */}
             <div className="flex gap-4 sm:gap-6 p-4">
                 <p className='font-bold'>FILTERS</p>

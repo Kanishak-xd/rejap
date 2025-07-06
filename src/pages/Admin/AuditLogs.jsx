@@ -57,14 +57,14 @@ export default function AuditLogs() {
     };
 
     return (
-        <div className="bg-neutral-900 w-full rounded-lg max-w-8xl text-white shadow max-h-118 overflow-y-auto">
+        <div className="bg-neutral-900 w-full rounded-lg max-w-8xl text-white shadow max-h-116 overflow-y-auto border-2 border-neutral-900">
             {logs.map((log, idx) => (
                 <p key={idx} className="mb-0.5 text-gray-300 bg-neutral-950 hover:bg-neutral-900 pt-2 pb-2 pl-5">
                     <span className="font-semibold text-white">
                         {log.username || 'Unknown User'}
                     </span>{" "}
                     {log.action}{" "}
-                    <span className="text-gray-400">at {formatTimestamp(log.timestamp)}</span>
+                    <span className="text-neutral-500">at {formatTimestamp(log.timestamp)}</span>
                 </p>
             ))}
 
