@@ -49,6 +49,17 @@ export default function SignUpForm({ setMode }) {
                     })
                 });
 
+                // Update logs
+                await fetch("http://localhost:3001/api/logs", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        uid: user.uid,
+                        username,
+                        action: "signed up"
+                    }),
+                });
+
                 // Sign out user
                 await signOut(auth);
 

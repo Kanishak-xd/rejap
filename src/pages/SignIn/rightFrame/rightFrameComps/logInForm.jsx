@@ -34,6 +34,17 @@ export default function LogInForm({ setMode }) {
                 if (docSnap.exists()) {
                     const userData = docSnap.data();
                     showToast(`Welcome back, ${userData.username}!`);
+
+                    // Update logs
+                    await fetch("http://localhost:3001/api/logs", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            uid: user.uid,
+                            username: userData.username || "Unknown",
+                            action: "logged in"
+                        }),
+                    });
                 }
                 setStatus("Logged in successfully!");
                 navigate("/");

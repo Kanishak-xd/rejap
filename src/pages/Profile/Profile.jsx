@@ -3,6 +3,7 @@ import ProfilePicture from './ProfilePicture';
 import { useAuth } from '../../context/AuthContext';
 import { sendPasswordResetEmail, signOut } from 'firebase/auth';
 import { auth } from '../../firebase';
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -16,6 +17,7 @@ export default function Profile() {
     const [status, setStatus] = useState('');
 
     const { user, loading } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (loading || !user?.uid) return;
@@ -70,6 +72,17 @@ export default function Profile() {
                 }),
             });
 
+            // Update logs
+            await fetch("http://localhost:3001/api/logs", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    uid,
+                    username,
+                    action: "changed profile picture"
+                }),
+            });
+
             setProfilePic(imageUrl);
             setSelectedFile(null);
             setPreviewUrl(null);
@@ -96,8 +109,20 @@ export default function Profile() {
 
     const handleLogout = async () => {
         try {
-            await signOut(auth);
-            window.location.href = '/';
+            const user = auth.currentUser;
+            if (user) {
+                await signOut(auth);
+                await fetch("http://localhost:3001/api/logs", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        uid: user.uid,
+                        username,
+                        action: "logged out"
+                    }),
+                });
+            }
+            navigate("/");
         } catch (err) {
             console.error("Logout failed:", err);
         }

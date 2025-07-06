@@ -2,11 +2,14 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { auth } from "../../firebase";
 import syllableData from "../../data/syllableData";
+import { useAuth } from '../../context/AuthContext';
+import { useRef } from 'react';
 
 export default function QuizPage() {
   const { chapter, level } = useParams();
   const navigate = useNavigate();
   const levelData = syllableData[chapter]?.[level];
+  const { user } = useAuth();
 
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,6 +18,29 @@ export default function QuizPage() {
   const [showResult, setShowResult] = useState(false);
   const [message, setMessage] = useState("");
   const [progressSaved, setProgressSaved] = useState(false);
+
+  const hasLoggedRef = useRef(false);
+
+  useEffect(() => {
+    if (!user || !levelData || hasLoggedRef.current) return;
+
+    hasLoggedRef.current = true;
+
+    fetch(`http://localhost:3001/api/users/${user.uid}`)
+      .then(res => res.json())
+      .then(data => {
+        fetch("http://localhost:3001/api/logs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            uid: user.uid,
+            username: data.username || "Unnamed",
+            action: `started level ${level} in chapter ${chapter}`,
+          }),
+        });
+      })
+      .catch(err => console.error("Failed to log quiz start:", err));
+  }, [user, levelData]);
 
   useEffect(() => {
     if (!levelData) return;
@@ -28,6 +54,7 @@ export default function QuizPage() {
     setShuffledQuestions(shuffled);
     generateOptions(shuffled[0].syllable);
   }, [levelData]);
+
 
   const generateOptions = (correct) => {
     const all = [...levelData.syllables];

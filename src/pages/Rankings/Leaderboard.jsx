@@ -1,14 +1,34 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { useAuth } from '../../context/AuthContext';
 
 export default function Leaderboard() {
     const [leaders, setLeaders] = useState([]);
+    const { user } = useAuth();
+    const hasLoggedRef = useRef(false);
 
     useEffect(() => {
         fetch("http://localhost:3001/api/users/leaderboard")
             .then((res) => res.json())
             .then(setLeaders)
             .catch((err) => console.error("Failed to fetch leaderboard:", err));
-    }, []);
+
+        if (user && !hasLoggedRef.current) {
+            hasLoggedRef.current = true;
+            fetch(`http://localhost:3001/api/users/${user.uid}`)
+                .then(res => res.json())
+                .then(data => {
+                    fetch("http://localhost:3001/api/logs", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            uid: user.uid,
+                            username: data.username || "Unnamed",
+                            action: "visited leaderboard"
+                        }),
+                    });
+                });
+        }
+    }, [user]);
 
     return (
         <div className="pt-24 px-6 min-h-screen bg-black text-white">

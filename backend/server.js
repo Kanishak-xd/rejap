@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
 import userRoutes from "./routes/users.js";
+import logRoutes from "./routes/logs.js";
 
 dotenv.config();
 const app = express();
@@ -15,5 +16,6 @@ console.log("Connected to MongoDB");
 
 export const db = client.db("rejap");
 app.use("/api/users", userRoutes);
+app.use("/api/logs", logRoutes);
 
 app.listen(3001, () => console.log("Backend running on port 3001"));

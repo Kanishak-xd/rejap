@@ -26,6 +26,18 @@ export default function Sidebar({ isOpen, setIsOpen, username, email }) {
     }, []);
 
     const handleLogout = async () => {
+        const user = auth.currentUser;
+        if (user) {
+            await fetch("http://localhost:3001/api/logs", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    uid: user.uid,
+                    username,
+                    action: "logged out"
+                }),
+            });
+        }
         await signOut(auth);
         setIsOpen(false);
     };
