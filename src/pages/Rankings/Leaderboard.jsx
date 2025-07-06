@@ -41,7 +41,7 @@ export default function Leaderboard() {
                         className="flex items-center gap-4 bg-gray-900 p-4 rounded-lg shadow-md"
                     >
                         <img
-                            src={user.profilePic || "public/default-avatar.webp"}
+                            src={user.profilePic || "/default-avatar.webp"}
                             alt="Profile"
                             className="w-14 h-14 rounded-full border-2 border-gray-700 object-cover"
                         />

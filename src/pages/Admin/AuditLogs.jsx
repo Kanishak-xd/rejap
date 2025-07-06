@@ -16,7 +16,7 @@ export default function AuditLogs() {
             if (data.length === 0) {
                 setHasMore(false);
             } else {
-                setLogs(prev => [...prev, ...data]);
+                setLogs(prev => [...data, ...prev]);
             }
         } catch (err) {
             console.error("Failed to fetch logs:", err);

@@ -310,7 +310,7 @@ export default function UserTable() {
                                 <div className="avatar">
                                     <div className="mask mask-squircle h-12 w-12">
                                         <img
-                                            src={user.profilePic || "https://ui-avatars.com/api/?name=U"}
+                                            src={user.profilePic || "/default-avatar.webp"}
                                             alt="User Avatar"
                                         />
                                     </div>

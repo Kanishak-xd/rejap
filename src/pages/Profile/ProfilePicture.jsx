@@ -1,5 +1,5 @@
 export default function ProfilePicture({ selectedFile, setSelectedFile, previewUrl, setPreviewUrl }) {
-    const defaultPic = "public/default-avatar.webp";
+    const defaultPic = "/default-avatar.webp";
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
