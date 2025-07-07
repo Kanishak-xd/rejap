@@ -17,6 +17,7 @@ export default function Profile() {
     const [status, setStatus] = useState('');
     const [createdAt, setCreatedAt] = useState('');
     const [progress, setProgress] = useState({});
+    const [showSuccessToast, setShowSuccessToast] = useState(false);
 
     const { user, loading } = useAuth();
     const navigate = useNavigate();
@@ -102,7 +103,10 @@ export default function Profile() {
             setProfilePic(imageUrl);
             setSelectedFile(null);
             setPreviewUrl(null);
-            alert("Profile picture updated!");
+            setShowSuccessToast(true);
+            setTimeout(() => {
+                setShowSuccessToast(false);
+            }, 3000);
         } catch (err) {
             console.error("Upload failed:", err);
             alert("Failed to upload image.");
@@ -245,8 +249,34 @@ export default function Profile() {
                 </button>
 
                 {selectedFile && (
-                    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-green-600 px-6 py-3 rounded shadow-lg text-white z-50 animate-toast-slide-in">
-                        <button onClick={handleSave}>Save Changes</button>
+                    <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-neutral-800 px-3 py-2 rounded shadow-lg text-white z-50 flex gap-6 items-center">
+                        <button
+                            onClick={handleSave}
+                            className="font-semibold bg-white h-8 px-2 text-black hover:cursor-pointer hover:scale-102 rounded-sm"
+                        >
+                            Save changes
+                        </button>
+                        <button
+                            onClick={() => {
+                                setSelectedFile(null);
+                                setPreviewUrl(null);
+                            }}
+                            className="font-semibold text-white hover:underline hover:cursor-pointer"
+                        >
+                            Cancel
+                        </button>
+                    </div>
+                )}
+
+                {showSuccessToast && (
+                    <div className="fixed top-6 left-1/2 transform -translate-x-1/2 z-100">
+                        <div className="bg-neutral-900 text-white flex gap-2 px-5 py-3 rounded shadow-lg animate-fade-in-down">
+                            Updated successfully
+                            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5" />
+                            </svg>
+
+                        </div>
                     </div>
                 )}
 
