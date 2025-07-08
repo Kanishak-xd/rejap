@@ -42,7 +42,7 @@ export default function TimeLevels({ chapter }) {
                         <div
                             key={level}
                             onClick={() => navigate(`/levels/${chapter}/${level}`)}
-                            className={`cursor-pointer rounded-2xl p-2 bg-neutral-900 hover:bg-neutral-800 transition shadow-md`}
+                            className={`cursor-pointer rounded-2xl p-2 bg-neutral-900 hover:bg-neutral-800 hover:scale-103 transition shadow-md`}
                         >
                             <div className="pl-3">
                                 <p className="text-2xl font-semibold mb-1">Level {level}</p>
