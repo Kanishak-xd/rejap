@@ -9,7 +9,11 @@ export default function Levels() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.hash) {
+    if (!location.hash) {
+      // No #hash then go to top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // If #hash then go to element
       const el = document.querySelector(location.hash);
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
