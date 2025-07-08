@@ -40,7 +40,6 @@ export default function Navbar() {
                 </Link>
                 <ul className="text-xl font-semibold flex justify-between items-center gap-12">
                     <li><Link to="/levels">CHAPTERS</Link></li>
-                    <li><Link to="/resources">RESOURCES</Link></li>
                     <li><Link to="/rankings">LEADERBOARD</Link></li>
                     {username ? (
                         <li>
