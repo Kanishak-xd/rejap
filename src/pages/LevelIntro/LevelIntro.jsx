@@ -44,46 +44,58 @@ export default function LevelIntro() {
     }
 
     return (
-        <div className="min-h-screen p-6 bg-black flex flex-col gap-6 text-white pt-20">
-            <h1 className="text-2xl font-bold">
-                Chapter: {chapterId.toUpperCase()} | Level {levelId}
-            </h1>
-
-            <div className="bg-gray-900 p-4 rounded shadow">
-                <h2 className="text-xl font-semibold mb-4">Syllables to Learn:</h2>
-                <div className="flex flex-wrap gap-4">
-                    {levelData.syllables.map((syl, index) => (
-                        <div key={index}
-                            className="w-24 h-24 flex flex-col items-center justify-center bg-[#1C1C1C] border-2 border-gray-300 rounded-lg shadow"
-                        >
-                            <span className="text-3xl font-bold text-white">{syl}</span>
-                            {levelData.romaji?.[index] && (
-                                <span className="text-sm mt-1 text-white">
-                                    {levelData.romaji[index]}
-                                </span>
-                            )}
-                        </div>
-                    ))}
-                </div>
-
-                <p className="mt-8 text-gray-200 text-base leading-relaxed">
-                    Remember these characters carefully.
-                    Take your time to get familiar with them.
-                    When you're ready, click the button below to start your quiz.
-                </p>
+        <div className="min-h-screen bg-neutral-950 flex flex-col gap-6 text-white pt-22 px-10 font-outfit">
+            <div className="w-full h-35 relative flex items-center justify-center">
+                <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752022256/sakura-3_l8klit.webp" className="w-full h-full object-cover rounded-t-2xl"></img>
+                <h1 className="text-7xl font-bold absolute text-shadow-lg bottom-10">
+                    {chapterId.toUpperCase()} LEVEL {levelId}
+                </h1>
             </div>
+            <div className="flex">
+                <div className="ml-20 rounded shadow w-1/2">
+                    <div className="flex flex-wrap gap-5">
+                        {levelData.syllables.map((syl, index) => (
+                            <div key={index}
+                                className="w-60 h-60 flex flex-col items-center justify-center bg-neutral-900 rounded-3xl shadow"
+                            >
+                                <span className="text-9xl font-bold text-white">{syl}</span>
+                                {levelData.romaji?.[index] && (
+                                    <span className="text-3xl mt-1 text-white">
+                                        {levelData.romaji[index]}
+                                    </span>
+                                )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className="bg-neutral-900 mr-15 rounded-3xl shadow px-10 w-1/2">
+                    <p className="mt-8 text-neutral-300 text-4xl font-bold">BEFORE YOU BEGIN</p>
+                    <p className="mt-1.5 text-neutral-300 text-3xl/11 font-extralight">
+                        Remember these characters carefully.<br />
+                        Take your time to get familiar with them.<br />
+                        and click the button below to<br /> start your quiz when you are ready.
+                    </p>
+                    <div className="divider py-4"></div>
+                    <div className="flex gap-2">
+                        <p className="text-2xl font-semibold">Status:</p>
+                        <p className={`font-semibold text-left text-2xl ${completed ? "text-[#A0C878]" : "text-neutral-400"}`}>
+                            {completed ? "Completed!" : "Not Attempted"}
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-2 grid-rows-1 gap-3 pt-6 w-5/7 text-neutral-950 font-bold text-2xl">
+                        <button className="self-start bg-[#BFECFF] py-3 rounded-l-lg hover:bg-[#ACBCFF] hover:cursor-pointer hover:scale-101" onClick={() => navigate("quiz")}>
+                            Start Quiz
+                        </button>
+                        <button className="flex gap-1 py-3 justify-center bg-[#FFF6E3] rounded-r-lg hover:bg-[#E1AEFF] hover:cursor-pointer transition hover:scale-101" onClick={goToNextLevel}>
+                            Next Level
+                            <svg className="w-7 h-7 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-width="3" d="m9 5 7 7-7 7" />
+                            </svg>
 
-            <button className="self-start bg-green-500 px-6 py-2 rounded hover:bg-green-600" onClick={() => navigate("quiz")}>
-                Start Quiz
-            </button>
-
-            <button className={`text-white font-bold py-2 px-4 rounded ${completed ? "bg-green-600" : "bg-gray-500"}`}>
-                {completed ? "Completed!" : "Not Attempted"}
-            </button>
-
-            <button className="px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition" onClick={goToNextLevel}>
-                Next Level
-            </button>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

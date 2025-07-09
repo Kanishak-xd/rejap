@@ -28,6 +28,7 @@ public/homepage/chapters/*
 public/homepage/hero/*
 public/homepage/scripts/*
 public/profilepage/*
+public/levelintropage/*
 
 # Secrets
 src/firebase.jsx
