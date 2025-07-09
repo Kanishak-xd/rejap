@@ -72,8 +72,8 @@ export default function LevelIntro() {
                     <p className="mt-8 text-neutral-300 text-4xl font-bold">BEFORE YOU BEGIN</p>
                     <p className="mt-1.5 text-neutral-300 text-3xl/11 font-extralight">
                         Remember these characters carefully.<br />
-                        Take your time to get familiar with them.<br />
-                        and click the button below to<br /> start your quiz when you are ready.
+                        Take your time to get familiar with<br />
+                        them and click the button below to<br /> start your quiz when you are ready.
                     </p>
                     <div className="divider py-4"></div>
                     <div className="flex gap-2">
@@ -91,7 +91,6 @@ export default function LevelIntro() {
                             <svg className="w-7 h-7 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path stroke="currentColor" stroke-width="3" d="m9 5 7 7-7 7" />
                             </svg>
-
                         </button>
                     </div>
                 </div>
