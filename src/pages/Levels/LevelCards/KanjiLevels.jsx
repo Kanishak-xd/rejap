@@ -46,7 +46,7 @@ export default function KanjiLevels({ chapter }) {
                         >
                             <div className="pl-3">
                                 <p className="text-2xl font-semibold mb-1">Level {level}</p>
-                                <p className={`text-lg ${attempted ? 'text-[#FFF6E3]' : 'text-neutral-200'}`}>
+                                <p className={`text-lg ${attempted ? 'text-[#FFF6E3]' : 'text-neutral-500'}`}>
                                     {attempted ? 'Completed' : 'Not Attempted'}
                                 </p>
                             </div>

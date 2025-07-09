@@ -68,7 +68,7 @@ export default function LevelIntro() {
                         ))}
                     </div>
                 </div>
-                <div className="bg-neutral-900 mr-15 rounded-3xl shadow px-10 w-1/2">
+                <div className="bg-neutral-900 mr-15 rounded-3xl shadow px-10 w-1/2 pb-10">
                     <p className="mt-8 text-neutral-300 text-4xl font-bold">BEFORE YOU BEGIN</p>
                     <p className="mt-1.5 text-neutral-300 text-3xl/11 font-extralight">
                         Remember these characters carefully.<br />
