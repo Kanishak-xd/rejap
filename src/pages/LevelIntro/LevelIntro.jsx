@@ -58,7 +58,7 @@ export default function LevelIntro() {
                             <div key={index}
                                 className="w-60 h-60 flex flex-col items-center justify-center bg-neutral-900 rounded-3xl shadow"
                             >
-                                <span className="text-9xl font-bold text-white">{syl}</span>
+                                <span className="text-9xl font-shippori font-bold text-white">{syl}</span>
                                 {levelData.romaji?.[index] && (
                                     <span className="text-3xl mt-1 text-white">
                                         {levelData.romaji[index]}
