@@ -9,7 +9,10 @@ export default function Leaderboard() {
     useEffect(() => {
         fetch("http://localhost:3001/api/users/leaderboard")
             .then((res) => res.json())
-            .then(setLeaders)
+            .then(data => {
+                const sorted = [...data].sort((a, b) => b.levelsCompleted - a.levelsCompleted);
+                setLeaders(sorted);
+            })
             .catch((err) => console.error("Failed to fetch leaderboard:", err));
 
         if (user && !hasLoggedRef.current) {
@@ -31,28 +34,48 @@ export default function Leaderboard() {
     }, [user]);
 
     return (
-        <div className="pt-24 px-6 min-h-screen bg-black text-white">
-            <h1 className="text-3xl font-bold mb-8 text-center">Leaderboard</h1>
-
-            <div className="flex flex-col gap-4 max-w-2xl mx-auto">
-                {leaders.map((user, idx) => (
-                    <div
-                        key={idx}
-                        className="flex items-center gap-4 bg-gray-900 p-4 rounded-lg shadow-md"
-                    >
-                        <img
-                            src={user.profilePic || "/default-avatar.webp"}
-                            alt="Profile"
-                            className="w-14 h-14 rounded-full border-2 border-gray-700 object-cover"
-                        />
-                        <div>
-                            <h2 className="text-xl font-semibold">{user.username || "(No username)"}</h2>
-                            <p className="text-sm text-gray-300">
-                                Levels completed: {user.levelsCompleted}
-                            </p>
-                        </div>
-                    </div>
-                ))}
+        <div className="pt-24 px-6 min-h-screen bg-black text-white w-screen">
+            <h1 className="text-5xl font-bold font-outfit mb-8 text-center">LEADERBOARD</h1>
+            <div className="max-w-3xl mx-auto overflow-x-auto border-1 border-neutral-900 rounded-lg">
+                <table className="table w-full overflow-hidden">
+                    <thead className="bg-neutral-950 text-white">
+                        <tr>
+                            <th className="px-4 py-3 text-left">Rank</th>
+                            <th className="px-4 py-3 text-left">Player</th>
+                            <th className="px-4 py-3 text-center">Lessons Completed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {leaders.map((user, idx) => (
+                            <tr key={user._id || idx} className="bg-neutral-950 hover:bg-neutral-900 transition">
+                                <td className="px-4 py-3">
+                                    {idx === 0 ? (
+                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/1st_oweekr.png" alt="1" className="w-8 h-8" />
+                                    ) : idx === 1 ? (
+                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/2nd_yai1xx.png" alt="2" className="w-8 h-8" />
+                                    ) : idx === 2 ? (
+                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/3rd_pbxj9v.png" alt="3" className="w-8 h-8" />
+                                    ) : (
+                                        <span className="text-2xl font-bold text-white text-center ml-2.5">{idx + 1}</span>
+                                    )}
+                                </td>
+                                <td className="px-1 py-3 flex items-center gap-4">
+                                    <div className="rounded-xl flex justify-center items-center w-14 h-14 bg-black">
+                                        <img
+                                            src={user.profilePic || "/default-avatar.webp"}
+                                            alt="Avatar"
+                                            className="w-12 h-12 rounded-md object-cover"
+                                        />
+                                    </div>
+                                    <span className="text-lg font-semibold">{user.username || "Unnamed"}</span>
+                                </td>
+                                <td className="px-4 py-3 text-center text-white text-xl font-medium">
+                                    {user.levelsCompleted}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     );

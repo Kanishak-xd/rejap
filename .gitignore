@@ -29,6 +29,7 @@ public/homepage/hero/*
 public/homepage/scripts/*
 public/profilepage/*
 public/levelintropage/*
+public/rankingspage/*
 
 # Secrets
 src/firebase.jsx
