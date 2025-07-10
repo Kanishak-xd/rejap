@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import { auth, db } from '../../../../firebase';
-import { useToast } from '../../../../context/ToastContext';
+import { auth, db } from '../../../../firebase.jsx';
+import { useToast } from '../../../../context/ToastContext.jsx';
 import { useNavigate } from 'react-router-dom';
 
-import SignUpHeader from './signUpComps/SignUpHeader';
-import SignUpEmail from './signUpComps/SignUpEmail';
-import SignUpUser from './signUpComps/SignUpUser';
-import SignUpPwd from './signUpComps/SignUpPwd';
-import SignUpFooter from './signUpComps/SignUpFooter';
+import SignUpHeader from './signUpComps/SignUpHeader.jsx';
+import SignUpEmail from './signUpComps/SignUpEmail.jsx';
+import SignUpUser from './signUpComps/SignUpUser.jsx';
+import SignUpPwd from './signUpComps/SignUpPwd.jsx';
+import SignUpFooter from './signUpComps/SignUpFooter.jsx';
 
 export default function SignUpForm({ setMode }) {
     const navigate = useNavigate();

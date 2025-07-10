@@ -1,18 +1,18 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import Home from './pages/Home/Home';
-import SignIn from './pages/SignIn/SignIn';
-import Levels from './pages/Levels/Levels';
-import LevelIntro from './pages/LevelIntro/LevelIntro';
-import QuizPage from './pages/Quiz/QuizPage';
-import Profile from './pages/Profile/Profile';
-import Leaderboard from './pages/Rankings/Leaderboard'
-import AdminDashboard from './pages/Admin/AdminDashboard'
+import Navbar from './components/Navbar.jsx';
+import Home from './pages/Home/Home.jsx';
+import SignIn from './pages/SignIn/SignIn.jsx';
+import Levels from './pages/Levels/Levels.jsx';
+import LevelIntro from './pages/LevelIntro/LevelIntro.jsx';
+import QuizPage from './pages/Quiz/QuizPage.jsx';
+import Profile from './pages/Profile/Profile.jsx';
+import Leaderboard from './pages/Rankings/Leaderboard.jsx'
+import AdminDashboard from './pages/Admin/AdminDashboard.jsx'
 
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './context/AuthContext';
-import ProtectedRoute from './context/ProtectedRoute';
-import AdminRoute from './context/AdminRoute';
+import { AuthProvider } from './context/AuthContext.jsx';
+import ProtectedRoute from './context/ProtectedRoute.jsx';
+import AdminRoute from './context/AdminRoute.jsx';
 
 export default function App() {
   return (

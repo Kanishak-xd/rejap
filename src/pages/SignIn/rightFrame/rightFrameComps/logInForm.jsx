@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth, db } from '../../../../firebase';
+import { auth, db } from '../../../../firebase.jsx';
 import { doc, getDoc } from "firebase/firestore";
-import { useToast } from '../../../../context/ToastContext';
+import { useToast } from '../../../../context/ToastContext.jsx';
 
-import LogInHeader from './logInComps/LogInHeader';
-import LogInEmail from './logInComps/LogInEmail';
-import LogInPwd from './logInComps/LogInPwd';
-import LogInFooter from './logInComps/LogInFooter';
+import LogInHeader from './logInComps/LogInHeader.jsx';
+import LogInEmail from './logInComps/LogInEmail.jsx';
+import LogInPwd from './logInComps/LogInPwd.jsx';
+import LogInFooter from './logInComps/LogInFooter.jsx';
 
 
 export default function LogInForm({ setMode }) {

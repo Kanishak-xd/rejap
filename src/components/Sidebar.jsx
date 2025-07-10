@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../firebase.jsx";
 import { Link } from "react-router-dom";
 
 export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {

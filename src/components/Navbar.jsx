@@ -1,9 +1,11 @@
+import React from 'react';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { auth } from "../firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../firebase.jsx";
+import { signOut } from 'firebase/auth';
+import { useAuth } from '../context/AuthContext.jsx';
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../firebase.jsx";
 import Sidebar from "./Sidebar";
 
 export default function Navbar() {
@@ -13,7 +15,7 @@ export default function Navbar() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+        const unsubscribe = auth.onAuthStateChanged(async (user) => {
             if (user) {
                 const res = await fetch(`http://localhost:3001/api/users/${user.uid}`);
                 if (res.ok) {

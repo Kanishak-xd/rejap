@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import { auth } from '../../../../../firebase';
+import { auth } from '../../../../../firebase.jsx';
 
 export default function LogInPwd({ password, setPassword }) {
   const [showModal, setShowModal] = useState(false);

@@ -1,7 +1,8 @@
+import React from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useAuth } from "../../context/AuthContext";
-import syllableData from "../../data/syllableData";
+import { useAuth } from "../../context/AuthContext.jsx";
+import syllableData from "../../data/syllableData.jsx";
 
 export default function LevelIntro() {
     const { chapterId, levelId } = useParams();

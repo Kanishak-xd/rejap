@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ProfilePicture from './ProfilePicture';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../../context/AuthContext.jsx';
 import { sendPasswordResetEmail, signOut } from 'firebase/auth';
-import { auth } from '../../firebase';
+import { auth } from '../../firebase.jsx';
 import { useNavigate } from "react-router-dom";
 
 export default function Profile() {

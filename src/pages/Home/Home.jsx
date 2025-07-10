@@ -1,9 +1,9 @@
-import Strip from './Strip'
-import Hero from './Hero'
-import Scripts from './Scripts'
-import Chapters from './Chapters'
+import Strip from './Strip.jsx'
+import Hero from './Hero.jsx'
+import Scripts from './Scripts.jsx'
+import Chapters from './Chapters.jsx'
 
-export default function Home(){
+export default function Home() {
     return (
         <>
             <Strip />

@@ -1,7 +1,7 @@
-import { useAuth } from "./AuthContext";
+import { useAuth } from "../context/AuthContext.jsx";
 import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useToast } from "../context/ToastContext";
+import { useToast } from "../context/ToastContext.jsx";
 
 export default function AdminRoute({ children }) {
     const { user, loading } = useAuth();
