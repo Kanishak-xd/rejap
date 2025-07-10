@@ -34,7 +34,7 @@ export default function Leaderboard() {
     }, [user]);
 
     return (
-        <div className="pt-24 px-6 min-h-screen bg-black text-white flex justify-center items-center flex-col">
+        <div className="pt-24 px-6 min-h-screen bg-black text-white flex items-center flex-col">
             <h1 className="text-5xl font-bold font-outfit mb-8 text-center">LEADERBOARD</h1>
             <div className="max-w-5xl w-3/4 border-1 border-neutral-900 rounded-lg">
                 <table className="table w-full overflow-hidden">
