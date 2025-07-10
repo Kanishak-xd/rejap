@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SignUpForm from './rightFrameComps/SignUpForm';
-import LogInForm from './rightFrameComps/logInForm';
+import LogInForm from './rightFrameComps/LogInForm';
 
 export default function RightFrame() {
   const [mode, setMode] = useState('login');

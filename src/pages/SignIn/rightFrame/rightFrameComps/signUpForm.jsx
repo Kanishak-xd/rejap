@@ -5,8 +5,8 @@ import { auth, db } from '../../../../firebase';
 import { useToast } from '../../../../context/ToastContext';
 import { useNavigate } from 'react-router-dom';
 
-import SignUpHeader from './signUpComps/signUpHeader';
-import SignUpEmail from './signUpComps/signUpEmail';
+import SignUpHeader from './signUpComps/SignUpHeader';
+import SignUpEmail from './signUpComps/SignUpEmail';
 import SignUpUser from './signUpComps/SignUpUser';
 import SignUpPwd from './signUpComps/SignUpPwd';
 import SignUpFooter from './signUpComps/SignUpFooter';

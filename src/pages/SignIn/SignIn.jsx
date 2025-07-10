@@ -1,6 +1,6 @@
 import React from 'react'
-import LeftFrame from './leftFrame/leftFrame'
-import RightFrame from './rightFrame/rightFrame'
+import LeftFrame from './leftFrame/LeftFrame'
+import RightFrame from './rightFrame/RightFrame'
 
 export default function SignIn() {
     return (
