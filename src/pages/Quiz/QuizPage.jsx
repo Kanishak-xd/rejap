@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { auth } from "../../firebase";
 import syllableData from "../../data/syllableData";
 import { useAuth } from '../../context/AuthContext';
-import { useRef } from 'react';
+import HPBar from './HPBar';
 
 export default function QuizPage() {
   const { chapter, level } = useParams();
@@ -14,9 +14,9 @@ export default function QuizPage() {
   const [shuffledQuestions, setShuffledQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [shuffledOptions, setShuffledOptions] = useState([]);
-  const [lives, setLives] = useState(3);
+  const [lives, setLives] = useState(300);
   const [showResult, setShowResult] = useState(false);
-  const [message, setMessage] = useState("");
+  const [highlightCorrect, setHighlightCorrect] = useState(false);
   const [progressSaved, setProgressSaved] = useState(false);
 
   const hasLoggedRef = useRef(false);
@@ -55,7 +55,6 @@ export default function QuizPage() {
     generateOptions(shuffled[0].syllable);
   }, [levelData]);
 
-
   const generateOptions = (correct) => {
     const all = [...levelData.syllables];
     const options = [correct];
@@ -73,37 +72,33 @@ export default function QuizPage() {
     const correct = shuffledQuestions[currentIndex].syllable;
 
     if (choice === correct) {
-      if (currentIndex + 1 === shuffledQuestions.length) {
-        setShowResult(true);
+      setHighlightCorrect(true);
+      setTimeout(() => {
+        setHighlightCorrect(false);
 
-        const user = auth.currentUser;
-        if (user && !progressSaved) {
-          fetch("http://localhost:3001/api/users/progress", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ uid: user.uid, chapter, level }),
-          })
-            .then((res) => res.json())
-            .then(() => {
-              console.log("Progress updated!");
-              setProgressSaved(true);
+        if (currentIndex + 1 === shuffledQuestions.length) {
+          setShowResult(true);
+
+          const user = auth.currentUser;
+          if (user && !progressSaved) {
+            fetch("http://localhost:3001/api/users/progress", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ uid: user.uid, chapter, level }),
             })
-            .catch((err) => console.error("Failed to save progress:", err));
-        }
-      } else {
-        setMessage("Correct!");
-        setTimeout(() => {
-          setMessage("");
+              .then((res) => res.json())
+              .then(() => setProgressSaved(true))
+              .catch((err) => console.error("Failed to save progress:", err));
+          }
+        } else {
           const nextIndex = currentIndex + 1;
           setCurrentIndex(nextIndex);
           generateOptions(shuffledQuestions[nextIndex].syllable);
-        }, 500);
-      }
+        }
+      }, 600);
     } else {
-      if (lives > 1) {
-        setLives((prev) => prev - 1);
-        setMessage("Wrong!");
-        setTimeout(() => setMessage(""), 700);
+      if (lives > 100) {
+        setLives(prev => prev - 100);
       } else {
         setLives(0);
         setShowResult(true);
@@ -113,7 +108,7 @@ export default function QuizPage() {
 
   const handleRetry = () => {
     setCurrentIndex(0);
-    setLives(3);
+    setLives(300);
     setShowResult(false);
     setProgressSaved(false);
 
@@ -126,15 +121,6 @@ export default function QuizPage() {
     generateOptions(shuffled[0].syllable);
   };
 
-  const goToNextLevel = () => {
-    const nextLevel = parseInt(level) + 1;
-    if (syllableData[chapter]?.[nextLevel]) {
-      navigate(`/levels/${chapter}/${nextLevel}`);
-    } else {
-      alert("No more levels!");
-    }
-  };
-
   if (!levelData || shuffledQuestions.length === 0) {
     return <div className="p-10 text-red-500 bg-black h-screen">Loading quiz...</div>;
   }
@@ -143,23 +129,22 @@ export default function QuizPage() {
     return (
       <div className="flex flex-col items-center justify-center h-screen gap-4 bg-black text-white">
         <h2 className="text-3xl font-bold">
-          {lives > 0 ? "Quiz Completed!" : "Game Over"}
+          {lives > 0 ? "Level Completed!" : "Game Over"}
         </h2>
-        <p className="text-lg">Correct Answers: {currentIndex}</p>
-        <p className="text-lg">Lives Remaining: {lives}</p>
+        <p className="text-xl font-semibold">Correct Answers: {currentIndex}</p>
 
         <div className="flex gap-4">
           <button
-            className="px-6 py-2 bg-green-600 rounded hover:bg-green-700 transition"
+            className="px-6 py-2 bg-orange-200 rounded hover:bg-[#b5917a] transition text-black font-bold cursor-pointer"
             onClick={handleRetry}
           >
-            Retry Quiz
+            RETRY
           </button>
           <button
-            className="px-6 py-2 bg-blue-600 rounded hover:bg-blue-700 transition"
-            onClick={goToNextLevel}
+            className="px-6 py-2 bg-[#BFECFF] rounded hover:bg-[#99bac9] transition text-black font-bold cursor-pointer"
+            onClick={() => navigate("/levels/")}
           >
-            Next Level
+            NEXT
           </button>
         </div>
       </div>
@@ -167,38 +152,44 @@ export default function QuizPage() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-10 px-6 py-10 min-h-screen bg-black text-white">
-      <div className="flex justify-between w-full max-w-md">
-        <p className="text-lg">Level: {level}</p>
-        <p className="text-lg">Lives: {lives}</p>
+    <div className="flex flex-col items-center px-6 py-10 min-h-screen bg-black text-white font-outfit">
+      <div className="w-full h-35 relative flex items-center justify-center mt-[2%]">
+        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752022256/sakura-3_l8klit.webp" className="w-full h-full object-cover rounded-t-2xl"></img>
+        <h1 className="text-7xl font-bold absolute text-shadow-lg bottom-10">
+          {chapter.toUpperCase()} LEVEL {level}
+        </h1>
+      </div>
+      <div className="flex gap-8 w-3/10 items-center">
+        <button onClick={() => navigate("/levels/")} className="py-1 px-5 bg-neutral-900 rounded-lg border-1 border-neutral-800 cursor-pointer hover:scale-96">
+          <svg class="w-8 h-8 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-width="4" d="m15 19-7-7 7-7" />
+          </svg>
+        </button>
+        <p className="text-4xl font-semibold py-10">Select the correct option</p>
       </div>
 
-      <div className="text-6xl font-bold bg-gray-800 px-10 py-6 rounded-lg shadow-lg">
+      <div
+        className={`font-shippori text-9xl font-bold px-10 py-10 rounded-3xl shadow-lg transition-all duration-300 ${highlightCorrect ? " border-7 border-[#89AC46]" : "bg-neutral-900 border-7 border-[#101010]"
+          }`}
+      >
         {shuffledQuestions[currentIndex]?.syllable}
       </div>
 
-      <div className="grid grid-cols-2 gap-4 w-full max-w-md">
+      <div className="grid grid-cols-4 gap-4 w-3/10 mt-7 mb-10">
         {shuffledOptions.map((opt, idx) => {
           const romajiIndex = levelData.syllables.indexOf(opt);
           const romaji = levelData.romaji?.[romajiIndex] || opt;
 
           return (
-            <button
-              key={idx}
-              onClick={() => handleAnswer(opt)}
-              className="bg-gray-700 hover:bg-gray-600 text-white text-xl py-4 px-6 rounded shadow transition"
-            >
+            <button key={idx} onClick={() => handleAnswer(opt)}
+              className="bg-neutral-900 border-6 border-[#101010] hover:bg-neutral-800 hover:border-neutral-900 hover:cursor-pointer text-white text-xl py-4 px-6 rounded-2xl shadow transition">
               {romaji}
             </button>
           );
         })}
       </div>
 
-      {message && (<div className="text-xl font-semibold text-center mt-4">{message}</div>)}
-
-      <button className="mt-6 text-sm text-blue-300 hover:underline" onClick={goToNextLevel}>
-        Skip to Next Level →
-      </button>
+      <div className="w-3/10 flex justify-center items-center"><HPBar lives={lives} /></div>
     </div>
   );
 }
