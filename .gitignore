@@ -32,5 +32,4 @@ public/levelintropage/*
 public/rankingspage/*
 
 # Secrets
-src/firebase.jsx
 backend/.env
