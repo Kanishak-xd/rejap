@@ -184,5 +184,15 @@ router.get('/check-username/:username', async (req, res) => {
   }
 });
 
+router.get('/check-email', async (req, res) => {
+  const email = req.query.email?.toLowerCase();
+  try {
+    const existingUser = await db.collection('users').findOne({ email });
+    res.status(200).json({ exists: !!existingUser });
+  } catch (err) {
+    console.error("Email check error:", err);
+    res.status(500).json({ error: "Error checking email" });
+  }
+});
 
 export default router;
