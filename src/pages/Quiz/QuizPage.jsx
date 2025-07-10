@@ -56,10 +56,10 @@ export default function QuizPage() {
   }, [levelData]);
 
   const generateOptions = (correct) => {
-    const all = [...levelData.syllables];
+    const all = [...new Set(levelData.syllables)];
     const options = [correct];
 
-    while (options.length < 4) {
+    while (options.length < Math.min(4, all.length)) {
       const rand = all[Math.floor(Math.random() * all.length)];
       if (!options.includes(rand)) options.push(rand);
     }
@@ -131,7 +131,7 @@ export default function QuizPage() {
         <h2 className="text-3xl font-bold">
           {lives > 0 ? "Level Completed!" : "Game Over"}
         </h2>
-        <p className="text-xl font-semibold">Correct Answers: {currentIndex}</p>
+        <p className="text-xl font-semibold">Correct Answers: {currentIndex + 1}</p>
 
         <div className="flex gap-4">
           <button
@@ -175,7 +175,7 @@ export default function QuizPage() {
         {shuffledQuestions[currentIndex]?.syllable}
       </div>
 
-      <div className="grid grid-cols-4 gap-4 w-3/10 mt-7 mb-10">
+      <div className={`grid ${shuffledOptions.length === 2 ? "grid-cols-2" : shuffledOptions.length === 3 ? "grid-cols-3" : "grid-cols-4"} gap-4 w-3/10 mt-7 mb-10`}>
         {shuffledOptions.map((opt, idx) => {
           const romajiIndex = levelData.syllables.indexOf(opt);
           const romaji = levelData.romaji?.[romajiIndex] || opt;
