@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { auth } from "../../firebase.js";
+import { auth } from "../../firebase.jsx";
 import syllableData from "../../data/syllableData.jsx";
 import { useAuth } from '../../context/AuthContext.jsx';
 import HPBar from './HPBar';
