@@ -6,6 +6,32 @@ router.post("/upsert", async (req, res) => {
   const { uid, username, email, profilePic } = req.body;
 
   try {
+    if (username) {
+      const cleanUsername = username.trim();
+
+      // Length check
+      const minLen = 3;
+      const maxLen = 20;
+      if (cleanUsername.length < minLen || cleanUsername.length > maxLen) {
+        return res.status(400).json({
+          error: `Username must be between ${minLen} and ${maxLen} characters`,
+        });
+      }
+
+      // Letters-only check
+      if (!/^[a-zA-Z]+$/.test(cleanUsername)) {
+        return res.status(400).json({
+          error: "Username must contain only letters",
+        });
+      }
+
+      // Uniqueness check
+      const existing = await db.collection("users").findOne({ username: cleanUsername });
+      if (existing && existing._id.toString() !== uid) {
+        return res.status(409).json({ error: "Username already taken" });
+      }
+    }
+
     await db.collection("users").updateOne(
       { _id: uid },
       {
@@ -140,6 +166,23 @@ router.get("/:uid", async (req, res) => {
   }
 });
 
+router.get('/check-username/:username', async (req, res) => {
+  const username = req.params.username;
+
+  try {
+    const user = await db.collection('users').findOne({
+      username: { $regex: `^${username}$`, $options: 'i' }
+    });
+    if (user) {
+      return res.status(200).json({ exists: true });
+    } else {
+      return res.status(200).json({ exists: false });
+    }
+  } catch (err) {
+    console.error("Error checking username:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
 
 
 export default router;

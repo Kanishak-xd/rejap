@@ -69,7 +69,11 @@ export default function SignUpForm({ setMode }) {
             })
             .catch((err) => {
                 console.error("Sign-up error:", err);
-                setStatus(err.message);
+                setStatus(err?.message || "Sign-up failed");
+
+                err.json?.().then(data => {
+                    if (data?.error) setStatus(data.error);
+                });
             });
     };
 
