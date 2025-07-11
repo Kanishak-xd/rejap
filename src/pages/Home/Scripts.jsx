@@ -5,24 +5,24 @@ export default function Scripts() {
                 <div className="h-[90%] w-[70%] mt-10 flex flex-col">
                     <div className="w-full h-[90%] flex flex-col items-center">
                         <div className="scriptsHeading w-full h-[15%] flex flex-col justify-center items-center">
-                            <p className="font-outfit font-regular text-4xl text-amber-50 cursor-default">Japanese language uses</p>
-                            <p className="font-outfit font-bold text-6xl text-amber-50 cursor-default">THREE SCRIPTS</p>
+                            <p className="font-outfit font-regular text-3xl xl:text-4xl text-amber-50 cursor-default">Japanese language uses</p>
+                            <p className="font-outfit font-bold text-5xl xl:text-6xl text-amber-50 cursor-default">THREE SCRIPTS</p>
                         </div>
                         <div className="scriptsFrames w-9/10 h-[85%] mt-5 flex flex-row justify-between items-center">
                             <div className="hiraganaFrame w-1/3 h-full flex flex-col justify-between items-center">
                                 <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874095/card-1_hghjn7.webp" className="rounded-md h-5/6 w-9/10" />
-                                <p className="font-outfit font-bold text-4xl text-amber-50 cursor-default">HIRAGANA</p>
-                                <p className="font-outfit font-regular text-3xl/8 text-amber-50 text-center cursor-default">used for native Japanese<br />words</p>
+                                <p className="font-outfit font-bold sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-amber-50 cursor-default">HIRAGANA</p>
+                                <p className="font-outfit font-regular w-70 lg:text-2xl xl:text-3xl/8 text-amber-50 text-center cursor-default">used for native Japanese words</p>
                             </div>
                             <div className="katakanaFrame w-1/3 h-full flex flex-col justify-between items-center">
                                 <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874096/card-2_ucxqzl.webp" className="rounded-md h-5/6 w-9/10" />
-                                <p className="font-outfit font-bold text-4xl text-amber-50 cursor-default">KATAKANA</p>
-                                <p className="font-outfit font-regular text-3xl/8 text-amber-50 text-center cursor-default">used for foreign<br />words</p>
+                                <p className="font-outfit font-bold sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-amber-50 cursor-default">KATAKANA</p>
+                                <p className="font-outfit font-regular w-70 lg:text-2xl xl:text-3xl/8 text-amber-50 text-center cursor-default">used for foreign words</p>
                             </div>
                             <div className="hiraganaFrame w-1/3 h-full flex flex-col justify-between items-center">
                                 <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874096/card-3_g9gaml.webp" className="rounded-md h-5/6 w-9/10" />
-                                <p className="font-outfit font-bold text-4xl text-amber-50 cursor-default">KANJI</p>
-                                <p className="font-outfit font-regular text-3xl/8 text-amber-50 text-center cursor-default">used for visual meaning<br />and context</p>
+                                <p className="font-outfit font-bold sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-amber-50 cursor-default">KANJI</p>
+                                <p className="font-outfit font-regular w-70 lg:text-2xl xl:text-3xl/8 text-amber-50 text-center cursor-default">used for visual meaning and context</p>
                             </div>
                         </div>
                     </div>
