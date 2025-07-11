@@ -37,10 +37,10 @@ export default function Navbar() {
     return (
         <>
             <nav className="text-[#F3F3EE] font-outfit flex justify-between items-center px-10 py-4 fixed top-0 left-0 w-full z-50">
-                <Link to="/" className="text-inherit text-4xl font-semibold">
+                <Link to="/" className="text-inherit sm:text-xl md:text-2xl xl:text-2xl font-semibold">
                     REJAP
                 </Link>
-                <ul className="text-xl font-semibold flex justify-between items-center gap-12">
+                <ul className="sm:text-md md:text-lg xl:text-lg font-semibold flex justify-between items-center gap-12">
                     <li><Link to="/levels">CHAPTERS</Link></li>
                     <li><Link to="/rankings">LEADERBOARD</Link></li>
                     {username ? (

@@ -1,27 +1,28 @@
 export default function Hero() {
     return (
-        <>
-            <section className="h-screen flex justify-center mt-10">
-                <div className="h-3/4 w-2/4 flex justify-between items-center">
-                    <div className="h-5/6 w-4/5 flex justify-center items-center flex-col pl-33">
-                        <div className=" h-3/6 w-full flex flex-col items-start">
-                            <p className="font-outfit font-bold text-left text-5xl/14  text-[#F3F3EE] cursor-default">Master Japanese — <br />One Lesson at a Time</p>
-                            <p className="font-outfit font-regular text-4xl/11 text-[#F3F3EE] mt-4 cursor-default">Learn Japanese Scripts, time <br />expressions, and more through <br />fun quizzes & puzzles for free.</p>
-                        </div>
-                        <div className="h-1/6 w-full flex font-outfit text-3xl">
-                            <a href="#scriptsSection">
-                                <button className="mt-4 text-[#F3F3EE] font-bold bg-[#141414] border-2 border-amber-50 h-2/3 w-full px-6 rounded-xl cursor-pointer transform transition hover:scale-102">
-                                    GET STARTED
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div className="w-1/4 h-3/4 flex items-center">
-                    <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748898722/ramen-shop_caqgsz.png" className="h-3/4 w-3/4">
-                    </img>
-                </div>
-            </section>
-        </>
-    )
+        <section className="min-h-screen flex justify-center items-center px-10 gap-24 bg-black pb-24">
+            <div className="flex flex-col max-w-[700px]">
+                <p className="font-outfit font-bold text-5xl 2xl:text-6xl text-[#F3F3EE] cursor-default leading-tight">
+                    Master Japanese — <br />One Lesson at a Time
+                </p>
+                <p className="font-outfit font-regular text-2xl 2xl:text-4xl text-[#F3F3EE] mt-4 cursor-default leading-snug">
+                    Learn Japanese Scripts, time <br />
+                    expressions, and more through <br />
+                    fun quizzes & puzzles for free.
+                </p>
+                <a href="#scriptsSection">
+                    <button className="mt-8 text-[#F3F3EE] font-bold bg-[#141414] border-2 border-amber-50 text-xl 2xl:text-2xl px-6 py-3 rounded-xl transition hover:scale-105">
+                        GET STARTED
+                    </button>
+                </a>
+            </div>
+            <div className="flex justify-center items-center max-w-[300px] max-h-[300px]">
+                <img
+                    src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748898722/ramen-shop_caqgsz.png"
+                    alt="Ramen Shop"
+                    className="w-full h-auto object-contain"
+                />
+            </div>
+        </section>
+    );
 }

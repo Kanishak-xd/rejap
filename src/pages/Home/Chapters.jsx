@@ -8,10 +8,10 @@ export default function Chapters() {
                     <div className="col-span-3 row-span-4">
                         <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748958693/chapLeft_hoegrp.webp" className="h-32/33 w-full" />
                         <div className="absolute bottom-[8%] left-[2.5%] text-shadow-lg">
-                            <p className="text-7xl font-bold">GET STARTED</p><p className="text-3xl">START WITH CHAPTER 1</p>
+                            <p className="leading-none text-[clamp(1rem,4vw,5rem)] font-bold">GET STARTED</p><p className="text-[clamp(0.5rem,3vw,2rem)] leading-none">START WITH CHAPTER 1</p>
                         </div>
                     </div>
-                    <div className="col-span-3 col-start-4"><p className="text-[600%] font-bold text-shadow-lg mt-5">THE CHAPTERS</p></div>
+                    <div className="col-span-3 col-start-4"><p className="text-[clamp(2rem,5vw,6rem)] font-bold text-shadow-lg mt-5">THE CHAPTERS</p></div>
                     <div className="col-span-2 row-span-3 col-start-4 row-start-2">
                         <div className="grid grid-cols-2 grid-rows-2 gap-5 h-20/21 w-full">
                             <Link to="/levels" className="bg-neutral-800 rounded-4xl flex justify-center items-center group hover:bg-neutral-300 transition-colors"><div className="w-6/8 h-6/8 flex flex-col justify-end"><div className=" w-full flex items-center justify-center"><img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/torii_sbc71f.webp" className="w-10/16 h-8/9 mr-1" /></div><p className="mt-2 text-2xl font-bold text-shadow-lg group-hover:text-black">CHAPTER: 1</p><p className="mt-1 text-2xl/4 text-shadow-lg group-hover:text-black">HIRAGANA</p></div></Link>
