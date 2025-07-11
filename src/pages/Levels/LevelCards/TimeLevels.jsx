@@ -31,7 +31,7 @@ export default function TimeLevels({ chapter }) {
         <div className="w-full">
             <div className="flex h-18 gap-4 mb-4">
                 <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/maneki-neko_cugqw9.webp"
-                    className="h-14 w-14 mt-1" />
+                    className="h-14 w-14 mt-1" alt="Maneki-neko" />
                 <h2 className="w-9/10 text-5xl font-bold mb-6 mt-1.5" id="hiragana">Chapter 4: Time</h2></div>
             <div className="grid grid-cols-5 grid-rows-2 gap-4">
                 {[...Array(10)].map((_, i) => {

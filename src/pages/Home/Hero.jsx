@@ -19,7 +19,7 @@ export default function Hero() {
             <div className="flex justify-center items-center max-w-[300px] max-h-[300px]">
                 <img
                     src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748898722/ramen-shop_caqgsz.png"
-                    alt="Ramen Shop"
+                    alt="Ramen shop illustration"
                     className="w-full h-auto object-contain"
                 />
             </div>

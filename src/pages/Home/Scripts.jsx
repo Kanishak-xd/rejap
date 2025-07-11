@@ -10,17 +10,17 @@ export default function Scripts() {
                         </div>
                         <div className="scriptsFrames w-9/10 h-[85%] mt-5 flex flex-row justify-between items-center">
                             <div className="hiraganaFrame w-1/3 h-full flex flex-col justify-between items-center">
-                                <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874095/card-1_hghjn7.webp" className="rounded-md h-5/6 w-9/10" />
+                                <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874095/card-1_hghjn7.webp" className="rounded-md h-5/6 w-9/10" alt="Hiragana card" />
                                 <p className="font-outfit font-bold sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-amber-50 cursor-default">HIRAGANA</p>
                                 <p className="font-outfit font-regular w-70 lg:text-2xl xl:text-3xl/8 text-amber-50 text-center cursor-default">used for native Japanese words</p>
                             </div>
                             <div className="katakanaFrame w-1/3 h-full flex flex-col justify-between items-center">
-                                <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874096/card-2_ucxqzl.webp" className="rounded-md h-5/6 w-9/10" />
+                                <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874096/card-2_ucxqzl.webp" className="rounded-md h-5/6 w-9/10" alt="Katakana card" />
                                 <p className="font-outfit font-bold sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-amber-50 cursor-default">KATAKANA</p>
                                 <p className="font-outfit font-regular w-70 lg:text-2xl xl:text-3xl/8 text-amber-50 text-center cursor-default">used for foreign words</p>
                             </div>
                             <div className="hiraganaFrame w-1/3 h-full flex flex-col justify-between items-center">
-                                <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874096/card-3_g9gaml.webp" className="rounded-md h-5/6 w-9/10" />
+                                <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874096/card-3_g9gaml.webp" className="rounded-md h-5/6 w-9/10" alt="Kanji card" />
                                 <p className="font-outfit font-bold sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-amber-50 cursor-default">KANJI</p>
                                 <p className="font-outfit font-regular w-70 lg:text-2xl xl:text-3xl/8 text-amber-50 text-center cursor-default">used for visual meaning and context</p>
                             </div>

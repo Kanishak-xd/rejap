@@ -173,7 +173,7 @@ export default function Profile() {
                     <div className="bg-neutral-900 rounded-lg flex flex-row gap-2">
                         <div className="basis-1/3 flex justify-center items-center">
                             <div className='w-3/4 h-3/4 flex justify-center items-center rounded-md bg-[#BFECFF]'>
-                                <img src='https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/torii_sbc71f.webp' className='bg-cover w-2/3 h-2/3' />
+                                <img src='https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/torii_sbc71f.webp' className='bg-cover w-2/3 h-2/3' alt='Torii gate' />
                             </div>
                         </div>
                         <div className="basis-2/3 flex flex-col justify-center">
@@ -187,7 +187,7 @@ export default function Profile() {
                     <div className="bg-neutral-900 rounded-lg flex flex-row gap-2">
                         <div className="basis-1/3 flex justify-center items-center">
                             <div className='w-3/4 h-3/4 flex justify-center items-center rounded-md bg-[#CDC1FF]'>
-                                <img src='https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sushi_ss7txh.webp' className='bg-cover w-2/3 h-2/3' />
+                                <img src='https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sushi_ss7txh.webp' className='bg-cover w-2/3 h-2/3' alt='Sushi' />
                             </div>
                         </div>
                         <div className="basis-2/3 flex flex-col justify-center">
@@ -201,7 +201,7 @@ export default function Profile() {
                     <div className="bg-neutral-900 rounded-lg flex flex-row gap-2">
                         <div className="basis-1/3 flex justify-center items-center">
                             <div className='w-3/4 h-3/4 flex justify-center items-center rounded-md bg-[#FFF6E3]'>
-                                <img src='https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sensu_iusuf7.webp' className='bg-cover w-2/3 h-2/3' />
+                                <img src='https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sensu_iusuf7.webp' className='bg-cover w-2/3 h-2/3' alt='Sensu fan' />
                             </div>
                         </div>
                         <div className="basis-2/3 flex flex-col justify-center">
@@ -215,7 +215,7 @@ export default function Profile() {
                     <div className="bg-neutral-900 rounded-lg flex flex-row gap-2">
                         <div className="basis-1/3 flex justify-center items-center">
                             <div className='w-3/4 h-3/4 flex justify-center items-center rounded-md bg-[#FFCCEA]'>
-                                <img src='https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/maneki-neko_cugqw9.webp' className='bg-cover w-2/3 h-2/3' />
+                                <img src='https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/maneki-neko_cugqw9.webp' className='bg-cover w-2/3 h-2/3' alt='Maneki-neko' />
                             </div>
                         </div>
                         <div className="basis-2/3 flex flex-col justify-center">

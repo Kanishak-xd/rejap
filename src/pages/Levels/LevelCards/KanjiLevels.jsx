@@ -31,7 +31,7 @@ export default function KanjiLevels({ chapter }) {
         <div className="w-full">
             <div className="flex h-18 gap-4 mb-4">
                 <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sensu_iusuf7.webp"
-                    className="h-14 w-14 mt-1" />
+                    className="h-14 w-14 mt-1" alt="Sensu fan" />
                 <h2 className="w-9/10 text-5xl font-bold mb-6 mt-1.5" id="hiragana">Chapter 3: Kanji</h2></div>
             <div className="grid grid-cols-5 grid-rows-2 gap-4">
                 {[...Array(10)].map((_, i) => {

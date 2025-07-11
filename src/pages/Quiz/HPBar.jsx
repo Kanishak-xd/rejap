@@ -10,7 +10,7 @@ export default function HPBar({ lives }) {
 
     return (
         <div className="relative w-full">
-            <img src="/quizpage/hpbar-bg.svg" className="w-full" />
+            <img src="/quizpage/hpbar-bg.svg" className="w-full" alt="HP bar background" />
             <p className="absolute bottom-0 text-lg left-4 text-white font-semibold italic">
                 HP: {lives}/300
             </p>

@@ -311,7 +311,7 @@ export default function UserTable() {
                                     <div className="mask mask-squircle h-12 w-12">
                                         <img
                                             src={user.profilePic || "/default-avatar.webp"}
-                                            alt="User Avatar"
+                                            alt="User avatar"
                                         />
                                     </div>
                                 </div>

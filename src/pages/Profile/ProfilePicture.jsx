@@ -15,7 +15,7 @@ export default function ProfilePicture({ selectedFile, setSelectedFile, previewU
         <div className="ml-3 border-10 border-[#0a0a0a] relative group w-43 h-43 rounded-lg overflow-hidden">
             <img
                 src={previewUrl || defaultPic}
-                alt="Profile"
+                alt="Profile picture preview"
                 className="object-cover w-full h-full rounded-md"
             />
 

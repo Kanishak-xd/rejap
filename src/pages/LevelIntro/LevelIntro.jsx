@@ -47,7 +47,7 @@ export default function LevelIntro() {
     return (
         <div className="min-h-screen bg-neutral-950 flex flex-col gap-6 text-white pt-22 px-10 font-outfit">
             <div className="w-full h-35 relative flex items-center justify-center">
-                <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752022256/sakura-3_l8klit.webp" className="w-full h-full object-cover rounded-t-2xl"></img>
+                <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752022256/sakura-3_l8klit.webp" className="w-full h-full object-cover rounded-t-2xl" alt="Sakura background" />
                 <h1 className="text-7xl font-bold absolute text-shadow-lg bottom-10">
                     {chapterId.toUpperCase()} LEVEL {levelId}
                 </h1>

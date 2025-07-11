@@ -50,11 +50,11 @@ export default function Leaderboard() {
                             <tr key={user._id || idx} className="bg-neutral-950 hover:bg-neutral-900 transition">
                                 <td className="px-4 py-3">
                                     {idx === 0 ? (
-                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/1st_oweekr.png" alt="1" className="w-8 h-8" />
+                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/1st_oweekr.png" alt="1st place medal" className="w-8 h-8" />
                                     ) : idx === 1 ? (
-                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/2nd_yai1xx.png" alt="2" className="w-8 h-8" />
+                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/2nd_yai1xx.png" alt="2nd place medal" className="w-8 h-8" />
                                     ) : idx === 2 ? (
-                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/3rd_pbxj9v.png" alt="3" className="w-8 h-8" />
+                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/3rd_pbxj9v.png" alt="3rd place medal" className="w-8 h-8" />
                                     ) : (
                                         <span className="text-2xl font-bold text-white text-center ml-2.5">{idx + 1}</span>
                                     )}
@@ -63,7 +63,7 @@ export default function Leaderboard() {
                                     <div className="rounded-xl flex justify-center items-center w-14 h-14 bg-black">
                                         <img
                                             src={user.profilePic || "/default-avatar.webp"}
-                                            alt="Avatar"
+                                            alt="User avatar"
                                             className="w-12 h-12 rounded-md object-cover"
                                         />
                                     </div>

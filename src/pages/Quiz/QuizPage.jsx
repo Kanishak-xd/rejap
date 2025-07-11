@@ -154,7 +154,7 @@ export default function QuizPage() {
   return (
     <div className="flex flex-col items-center px-6 py-10 min-h-screen bg-black text-white font-outfit">
       <div className="w-full h-35 relative flex items-center justify-center mt-[2%]">
-        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752022256/sakura-3_l8klit.webp" className="w-full h-full object-cover rounded-t-2xl"></img>
+        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752022256/sakura-3_l8klit.webp" className="w-full h-full object-cover rounded-t-2xl" alt="Sakura background" />
         <h1 className="text-7xl font-bold absolute text-shadow-lg bottom-10">
           {chapter.toUpperCase()} LEVEL {level}
         </h1>
