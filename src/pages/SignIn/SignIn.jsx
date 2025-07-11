@@ -1,5 +1,5 @@
 import React from 'react'
-import LeftFrame from './leftFrame/LeftFrame.jsx'
+import LeftFrame from './LeftFrame/LeftFrame.jsx'
 import RightFrame from './rightFrame/RightFrame.jsx'
 
 export default function SignIn() {
