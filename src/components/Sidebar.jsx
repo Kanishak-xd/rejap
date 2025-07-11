@@ -12,7 +12,7 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
 
         const checkAdmin = async () => {
             try {
-                const res = await fetch(`http://localhost:3001/api/users/${user.uid}`);
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${user.uid}`);
                 const data = await res.json();
                 if (data.role === "Admin") {
                     setIsAdmin(true);
@@ -28,7 +28,7 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
     const handleLogout = async () => {
         const user = auth.currentUser;
         if (user) {
-            await fetch("http://localhost:3001/api/logs", {
+            await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logs`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

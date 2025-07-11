@@ -36,7 +36,7 @@ export default function LogInForm({ setMode }) {
                     showToast(`Welcome back, ${userData.username}!`);
 
                     // Update logs
-                    await fetch("http://localhost:3001/api/logs", {
+                    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logs`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({

@@ -27,7 +27,7 @@ export default function SignUpUser({ username, setUsername }) {
 
         const delay = setTimeout(async () => {
             try {
-                const res = await fetch(`http://localhost:3001/api/users/check-username/${trimmed.toLowerCase()}`);
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/check-username/${trimmed.toLowerCase()}`);
                 const data = await res.json();
 
                 if (data.exists) {

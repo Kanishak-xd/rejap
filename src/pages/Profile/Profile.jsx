@@ -39,7 +39,7 @@ export default function Profile() {
 
         const fetchUser = async () => {
             try {
-                const res = await fetch(`http://localhost:3001/api/users/${user.uid}`);
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${user.uid}`);
                 if (!res.ok) throw new Error("User fetch failed");
                 const data = await res.json();
 
@@ -78,7 +78,7 @@ export default function Profile() {
             const data = await cloudRes.json();
             const imageUrl = data.secure_url;
 
-            await fetch("http://localhost:3001/api/users/upsert", {
+            await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/upsert`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -90,7 +90,7 @@ export default function Profile() {
             });
 
             // Update logs
-            await fetch("http://localhost:3001/api/logs", {
+            await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logs`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -132,7 +132,7 @@ export default function Profile() {
             const user = auth.currentUser;
             if (user) {
                 await signOut(auth);
-                await fetch("http://localhost:3001/api/logs", {
+                await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logs`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({

@@ -26,10 +26,10 @@ export default function QuizPage() {
 
     hasLoggedRef.current = true;
 
-    fetch(`http://localhost:3001/api/users/${user.uid}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${user.uid}`)
       .then(res => res.json())
       .then(data => {
-        fetch("http://localhost:3001/api/logs", {
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logs`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -81,7 +81,7 @@ export default function QuizPage() {
 
           const user = auth.currentUser;
           if (user && !progressSaved) {
-            fetch("http://localhost:3001/api/users/progress", {
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/progress`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ uid: user.uid, chapter, level }),

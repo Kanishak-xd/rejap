@@ -14,7 +14,7 @@ export default function LevelIntro() {
 
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:3001/api/users/progress/${user.uid}`)
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/progress/${user.uid}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log("Progress from backend:", data);

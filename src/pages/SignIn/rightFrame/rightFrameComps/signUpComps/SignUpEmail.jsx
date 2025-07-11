@@ -19,7 +19,7 @@ export default function SignUpEmail({ email, setEmail }) {
         const delay = setTimeout(async () => {
             try {
                 setChecking(true);
-                const res = await fetch(`http://localhost:3001/api/users/check-email?email=${encodeURIComponent(trimmed.toLowerCase())}`);
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/check-email?email=${encodeURIComponent(trimmed.toLowerCase())}`);
                 const data = await res.json();
                 setChecking(false);
                 if (data.exists) {

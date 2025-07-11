@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 
                 // Send to MongoDB
                 try {
-                    await fetch("http://localhost:3001/api/users/upsert", {
+                    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/upsert`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({

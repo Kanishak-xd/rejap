@@ -33,3 +33,4 @@ public/rankingspage/*
 
 # Secrets
 backend/.env
+.env

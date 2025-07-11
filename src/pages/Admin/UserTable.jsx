@@ -14,7 +14,7 @@ export default function UserTable() {
     useEffect(() => {
         const fetchAllUsers = async () => {
             try {
-                const res = await fetch("http://localhost:3001/api/users/all");
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/all`);
                 const data = await res.json();
                 setUsers(data);
                 setFilteredUsers(data);
@@ -31,7 +31,7 @@ export default function UserTable() {
 
     const handleRoleChange = async (uid, newRole) => {
         try {
-            const res = await fetch("http://localhost:3001/api/users/change-role", {
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/change-role`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ uid, role: newRole }),

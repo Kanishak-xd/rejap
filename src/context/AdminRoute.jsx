@@ -19,7 +19,7 @@ export default function AdminRoute({ children }) {
             }
 
             try {
-                const res = await fetch(`http://localhost:3001/api/users/${user.uid}`);
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${user.uid}`);
                 if (!res.ok) throw new Error("User fetch failed");
 
                 const data = await res.json();

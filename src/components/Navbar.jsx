@@ -17,7 +17,7 @@ export default function Navbar() {
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (user) => {
             if (user) {
-                const res = await fetch(`http://localhost:3001/api/users/${user.uid}`);
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${user.uid}`);
                 if (res.ok) {
                     const userData = await res.json();
                     setUsername(userData.username);

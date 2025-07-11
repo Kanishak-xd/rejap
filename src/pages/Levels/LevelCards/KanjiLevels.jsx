@@ -11,7 +11,7 @@ export default function KanjiLevels({ chapter }) {
         const fetchProgress = async () => {
             if (!user?.uid) return;
             try {
-                const res = await fetch(`http://localhost:3001/api/users/${user.uid}`);
+                const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${user.uid}`);
                 const data = await res.json();
                 const progress = data.progress || {};
                 const levels = progress[chapter] || [];

@@ -14,7 +14,7 @@ export default function AuditLogs() {
 
         setLoading(true);
         try {
-            const res = await fetch(`http://localhost:3001/api/logs?page=${pageNum}&limit=20`);
+            const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logs?page=${pageNum}&limit=20`);
             const data = await res.json();
 
             const newLogs = data.filter(log => !logIds.current.has(log._id));

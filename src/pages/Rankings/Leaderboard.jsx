@@ -7,7 +7,7 @@ export default function Leaderboard() {
     const hasLoggedRef = useRef(false);
 
     useEffect(() => {
-        fetch("http://localhost:3001/api/users/leaderboard")
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/leaderboard`)
             .then((res) => res.json())
             .then(data => {
                 const sorted = [...data].sort((a, b) => b.levelsCompleted - a.levelsCompleted);
@@ -17,10 +17,10 @@ export default function Leaderboard() {
 
         if (user && !hasLoggedRef.current) {
             hasLoggedRef.current = true;
-            fetch(`http://localhost:3001/api/users/${user.uid}`)
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${user.uid}`)
                 .then(res => res.json())
                 .then(data => {
-                    fetch("http://localhost:3001/api/logs", {
+                    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logs`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
