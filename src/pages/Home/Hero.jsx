@@ -2,10 +2,10 @@ export default function Hero() {
     return (
         <section className="min-h-screen flex justify-center items-center px-10 gap-24 bg-black pb-24">
             <div className="flex flex-col max-w-[700px]">
-                <p className="font-outfit font-bold text-5xl 2xl:text-6xl text-[#F3F3EE] cursor-default leading-tight">
+                <p className="font-outfit font-bold text-5xl 2xl:text-6xl/17 text-[#F3F3EE] cursor-default leading-tight">
                     Master Japanese — <br />One Lesson at a Time
                 </p>
-                <p className="font-outfit font-regular text-2xl 2xl:text-4xl text-[#F3F3EE] mt-4 cursor-default leading-snug">
+                <p className="font-outfit font-regular text-2xl 2xl:text-4xl/12 text-[#F3F3EE] mt-1 cursor-default leading-snug">
                     Learn Japanese Scripts, time <br />
                     expressions, and more through <br />
                     fun quizzes & puzzles for free.
