@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
     <img src="https://img.shields.io/badge/Firebase%20Auth-FFCA28?style=for-the-badge&logo=firebase&logoColor=white"/>
     <img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white"/>
     <img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white"/>
@@ -63,7 +63,7 @@
 
 ## Lighthouse Audit Report
 
-<p align="center">
+<p align="left">
   <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752249342/d7d89559-d033-4d0d-9862-bee015726460.png" alt="Lighthouse Audit Report" width="600"/>
 </p>
 
@@ -78,8 +78,8 @@
 
 ## Screenshots
 
-<p align="center">
-  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752249521/8LnQJGDyBk_rj7y9l.gif" alt="Home Page" width="400"/>
+<p align="left">
+  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752250411/new-home_jnxr31.gif" alt="Home Page" width="400"/>
   <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752205138/signin_ktcmvd.gif" alt="Login & SignUp" width="400"/>
   <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752204326/profile_fdykii.gif" alt="Profile Page" width="400"/>
   <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752206070/2ee2d5ab-5732-4640-bfd0-abb0408da565.png" alt="Leaderboard" width="400"/>
