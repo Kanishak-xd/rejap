@@ -22,17 +22,22 @@ export default function Profile() {
     const { user, loading } = useAuth();
     const navigate = useNavigate();
 
-    const getChapterProgress = (chapterKey) => {
+    const HIRAGANA_TOTAL_LEVELS = 10;
+    const KATAKANA_TOTAL_LEVELS = 10;
+    const KANJI_TOTAL_LEVELS = 18;
+    const TIME_TOTAL_LEVELS = 10;
+
+    const getChapterProgress = (chapterKey, totalLevels) => {
         const chapterLevels = progress[chapterKey] || [];
         const completed = Array.isArray(chapterLevels) ? chapterLevels.length : 0;
-        const percentage = Math.min((completed / 10) * 100, 100);
+        const percentage = Math.min((completed / totalLevels) * 100, 100);
         return { completed, percentage };
     };
 
-    const { completed: hDone, percentage: hWidth } = getChapterProgress("hiragana");
-    const { completed: kDone, percentage: kWidth } = getChapterProgress("katakana");
-    const { completed: kjDone, percentage: kjWidth } = getChapterProgress("kanji");
-    const { completed: tDone, percentage: tWidth } = getChapterProgress("time");
+    const { completed: hDone, percentage: hWidth } = getChapterProgress("hiragana", HIRAGANA_TOTAL_LEVELS);
+    const { completed: kDone, percentage: kWidth } = getChapterProgress("katakana", KATAKANA_TOTAL_LEVELS);
+    const { completed: kjDone, percentage: kjWidth } = getChapterProgress("kanji", KANJI_TOTAL_LEVELS);
+    const { completed: tDone, percentage: tWidth } = getChapterProgress("time", TIME_TOTAL_LEVELS);
 
     useEffect(() => {
         if (loading || !user?.uid) return;
