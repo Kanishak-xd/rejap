@@ -182,7 +182,7 @@ export default function QuizPage() {
 
           return (
             <button key={idx} onClick={() => handleAnswer(opt)}
-              className="bg-neutral-900 border-6 border-[#101010] hover:bg-neutral-800 hover:border-neutral-900 hover:cursor-pointer text-white text-xl py-4 px-6 rounded-2xl shadow transition">
+              className="bg-neutral-900 border-6 border-[#101010] hover:bg-neutral-800 hover:border-neutral-900 hover:cursor-pointer text-white text-lg text-center py-4 rounded-2xl shadow transition">
               {romaji}
             </button>
           );

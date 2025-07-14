@@ -33,8 +33,8 @@ export default function KanjiLevels({ chapter }) {
                 <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sensu_iusuf7.webp"
                     className="h-14 w-14 mt-1" alt="Sensu fan" />
                 <h2 className="w-9/10 text-5xl font-bold mb-6 mt-1.5" id="hiragana">Chapter 3: Kanji</h2></div>
-            <div className="grid grid-cols-5 grid-rows-2 gap-4">
-                {[...Array(10)].map((_, i) => {
+            <div className="grid grid-cols-5 grid-rows-3 gap-4">
+                {[...Array(17)].map((_, i) => {
                     const level = i + 1;
                     const attempted = attemptedLevels.includes(level);
 
