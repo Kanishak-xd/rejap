@@ -25,7 +25,7 @@ export default function Profile() {
     const HIRAGANA_TOTAL_LEVELS = 10;
     const KATAKANA_TOTAL_LEVELS = 10;
     const KANJI_TOTAL_LEVELS = 18;
-    const TIME_TOTAL_LEVELS = 10;
+    const TIME_TOTAL_LEVELS = 16;
 
     const getChapterProgress = (chapterKey, totalLevels) => {
         const chapterLevels = progress[chapterKey] || [];

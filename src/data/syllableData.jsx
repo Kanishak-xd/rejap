@@ -154,7 +154,74 @@ const syllableData = {
             syllables: ["駅", "会", "社", "安", "多", "少"],
             romaji: ["eki", "kai/a(u)", "sha", "an/yasu(i)", "ta/oo(i)", "shou/suku(nai)"]
         }
+    },
+    time: {
+        1: {
+            syllables: ["時", "分", "午前", "午後", "何時", "半"],
+            romaji: ["ji (o'clock)", "fun/pun (minutes)", "gozen (AM)", "gogo (PM)", "nanji (what time?)", "han (half)"]
+        },
+        2: {
+            syllables: ["一", "二", "三", "四", "五", "六"],
+            romaji: ["ichi-ji (1 o'clock)", "ni-ji (2 o'clock)", "san-ji (3 o'clock)", "yo-ji (4 o'clock)", "go-ji (5 o'clock)", "roku-ji (6 o'clock)"]
+        },
+        3: {
+            syllables: ["七", "八", "九", "十", "十一", "十二"],
+            romaji: ["shichi-ji/nana-ji (7 o'clock)", "hachi-ji (8 o'clock)", "ku-ji (9 o'clock)", "juu-ji (10 o'clock)", "juuichi-ji (11 o'clock)", "juuni-ji (12 o'clock)"]
+        },
+        4: {
+            syllables: ["一分", "二分", "三分", "四分", "五分", "六分"],
+            romaji: ["ippun (1 min)", "nifun (2 min)", "sanpun (3 min)", "yonpun (4 min)", "gofun (5 min)", "roppun (6 min)"]
+        },
+        5: {
+            syllables: ["七分", "八分", "九分", "十分", "十五分", "三十分"],
+            romaji: ["nanafun (7 min)", "happun (8 min)", "kyuufun (9 min)", "juppun (10 min)", "juugofun (15 min)", "sanjupun (30 min)"]
+        },
+        6: {
+            syllables: ["日", "月", "火", "水", "木", "金"],
+            romaji: ["nichi-youbi (Sunday)", "getsu-youbi (Monday)", "ka-youbi (Tuesday)", "sui-youbi (Wednesday)", "moku-youbi (Thursday)", "kin-youbi (Friday)"]
+        },
+        7: {
+            syllables: ["土", "今日", "昨日", "一昨日", "明日", "明後日"],
+            romaji: ["do-youbi (Saturday)", "kyou (today)", "kinou (yesterday)", "ototoi (day before yesterday)", "ashita (tomorrow)", "asatte (day after tomorrow)"]
+        },
+        8: {
+            syllables: ["月", "一月", "二月", "三月", "四月", "五月"],
+            romaji: ["gatsu (month)", "ichi-gatsu (January)", "ni-gatsu (February)", "san-gatsu (March)", "shi-gatsu (April)", "go-gatsu (May)"]
+        },
+        9: {
+            syllables: ["六月", "七月", "八月", "九月", "十月", "十一月"],
+            romaji: ["roku-gatsu (June)", "shichi-gatsu (July)", "hachi-gatsu (August)", "ku-gatsu (September)", "juu-gatsu (October)", "juuichi-gatsu (November)"]
+        },
+        10: {
+            syllables: ["十二月", "毎年", "毎日", "毎月", "毎週", "今月"],
+            romaji: ["juuni-gatsu (December)", "maitoshi (every year)", "mainichi (every day)", "maitsuki (every month)", "maishuu (every week)", "kongetsu (this month)"]
+        },
+        11: {
+            syllables: ["先月", "来月", "今週", "先週", "来週", "今"],
+            romaji: ["sengetsu (last month)", "raigetsu (next month)", "konshuu (this week)", "senshuu (last week)", "raishuu (next week)", "ima (now)"]
+        },
+        12: {
+            syllables: ["日", "一日", "二日", "三日", "四日", "五日"],
+            romaji: ["nichi (day of month)", "tsuitachi (1st day)", "futsuka (2nd day)", "mikka (3rd day)", "yokka (4th day)", "itsuka (5th day)"]
+        },
+        13: {
+            syllables: ["六日", "七日", "八日", "九日", "十日", "十四日"],
+            romaji: ["muika (6th day)", "nanoka (7th day)", "youka (8th day)", "kokonoka (9th day)", "tooka (10th day)", "juuyokka (14th day)"]
+        },
+        14: {
+            syllables: ["二十日", "二十四日", "年", "今年", "去年", "来年"],
+            romaji: ["hatsuka (20th day)", "nijuuyokka (24th day)", "nen (year)", "kotoshi (this year)", "kyonen (last year)", "rainen (next year)"]
+        },
+        15: {
+            syllables: ["一昨年", "再来年", "時間", "週間", "ヶ月", "年間"],
+            romaji: ["ototoshi (year before last)", "sarainen (year after next)", "jikan (duration of hours)", "shuukan (duration of weeks)", "kagetsu (duration of months)", "nenkan (duration of years)"]
+        },
+        16: {
+            syllables: ["誕生日", "何曜日", "何日", "何月", "午前九時", "午後三時半"],
+            romaji: ["tanjoubi (birthday)", "nan'youbi (what day?)", "nan'nichi (what date?)", "nan'gatsu (what month?)", "gozen ku-ji (9 AM)", "gogo san-ji han (3:30 PM)"]
+        }
     }
+
 };
 
 export default syllableData;
