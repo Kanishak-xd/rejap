@@ -145,3 +145,19 @@
 .animate-fade-in-down {
   animation: fade-in-down 0.3s ease-out;
 }
+
+@keyframes gradientSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, #BFECFF, #CDC1FF, #FFF6E3, #FFCCEA);
+  background-size: 300% 300%;
+  animation: gradientSlide 2s linear infinite;
+}
