@@ -4,6 +4,7 @@ import KanjiLevels from './LevelCards/KanjiLevels';
 import TimeLevels from './LevelCards/TimeLevels';
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 export default function Levels() {
   const location = useLocation();
@@ -28,6 +29,7 @@ export default function Levels() {
         <KanjiLevels chapter="kanji" />
         <TimeLevels chapter="time" />
       </div>
+      <Footer />
     </div>
   );
 }

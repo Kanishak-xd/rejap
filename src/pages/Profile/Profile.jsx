@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext.jsx';
 import { sendPasswordResetEmail, signOut } from 'firebase/auth';
 import { auth } from '../../firebase.jsx';
 import { useNavigate } from "react-router-dom";
+import Footer from '../../components/Footer.jsx';
 
 export default function Profile() {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -252,6 +253,8 @@ export default function Profile() {
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
                     </svg>
                 </button>
+
+                <Footer />
 
                 {selectedFile && (
                     <div className="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-neutral-800 px-3 py-2 rounded shadow-lg text-white z-50 flex gap-6 items-center">
