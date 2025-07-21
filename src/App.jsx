@@ -13,6 +13,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext.jsx';
 import ProtectedRoute from './context/ProtectedRoute.jsx';
 import AdminRoute from './context/AdminRoute.jsx';
+import SupportInfo from './pages/Info/SupportInfo.jsx';
 
 export default function App() {
   return (
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/sign-up" element={<Navigate to="/sign-in" />} />
           <Route path="/levels" element={<Levels />} />
           <Route path="/rankings" element={<Leaderboard />} />
+          <Route path="/SupportInfo" element={<SupportInfo />} />
 
           {/* Protected Routes */}
           <Route path="/levels/:chapterId/:levelId" element={<ProtectedRoute> <LevelIntro /> </ProtectedRoute>} />
