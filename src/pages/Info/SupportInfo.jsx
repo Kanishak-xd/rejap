@@ -121,7 +121,7 @@ export default function SupportInfo() {
             case 'about':
                 return (
                     <div className="pt-12 rounded-b-lg shadow-lg text-gray-200">
-                        <h2 className="text-3xl font-bold mb-6">About Us</h2>
+                        <h2 className="text-3xl font-bold mb-6">About</h2>
                         <p className="mb-4 leading-relaxed">
                             I built this platform during my final year at NIIT University, where I'm pursuing a B.Tech in
                             Computer Science Engineering with a specialization in Cybersecurity.
