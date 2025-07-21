@@ -30,7 +30,7 @@ export default function App() {
           <Route path="/sign-up" element={<Navigate to="/sign-in" />} />
           <Route path="/levels" element={<Levels />} />
           <Route path="/rankings" element={<Leaderboard />} />
-          <Route path="/SupportInfo" element={<SupportInfo />} />
+          <Route path="/SupportInfo/*" element={<SupportInfo />} />
 
           {/* Protected Routes */}
           <Route path="/levels/:chapterId/:levelId" element={<ProtectedRoute> <LevelIntro /> </ProtectedRoute>} />

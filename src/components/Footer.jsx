@@ -35,19 +35,19 @@ export default function Footer() {
                         <h3 className="tracking-wide uppercase text-neutral-400">Support & Info</h3>
                         <ul className="space-y-1">
                             <li>
-                                <a href="/SupportInfo#privacy" rel="noopener noreferrer" className="hover:text-white">Privacy Policy</a>
+                                <a href="/SupportInfo/privacy" rel="noopener noreferrer" className="hover:text-white">Privacy Policy</a>
                             </li>
                             <li>
-                                <a href="/SupportInfo#terms" rel="noopener noreferrer" className="hover:text-white">Terms of Service</a>
+                                <a href="/SupportInfo/terms" rel="noopener noreferrer" className="hover:text-white">Terms of Service</a>
                             </li>
                             <li>
-                                <a href="/SupportInfo#faq" rel="noopener noreferrer" className="hover:text-white">Help / FAQ</a>
+                                <a href="/SupportInfo/faq" rel="noopener noreferrer" className="hover:text-white">Help / FAQ</a>
                             </li>
                             <li>
-                                <a href="/SupportInfo#about" rel="noopener noreferrer" className="hover:text-white">About</a>
+                                <a href="/SupportInfo/about" rel="noopener noreferrer" className="hover:text-white">About</a>
                             </li>
                             <li>
-                                <a href="/SupportInfo#contact" rel="noopener noreferrer" className="hover:text-white">Contact</a>
+                                <a href="/SupportInfo/contact" rel="noopener noreferrer" className="hover:text-white">Contact</a>
                             </li>
                         </ul>
                     </div>
