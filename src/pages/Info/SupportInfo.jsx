@@ -140,21 +140,19 @@ export default function SupportInfo() {
             case 'contact':
                 return (
                     <div className="pt-12 rounded-b-lg shadow-lg text-gray-200">
-                        <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
+                        <h2 className="text-3xl font-bold mb-6">Contact</h2>
                         <p className="mb-4 leading-relaxed">
-                            Have questions or need assistance? Feel free to reach out to our support team.
-                            We are here to help you.
+                            Have questions, feedback, or issues? Feel free to reach out via email. <br />
+                            We'll do our best to respond as soon as possible.
                         </p>
-                        <ul className="list-none space-y-2 text-gray-300">
-                            <li>Email: <a href="mailto:info@example.com" className="text-violet-300 hover:underline">info@example.com</a></li>
-                            <li>Phone: <a href="tel:+1234567890" className="text-violet-300 hover:underline">+1 (234) 567-890</a></li>
-                            <li>Address: 123 Street, 456 City, Country</li>
+                        <ul className="list-none space-y-2 text-gray-300 mb-6">
+                            <li>Email: <a href="mailto:kanishak.sharma22@st.niituniversity.in" className="text-[#BFECFF] hover:underline font-medium">kanishak.sharma22@st.niituniversity.in</a></li>
                         </ul>
-                        <div className="mt-6">
-                            <button className="bg-violet-500 hover:bg-violet-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out">
-                                Send a Message
+                        <a href="https://mail.google.com/mail/u/0/?fs=1&to=kanishak.sharma22@st.niituniversity.in&su&body&tf=cm">
+                            <button type="button" className="px-8 py-3 font-bold rounded dark:bg-neutral-100 text-black hover:bg-neutral-300 hover:cursor-pointer">
+                                Send an Email
                             </button>
-                        </div>
+                        </a>
                     </div>
                 );
             default:
