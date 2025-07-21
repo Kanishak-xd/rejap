@@ -70,16 +70,21 @@ export default function SupportInfo() {
                     <div className="pt-12 rounded-b-lg shadow-lg text-gray-200">
                         <h2 className="text-3xl font-bold mb-6">Terms of Service</h2>
                         <p className="mb-4 leading-relaxed">
-                            These terms govern your use of our services. By accessing or using our platform,
-                            you agree to be bound by these terms. This includes guidelines on acceptable use,
-                            intellectual property rights, and disclaimers.
+                            By using this platform, you agree to the following terms and conditions:
                         </p>
+                        <ul className="list-disc list-inside mb-4">
+                            <li>The platform is completely free to use and is open to users of all ages, including minors.</li>
+                            <li>You may not attempt to redistribute or replicate the learning content provided.</li>
+                            <li>Users cannot upload their own content but can interact with chapters, update profiles, and view leaderboards.</li>
+                            <li>You are responsible for maintaining the confidentiality of your login credentials.</li>
+                            <li>The platform may experience temporary downtime due to its backend being hosted on free-tier services.</li>
+                        </ul>
                         <p className="leading-relaxed">
-                            Please read them carefully. We reserve the right to update or modify these terms
-                            at any time without prior notice. Continued use of the service after such changes
-                            constitutes your acceptance of the new terms.
+                            Account deletion is not currently available but may be introduced in the future. Continued use of the service
+                            constitutes agreement to these terms.
                         </p>
                     </div>
+
                 );
             case 'faq':
                 return (
