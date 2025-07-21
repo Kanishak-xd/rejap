@@ -88,8 +88,8 @@ export default function SupportInfo() {
                 );
             case 'faq':
                 return (
-                    <section className="text-white mt-6">
-                        <div className="container flex flex-col justify-start items-start py-8">
+                    <section className="text-white pt-12">
+                        <div className="container flex flex-col justify-start items-start">
                             <h2 className="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
                             <div className="join join-vertical bg-neutral-950 max-w-3xl rounded-t-md">
                                 <div className="collapse collapse-arrow join-item border-neutral-800 border rounded-t-md">
@@ -123,10 +123,17 @@ export default function SupportInfo() {
                     <div className="pt-12 rounded-b-lg shadow-lg text-gray-200">
                         <h2 className="text-3xl font-bold mb-6">About Us</h2>
                         <p className="mb-4 leading-relaxed">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque laudantium accusantium, illo aspernatur eligendi earum dicta molestias, optio ex repudiandae magni, nesciunt quam hic voluptates. Impedit illum ab officiis natus.
+                            I built this platform during my final year at NIIT University, where I'm pursuing a B.Tech in
+                            Computer Science Engineering with a specialization in Cybersecurity.
+                        </p>
+                        <p className="mb-4 leading-relaxed">
+                            It started as a personal summer project combining my interests in coding, UI/UX, and the Japanese language.
+                            My goal was to create something fun, engaging, and modern — a refreshing change from traditional
+                            textbook-style learning — to help beginners prepare for the JLPT N5/N4 exams.
                         </p>
                         <p className="leading-relaxed">
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa corporis praesentium commodi? A quasi fugiat laborum aliquid labore culpa quidem inventore modi officiis, cupiditate, nobis assumenda iusto eos sequi non.
+                            The platform focuses on fast recognition and recall of Japanese scripts, and at the same time,
+                            it's helping me grow as a full-stack MERN developer and understand website architecture better.
                         </p>
                     </div>
                 );
