@@ -22,7 +22,7 @@ export default function SupportInfo() {
         `flex items-center flex-shrink-0 px-5 py-2 border-b-4 text-lg font-medium rounded-t-lg transition-colors duration-300 ease-in-out
     ${activeTab === tabName
             ? 'border-violet-300 text-neutral-300' // active tab style
-            : 'text-gray-400 hover:text-gray-200 border-b-2 border-gray-600 hover:cursor-pointer' // inactive tab style
+            : 'text-gray-400 hover:text-gray-200 border-b-2 border-neutral-800 hover:cursor-pointer' // inactive tab style
         }`;
 
     // render based on active tab
@@ -33,15 +33,35 @@ export default function SupportInfo() {
                     <div className="pt-12 rounded-b-lg shadow-lg text-gray-200">
                         <h2 className="text-3xl font-bold mb-6">Privacy Policy</h2>
                         <p className="mb-4 leading-relaxed">
-                            Your privacy is important to us. This policy explains how we collect, use,
-                            and protect your personal information. We are committed to ensuring the
-                            security and confidentiality of your data. We do not share your personal
-                            information with third parties without your explicit consent.
+                            Your privacy is important to us. This policy outlines the types of information we collect,
+                            how we use it, and how we protect it.
                         </p>
-                        <p className="leading-relaxed">
-                            For more details, please refer to our full privacy document linked in the footer.
-                            We regularly review our privacy practices to ensure compliance with the latest
-                            data protection regulations.
+                        <h3 className="text-xl font-semibold text-[#BFECFF] mb-2">1. Information We Collect</h3>
+                        <ul className="list-disc list-inside mb-4">
+                            <li>Username, email address, and encrypted password handled by Firebase Authentication</li>
+                            <li>Profile photo, stored via a CDN</li>
+                            <li>Language learning progress across chapters and levels</li>
+                            <li>User activity logs like login/logout, page visits, level start/completion</li>
+                            <li>Account creation and profile update timestamps</li>
+                            <li>User role like admin or standard user</li>
+                        </ul>
+                        <h3 className="text-xl font-semibold text-[#BFECFF] mb-2">2. How We Use This Information</h3>
+                        <p className="mb-4 leading-relaxed">
+                            This data is used solely to enhance your learning experience on the platform, track your progress,
+                            display your profile on the leaderboard, and improve the app through usage analysis. No personally
+                            identifiable information is shared with third parties.
+                        </p>
+                        <h3 className="text-xl font-semibold text-[#BFECFF] mb-2">3. Data Storage</h3>
+                        <p className="mb-4 leading-relaxed">
+                            Authentication is managed by Firebase. All other user data and activity logs are securely stored
+                            in a MongoDB database. Your passwords are encrypted and are not visible to us at any point.
+                        </p>
+                        <h3 className="text-xl font-semibold text-[#BFECFF] mb-2">4. Communication</h3>
+                        <p className="mb-4 leading-relaxed">
+                            The platform only sends password reset emails through Firebase. No promotional or newsletter emails
+                            are sent currently.<br />
+                            We are committed to safeguarding your privacy. For questions regarding data privacy, feel free to
+                            contact us via email.
                         </p>
                     </div>
                 );
@@ -132,7 +152,7 @@ export default function SupportInfo() {
                             setActiveTab('privacy');
                             window.location.hash = 'privacy';
                         }} >
-                            Privacy
+                            Privacy Policy
                         </button>
                         <button className={tabButtonClass('terms')} onClick={() => {
                             setActiveTab('terms');
