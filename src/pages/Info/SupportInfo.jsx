@@ -88,25 +88,35 @@ export default function SupportInfo() {
                 );
             case 'faq':
                 return (
-                    <div className="pt-12 rounded-b-lg shadow-lg text-gray-200">
-                        <h2 className="text-3xl font-bold mb-6">Help / FAQ</h2>
-                        <div className="space-y-6">
-                            <div>
-                                <h3 className="text-xl font-semibold mb-2 text-violet-300">Q: How do I reset my password?</h3>
-                                <p className="leading-relaxed">
-                                    A: You can reset your password by visiting the login page and clicking on the
-                                    "Forgot Password" link. Follow the instructions sent to your registered email address.
-                                </p>
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-semibold mb-2 text-violet-300">Q: How can I contact support?</h3>
-                                <p className="leading-relaxed">
-                                    A: You can reach our support team via the 'Contact' tab, or by emailing us at
-                                    support@example.com. Our team is available 24/7.
-                                </p>
+                    <section className="text-white mt-6">
+                        <div className="container flex flex-col justify-start items-start py-8">
+                            <h2 className="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+                            <div className="join join-vertical bg-neutral-950 max-w-3xl rounded-t-md">
+                                <div className="collapse collapse-arrow join-item border-neutral-800 border rounded-t-md">
+                                    <input type="radio" name="my-accordion-4" defaultChecked />
+                                    <div className="collapse-title font-semibold">I can't sign up or log in — what should I do?</div>
+                                    <div className="collapse-content text-sm">Please wait a few seconds and try again. The platform's backend is hosted on a free service that may take
+                                        time to restart after inactivity.</div>
+                                </div>
+                                <div className="collapse collapse-arrow join-item border-neutral-800 border">
+                                    <input type="radio" name="my-accordion-4" />
+                                    <div className="collapse-title font-semibold">Why does the site sometimes show a 404 error?</div>
+                                    <div className="collapse-content text-sm">This may occur due to limitations of the hosting service. We recommend navigating using in-app links
+                                        instead of refreshing the page.</div>
+                                </div>
+                                <div className="collapse collapse-arrow join-item border-neutral-800 border">
+                                    <input type="radio" name="my-accordion-4" />
+                                    <div className="collapse-title font-semibold">Can I use this platform on my phone?</div>
+                                    <div className="collapse-content text-sm">Currently, the platform is best used on desktop browsers. A responsive mobile version is planned for the future.</div>
+                                </div>
+                                <div className="collapse collapse-arrow join-item border-neutral-800 border">
+                                    <input type="radio" name="my-accordion-4" />
+                                    <div className="collapse-title font-semibold">Can I log in on multiple devices?</div>
+                                    <div className="collapse-content text-sm">Yes, your progress is saved and synced, so you can log in from different devices using the same account.</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
                 );
             case 'about':
                 return (
