@@ -5,7 +5,7 @@ export default function Footer() {
         <footer className="px-4 divide-y bg-black text-neutral-300 border-neutral-800 border-t-1 flex justify-center items-center w-full">
             <div className="container flex flex-col justify-between py-15 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
-                    <a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
+                    <a rel="noopener noreferrer" href="/" className="flex justify-center space-x-3 lg:justify-start">
                         <span className="self-center text-3xl font-bold ">REJAP</span>
                     </a>
                     <div className="py-2 text-sm text-left text-neutral-400 w-35 cursor-default">Copyright © REJAP. All Rights Reserved.</div>
@@ -35,19 +35,19 @@ export default function Footer() {
                         <h3 className="tracking-wide uppercase text-neutral-400">Support & Info</h3>
                         <ul className="space-y-1">
                             <li>
-                                <Link to="#" rel="noopener noreferrer" className="hover:text-white">Privacy</Link>
+                                <a href="/SupportInfo#privacy" rel="noopener noreferrer" className="hover:text-white">Privacy</a>
                             </li>
                             <li>
-                                <Link to="#" rel="noopener noreferrer" className="hover:text-white">Terms of Service</Link>
+                                <a href="/SupportInfo#terms" rel="noopener noreferrer" className="hover:text-white">Terms of Service</a>
                             </li>
                             <li>
-                                <Link to="#" rel="noopener noreferrer" className="hover:text-white">Help / FAQ</Link>
+                                <a href="/SupportInfo#faq" rel="noopener noreferrer" className="hover:text-white">Help / FAQ</a>
                             </li>
                             <li>
-                                <Link to="#" rel="noopener noreferrer" className="hover:text-white">Contact</Link>
+                                <a href="/SupportInfo#about" rel="noopener noreferrer" className="hover:text-white">About</a>
                             </li>
                             <li>
-                                <Link to="#" rel="noopener noreferrer" className="hover:text-white">About</Link>
+                                <a href="/SupportInfo#contact" rel="noopener noreferrer" className="hover:text-white">Contact</a>
                             </li>
                         </ul>
                     </div>
