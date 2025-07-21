@@ -27,19 +27,19 @@ export default function SupportInfo() {
                 <div className="w-full max-w-4xl mt-10 flex flex-col items-center mb-30">
                     {/* Tab Navigation */}
                     <div className="flex w-full justify-start -mx-4 space-x-2 overflow-x-auto overflow-y-hidden flex-nowrap rounded-t-lg shadow-lg">
-                        <button className={tabButtonClass('privacy')} onClick={() => navigate('privacy')}>
+                        <button className={tabButtonClass('privacy')} onClick={() => navigate('/SupportInfo/privacy')}>
                             Privacy Policy
                         </button>
-                        <button className={tabButtonClass('terms')} onClick={() => navigate('terms')}>
+                        <button className={tabButtonClass('terms')} onClick={() => navigate('/SupportInfo/terms')}>
                             Terms of Service
                         </button>
-                        <button className={tabButtonClass('faq')} onClick={() => navigate('faq')}>
+                        <button className={tabButtonClass('faq')} onClick={() => navigate('/SupportInfo/faq')}>
                             Help / FAQ
                         </button>
-                        <button className={tabButtonClass('about')} onClick={() => navigate('about')}>
+                        <button className={tabButtonClass('about')} onClick={() => navigate('/SupportInfo/about')}>
                             About
                         </button>
-                        <button className={tabButtonClass('contact')} onClick={() => navigate('contact')}>
+                        <button className={tabButtonClass('contact')} onClick={() => navigate('/SupportInfo/contact')}>
                             Contact
                         </button>
                     </div>
