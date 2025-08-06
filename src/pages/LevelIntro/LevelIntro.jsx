@@ -17,10 +17,7 @@ export default function LevelIntro() {
             fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/progress/${user.uid}`)
                 .then(res => res.json())
                 .then(data => {
-                    console.log("Progress from backend:", data);
                     const userProgress = data.progress?.[chapterId] || [];
-                    console.log("Chapter Progress:", userProgress);
-                    console.log("Current levelId:", levelId);
                     if (userProgress.includes(levelId.toString())) {
                         setCompleted(true);
                     } else {
@@ -92,7 +89,7 @@ export default function LevelIntro() {
                         <button className="flex gap-1 py-3 justify-center bg-[#FFF6E3] rounded-r-lg hover:bg-[#E1AEFF] hover:cursor-pointer transition hover:scale-101" onClick={goToNextLevel}>
                             Next Level
                             <svg className="w-7 h-7 mt-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-width="3" d="m9 5 7 7-7 7" />
+                                <path stroke="currentColor" strokeWidth="3" d="m9 5 7 7-7 7" />
                             </svg>
                         </button>
                     </div>

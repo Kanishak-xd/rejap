@@ -1,28 +1,26 @@
 import React, { useState } from 'react';
-import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
-import { auth, db } from '../../../../firebase.jsx';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../../../firebase.jsx';
 import { useToast } from '../../../../context/ToastContext.jsx';
-import { useNavigate } from 'react-router-dom';
 
 import SignUpHeader from './signUpComps/SignUpHeader.jsx';
-import SignUpEmail from './signUpComps/SignUpEmail.jsx';
 import SignUpUser from './signUpComps/SignUpUser.jsx';
+import SignUpEmail from './signUpComps/SignUpEmail.jsx';
 import SignUpPwd from './signUpComps/SignUpPwd.jsx';
 import SignUpFooter from './signUpComps/SignUpFooter.jsx';
 
 export default function SignUpForm({ setMode }) {
-    const navigate = useNavigate();
-    const { showToast } = useToast();
-
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [status, setStatus] = useState('');
 
+    const { showToast } = useToast();
+
     const handleSignUp = () => {
         if (!username || !email || !password) {
-            setStatus("All fields are required");
+            setStatus('Please fill in all fields.');
             return;
         }
 
@@ -30,14 +28,7 @@ export default function SignUpForm({ setMode }) {
             .then(async (userCredential) => {
                 const user = userCredential.user;
 
-                // Store in Firestore
-                await setDoc(doc(db, "users", user.uid), {
-                    username,
-                    email: user.email,
-                    createdAt: new Date()
-                });
-
-                // Store in MongoDB
+                // Store in MongoDB only
                 await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/upsert`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

@@ -14,25 +14,11 @@ export const AuthProvider = ({ children }) => {
             setLoading(false);
 
             if (currentUser) {
-                let username = currentUser.displayName || "";
-
-                // If displayName is empty, fetch from Firestore
-                if (!username) {
-                    try {
-                        const res = await fetch(
-                            `https://firestore.googleapis.com/v1/projects/rejap-0909/databases/(default)/documents/users/${currentUser.uid}`
-                        );
-                        const data = await res.json();
-                        username = data.fields?.username?.stringValue || "Anonymous";
-                    } catch (err) {
-                        console.warn("Couldn't fetch Firestore username:", err);
-                        username = "Anonymous";
-                    }
-                }
+                let username = currentUser.displayName || "Anonymous";
 
                 // Send to MongoDB
                 try {
-                    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/upsert`, {
+                    const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/upsert`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({
@@ -42,9 +28,16 @@ export const AuthProvider = ({ children }) => {
                             profilePic: currentUser.photoURL || "",
                         }),
                     });
-                    console.log("User upserted to MongoDB");
+
+                    if (response.ok) {
+                        console.log("User upserted to MongoDB");
+                    } else if (response.status === 409) {
+                        // User already exists
+                    } else {
+                        console.warn("Failed to upsert user:", response.status, response.statusText);
+                    }
                 } catch (err) {
-                    console.error("Failed to upsert user:", err);
+                    console.warn("Failed to upsert user:", err.message);
                 }
             }
         });

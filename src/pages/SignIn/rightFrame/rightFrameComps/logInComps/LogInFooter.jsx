@@ -1,10 +1,14 @@
 import React from 'react'
 
-export default function LogInFooter({ setMode, handleLogin, status }) {
+export default function LogInFooter({ setMode, handleLogin, status, isLoading }) {
   return (
     <div className='w-full h-[10%] flex flex-col justify-center items-center'>
-      <button onClick={handleLogin} className="w-full text-center mt-8 bg-white text-black font-outfit font-semibold text-3xl/13 rounded-md cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 ease-in-out">
-        Log in
+      <button
+        onClick={handleLogin}
+        disabled={isLoading}
+        className="w-full text-center mt-8 bg-white text-black font-outfit font-semibold text-3xl/13 rounded-md cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {isLoading ? 'Logging in...' : 'Log in'}
       </button>
       <p className="text-sm text-green-300 mt-2">{status}</p>
       <button

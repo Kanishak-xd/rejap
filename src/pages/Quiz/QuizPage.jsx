@@ -161,8 +161,8 @@ export default function QuizPage() {
       </div>
       <div className="flex gap-8 w-3/10 items-center">
         <button onClick={() => navigate("/levels/")} className="py-1 px-5 bg-neutral-900 rounded-lg border-1 border-neutral-800 cursor-pointer hover:scale-96">
-          <svg class="w-8 h-8 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-width="4" d="m15 19-7-7 7-7" />
+          <svg className="w-8 h-8 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" strokeWidth="4" d="m15 19-7-7 7-7" />
           </svg>
         </button>
         <p className="text-4xl font-semibold py-10">Select the correct option</p>

@@ -30,7 +30,7 @@ export default function Scripts() {
                         <div className="flex flex-col justify-center items-center animate-float mt-12">
                             <a href="#chaptersSection" className="text-center flex justify-center items-center flex-col">
                                 <p className="font-bold text-amber-50 text-2xl mt-2">SCROLL DOWN</p>
-                                <svg className="-translate-y-3" xmlns="http://www.w3.org/2000/svg" width="48px" viewBox="0 -960 960 960" fill="#e3e3e3"><path d="M480-344 240-584l43-43 197 197 197-197 43 43-240 240Z" stroke="#e3e3e3" stroke-width="30" /></svg>
+                                <svg className="-translate-y-3" xmlns="http://www.w3.org/2000/svg" width="48px" viewBox="0 -960 960 960" fill="#e3e3e3"><path d="M480-344 240-584l43-43 197 197 197-197 43 43-240 240Z" stroke="#e3e3e3" strokeWidth="30" /></svg>
                             </a>
                         </div>
                     </div>

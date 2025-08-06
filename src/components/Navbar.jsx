@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import { auth } from "../firebase.jsx";
 import { signOut } from 'firebase/auth';
 import { useAuth } from '../context/AuthContext.jsx';
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase.jsx";
 import Sidebar from "./Sidebar";
+import { FiMenu } from 'react-icons/fi';
 
 export default function Navbar() {
     const [username, setUsername] = useState(null);
@@ -30,7 +29,6 @@ export default function Navbar() {
                 setProfilePic(null);
             }
         });
-
         return () => unsubscribe();
     }, []);
 
@@ -40,21 +38,34 @@ export default function Navbar() {
                 <Link to="/" className="text-inherit sm:text-xl md:text-2xl xl:text-2xl font-semibold">
                     REJAP
                 </Link>
-                <ul className="sm:text-md md:text-lg xl:text-lg font-semibold flex justify-between items-center gap-12">
-                    <li><Link to="/levels">CHAPTERS</Link></li>
-                    <li><Link to="/rankings">LEADERBOARD</Link></li>
-                    {username ? (
-                        <li>
-                            <button onClick={() => setIsSidebarOpen(true)} className="hover:cursor-pointer uppercase">
-                                {username}
-                            </button>
-                        </li>
-                    ) : (
-                        <li><Link to="/sign-in">SIGN IN</Link></li>
-                    )}
-                </ul>
+
+                {/* Navigation Links and Hamburger */}
+                <div className="flex items-center gap-12">
+                    {/* Desktop Navlinks - Hidden on small screens */}
+                    <ul className="hidden md:flex sm:text-md md:text-lg xl:text-lg font-semibold justify-between items-center gap-12">
+                        <li><Link to="/levels">CHAPTERS</Link></li>
+                        <li><Link to="/rankings">LEADERBOARD</Link></li>
+                        {username ? (
+                            <li>
+                                <button onClick={() => setIsSidebarOpen(true)} className="hover:cursor-pointer uppercase">
+                                    {username}
+                                </button>
+                            </li>
+                        ) : (
+                            <li><Link to="/sign-in">SIGN IN</Link></li>
+                        )}
+                    </ul>
+
+                    {/* Hamburger Button - Only visible on small screens */}
+                    <div className='md:hidden'>
+                        <button onClick={() => setIsSidebarOpen(true)} className='text-2xl'>
+                            <FiMenu />
+                        </button>
+                    </div>
+                </div>
             </nav>
 
+            {/* Sidebar - Works for both desktop and mobile */}
             {username && (<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} username={username} email={email} profilePic={profilePic} />)}
         </>
     );
