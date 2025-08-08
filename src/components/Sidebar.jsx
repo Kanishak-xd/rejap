@@ -52,10 +52,10 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
     return (
         <div
             className={`fixed top-0 right-0 h-full w-72 bg-black border-l border-neutral-700 text-white z-50 transform ${isOpen ? "translate-x-0" : "translate-x-full"
-                } transition-transform duration-300 ease-in-out shadow-lg p-6 rounded-l-2xl`}
+                } transition-transform duration-300 ease-in-out shadow-lg rounded-l-2xl`}
         >
             {/* Header */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between py-4 px-5">
                 <div className="flex items-center gap-4">
                     {username ? (
                         <>
@@ -70,16 +70,16 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
                             <h2 className="font-semibold truncate">{username}</h2>
                         </>
                     ) : (
-                        <h2 className="font-semibold">Welcome</h2>
+                        <h2 className="font-semibold">REJAP</h2>
                     )}
                 </div>
-                <button onClick={() => setIsOpen(false)} className="text-2xl font-bold cursor-pointer">×</button>
+                <button onClick={() => setIsOpen(false)} className="text-2xl font-bold cursor-pointer mr-1 md:mr-1 lg:mr-6 xl:mr-4">×</button>
             </div>
 
-            <div className="divider"></div>
+            <div className="divider mx-6 my-[0.5rem]"></div>
 
             {/* Links */}
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2 px-6">
                 {username && (
                     <Link
                         to="/profile"
