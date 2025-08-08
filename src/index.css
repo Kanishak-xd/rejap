@@ -54,10 +54,12 @@
       Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: black;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   body {
     background-color: black;
+    overflow-x: hidden;
   }
 
 }

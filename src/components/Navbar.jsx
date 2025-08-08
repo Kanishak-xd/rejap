@@ -34,12 +34,12 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="text-[#F3F3EE] font-outfit flex justify-between items-center px-10 py-4 fixed top-0 left-0 w-full z-50">
+            <nav className="text-[#F3F3EE] font-outfit flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 fixed top-0 left-0 w-full z-50">
                 <Link to="/" className="text-inherit sm:text-xl md:text-2xl xl:text-2xl font-semibold">
                     REJAP
                 </Link>
 
-                <div className="flex items-center gap-12">
+                <div className="flex items-center gap-4 sm:gap-8 md:gap-12">
                     {/* Nav Links */}
                     <ul className="hidden md:flex sm:text-md md:text-lg xl:text-lg font-semibold justify-between items-center gap-12">
                         <li><Link to="/levels">CHAPTERS</Link></li>
