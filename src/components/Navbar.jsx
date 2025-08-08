@@ -1,9 +1,9 @@
+// Navbar.jsx
 import React from 'react';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { auth } from "../firebase.jsx";
 import { signOut } from 'firebase/auth';
-import { useAuth } from '../context/AuthContext.jsx';
 import Sidebar from "./Sidebar";
 import { FiMenu } from 'react-icons/fi';
 
@@ -39,34 +39,23 @@ export default function Navbar() {
                     REJAP
                 </Link>
 
-                {/* Navigation Links and Hamburger */}
                 <div className="flex items-center gap-12">
-                    {/* Desktop Navlinks - Hidden on small screens */}
+                    {/* Nav Links */}
                     <ul className="hidden md:flex sm:text-md md:text-lg xl:text-lg font-semibold justify-between items-center gap-12">
                         <li><Link to="/levels">CHAPTERS</Link></li>
                         <li><Link to="/rankings">LEADERBOARD</Link></li>
-                        {username ? (
-                            <li>
-                                <button onClick={() => setIsSidebarOpen(true)} className="hover:cursor-pointer uppercase">
-                                    {username}
-                                </button>
-                            </li>
-                        ) : (
-                            <li><Link to="/sign-in">SIGN IN</Link></li>
-                        )}
                     </ul>
 
-                    {/* Hamburger Button - Only visible on small screens */}
-                    <div className='md:hidden'>
-                        <button onClick={() => setIsSidebarOpen(true)} className='text-2xl'>
-                            <FiMenu />
-                        </button>
-                    </div>
+                    {/* Hamburger Button */}
+                    <button onClick={() => setIsSidebarOpen(true)} className='text-2xl'>
+                        <FiMenu />
+                    </button>
                 </div>
             </nav>
 
-            {/* Sidebar - Works for both desktop and mobile */}
-            {username && (<Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} username={username} email={email} profilePic={profilePic} />)}
+            <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen}
+                username={username} email={email} profilePic={profilePic}
+            />
         </>
     );
 }

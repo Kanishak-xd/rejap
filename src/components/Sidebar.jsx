@@ -1,3 +1,4 @@
+// Sidebar.jsx
 import { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.jsx";
@@ -8,7 +9,10 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
 
     useEffect(() => {
         const user = auth.currentUser;
-        if (!user) return;
+        if (!user) {
+            setIsAdmin(false);
+            return;
+        }
 
         const checkAdmin = async () => {
             try {
@@ -16,14 +20,17 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
                 const data = await res.json();
                 if (data.role === "Admin") {
                     setIsAdmin(true);
+                } else {
+                    setIsAdmin(false);
                 }
             } catch (err) {
                 console.error("Error checking admin role:", err);
+                setIsAdmin(false);
             }
         };
 
         checkAdmin();
-    }, []);
+    }, [username]);
 
     const handleLogout = async () => {
         const user = auth.currentUser;
@@ -38,7 +45,6 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
                 }),
             });
         }
-
         await signOut(auth);
         setIsOpen(false);
     };
@@ -51,15 +57,21 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-4">
-                    <div className="avatar">
-                        <div className="mask mask-squircle h-9 w-9">
-                            <img
-                                src={profilePic && profilePic.trim() !== "" ? profilePic : "/default-avatar.webp"}
-                                alt="User Avatar"
-                            />
-                        </div>
-                    </div>
-                    <h2 className="font-semibold truncate">{username}</h2>
+                    {username ? (
+                        <>
+                            <div className="avatar">
+                                <div className="mask mask-squircle h-9 w-9">
+                                    <img
+                                        src={profilePic && profilePic.trim() !== "" ? profilePic : "/default-avatar.webp"}
+                                        alt="User Avatar"
+                                    />
+                                </div>
+                            </div>
+                            <h2 className="font-semibold truncate">{username}</h2>
+                        </>
+                    ) : (
+                        <h2 className="font-semibold">Welcome</h2>
+                    )}
                 </div>
                 <button onClick={() => setIsOpen(false)} className="text-2xl font-bold cursor-pointer">×</button>
             </div>
@@ -68,16 +80,18 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
 
             {/* Links */}
             <nav className="flex flex-col gap-2">
-                <Link
-                    to="/profile"
-                    onClick={() => setIsOpen(false)}
-                    className="py-1 rounded-sm hover:bg-neutral-800 items-center justify-start flex flex-row gap-3"
-                >
-                    <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" strokeWidth="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                    </svg>
-                    <p>Your profile</p>
-                </Link>
+                {username && (
+                    <Link
+                        to="/profile"
+                        onClick={() => setIsOpen(false)}
+                        className="py-1 rounded-sm hover:bg-neutral-800 items-center justify-start flex flex-row gap-3"
+                    >
+                        <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeWidth="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                        <p>Your profile</p>
+                    </Link>
+                )}
 
                 <Link
                     to="/rankings"
@@ -114,15 +128,29 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
                     </Link>
                 )}
 
-                <button
-                    onClick={handleLogout}
-                    className="py-1 flex flex-row gap-3 rounded-sm hover:bg-neutral-800 items-center justify-start text-left text-red-400 "
-                >
-                    <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
-                    </svg>
-                    <p>Log out</p>
-                </button>
+                {/* Conditional rendering for sign in or logout */}
+                {username ? (
+                    <button
+                        onClick={handleLogout}
+                        className="py-1 flex flex-row gap-3 rounded-sm hover:bg-neutral-800 items-center justify-start text-left text-red-400"
+                    >
+                        <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
+                        </svg>
+                        <p>Log out</p>
+                    </button>
+                ) : (
+                    <Link
+                        to="/sign-in"
+                        onClick={() => setIsOpen(false)}
+                        className="py-1 flex flex-row gap-3 rounded-sm hover:bg-neutral-800 items-center justify-start text-left"
+                    >
+                        <svg className="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12H4m12 0-4 4m4-4-4-4M4 4h12a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H4" />
+                        </svg>
+                        <p>Sign in</p>
+                    </Link>
+                )}
             </nav>
         </div>
     );
