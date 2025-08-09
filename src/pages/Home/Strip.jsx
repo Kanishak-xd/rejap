@@ -3,9 +3,8 @@ import { WordsPullUp } from '../../components/WordsPullUp';
 
 export default function Strip() {
   const messages = [
-    "Best viewed with display scale at 100% and browser zoom at 100%",
-    "New lessons arriving soon, keep learning!",
-    "Your feedback is invaluable for growing this platform",
+    "New lessons on the way, keep learning!",
+    "Your feedback is appreciated!",
     "Keep exploring the language!",
   ];
 
@@ -26,7 +25,7 @@ export default function Strip() {
       <div className="animated-gradient w-full h-6 flex items-center justify-center overflow-hidden">
         <WordsPullUp
           text={messages[currentMessageIndex]}
-          className="font-outfit text-black sm:text-sm md:text-md xl:text-xl font-semibold m-0 p-0 cursor-default"
+          className="font-outfit text-black text-[1rem] sm:text-xl md:text-xl xl:text-xl font-semibold m-0 p-0 cursor-default"
         />
       </div>
     </div>
