@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 import { useAuth } from '../../context/AuthContext.jsx';
-import Footer from "../../components/Footer.jsx";
 
 export default function Leaderboard() {
     const [leaders, setLeaders] = useState([]);
@@ -35,43 +34,73 @@ export default function Leaderboard() {
     }, [user]);
 
     return (
-        <div className="pt-24 px-6 min-h-screen bg-black text-white flex items-center flex-col">
-            <div className="max-w-5xl w-3/4">
-                <h1 className="text-5xl font-bold font-outfit mb-8 text-center">LEADERBOARD</h1>
-                <div className="max-w-5xl w-full border-1 border-neutral-900 rounded-lg mb-20">
-                    <table className="table w-full overflow-hidden">
+        <div className="pt-24 px-4 sm:px-5 md:px-8 lg:px-10 xl:px-6 min-h-screen bg-black text-white flex items-center flex-col">
+            <div className="w-full max-w-5xl">
+                {/* Heading */}
+                <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold font-outfit mb-6 text-center">
+                    LEADERBOARD
+                </h1>
+
+                {/* Table wrapper */}
+                <div className="overflow-x-auto border border-neutral-900 rounded-lg mb-20">
+                    <table className="table w-full">
                         <thead className="bg-neutral-900 text-white">
                             <tr>
-                                <th className="px-4 py-3 text-left">Rank</th>
-                                <th className="px-4 py-3 text-left">Player</th>
-                                <th className="px-4 py-3 text-center">Lessons Completed</th>
+                                <th className="px-2 py-2 text-center text-[0.8125rem] sm:text-sm md:text-base whitespace-nowrap">
+                                    Rank
+                                </th>
+                                <th className="px-2 py-2 text-left text-[0.8125rem] sm:text-sm md:text-base whitespace-nowrap">
+                                    Player
+                                </th>
+                                <th className="px-2 py-2 text-center text-[0.8125rem] sm:text-sm md:text-base whitespace-nowrap">
+                                    Lessons
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {leaders.map((user, idx) => (
                                 <tr key={user._id || idx} className="bg-neutral-950 hover:bg-neutral-900 transition">
-                                    <td className="px-4 py-3">
-                                        {idx === 0 ? (
-                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/1st_oweekr.png" alt="1st place medal" className="w-8 h-8" />
-                                        ) : idx === 1 ? (
-                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/2nd_yai1xx.png" alt="2nd place medal" className="w-8 h-8" />
-                                        ) : idx === 2 ? (
-                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/3rd_pbxj9v.png" alt="3rd place medal" className="w-8 h-8" />
+                                    {/* Rank */}
+                                    <td className="px-2 py-2 text-center">
+                                        {idx < 3 ? (
+                                            <div className="flex justify-center items-center w-full h-8 sm:h-9">
+                                                <img
+                                                    src={
+                                                        idx === 0
+                                                            ? "https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/1st_oweekr.png"
+                                                            : idx === 1
+                                                                ? "https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/2nd_yai1xx.png"
+                                                                : "https://res.cloudinary.com/dykzzd9sy/image/upload/v1752079455/3rd_pbxj9v.png"
+                                                    }
+                                                    alt={`${idx + 1} place medal`}
+                                                    className="w-6 h-6 sm:w-7 sm:h-7 object-contain"
+                                                />
+                                            </div>
                                         ) : (
-                                            <span className="text-2xl font-bold text-white text-center ml-2.5">{idx + 1}</span>
+                                            <div className="flex justify-center items-center w-full h-8 sm:h-9">
+                                                <span className="text-[0.8125rem] sm:text-sm md:text-xl font-bold text-white">
+                                                    {idx + 1}
+                                                </span>
+                                            </div>
                                         )}
                                     </td>
-                                    <td className="px-1 py-3 flex items-center gap-4">
-                                        <div className="rounded-xl flex justify-center items-center w-14 h-14 bg-black">
+
+                                    {/* Player */}
+                                    <td className="px-2 py-2 flex items-center gap-2 sm:gap-3">
+                                        <div className="rounded-lg flex justify-center items-center w-8 h-8 sm:w-10 md:w-14 sm:h-10 md:h-14 bg-black border border-neutral-800">
                                             <img
                                                 src={user.profilePic || "/default-avatar.webp"}
                                                 alt="User avatar"
-                                                className="w-12 h-12 rounded-md object-cover"
+                                                className="w-6 h-6 sm:w-8 md:w-12 sm:h-8 md:h-12 rounded-md object-cover"
                                             />
                                         </div>
-                                        <span className="text-lg font-semibold">{user.username || "Unnamed"}</span>
+                                        <span className="text-[0.8125rem] sm:text-sm md:text-lg font-semibold truncate max-w-[80px] sm:max-w-[110px] md:max-w-none">
+                                            {user.username || "Unnamed"}
+                                        </span>
                                     </td>
-                                    <td className="px-4 py-3 text-center text-white text-xl font-medium">
+
+                                    {/* Lessons */}
+                                    <td className="px-2 py-2 text-center text-white text-[0.8125rem] sm:text-sm md:text-xl font-medium">
                                         {user.levelsCompleted}
                                     </td>
                                 </tr>
