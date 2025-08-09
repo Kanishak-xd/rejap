@@ -79,7 +79,6 @@ export default function Leaderboard() {
                         </tbody>
                     </table>
                 </div>
-                <Footer />
             </div>
         </div>
     );

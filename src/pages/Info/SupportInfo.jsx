@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 
 export default function SupportInfo() {
     const navigate = useNavigate();
@@ -173,7 +172,6 @@ export default function SupportInfo() {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div >
     );
 }

@@ -1,5 +1,6 @@
 import './App.css';
 import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx'
 import Home from './pages/Home/Home.jsx';
 import SignIn from './pages/SignIn/SignIn.jsx';
 import Levels from './pages/Levels/Levels.jsx';
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/admin-dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
 
         </Routes>
+        <Footer />
       </BrowserRouter>
     </AuthProvider>
   );
