@@ -4,27 +4,33 @@ export default function Chapters() {
     return (
         <>
             <section id="chaptersSection" className="w-full h-screen mt-50 flex justify-center items-center text-white font-outfit">
-                <div className="flex flex-col h-[70vh] w-11/12 max-w-6xl mx-auto gap-4">
+                <div className="flex flex-col h-[65vh] w-11/12 max-w-6xl mx-auto gap-4">
                     {/* 1 */}
                     <div
-                        className="h-1/6 bg-pink-100 border-2 border-pink-200 flex items-center justify-center text-2xl font-bold text-pink-800 rounded-lg xl:hidden"
+                        className="h-1/6 flex items-center xl:hidden"
                     >
-                        1
+                        <p className="text-[2.48rem] sm:text-[4.9rem] md:text-[5.67rem] font-bold text-white">
+                            THE CHAPTERS
+                        </p>
                     </div>
 
                     {/* Main content: Left Image + Right 3-column block */}
                     <div className="flex flex-1 flex-col xl:flex-row gap-4 h-auto">
                         {/* 2 */}
-                        <div className="xl:w-2/5 hidden xl:block bg-blue-100 border-2 border-blue-200 flex items-center justify-center text-2xl font-bold text-blue-800 rounded-lg">
-                            2
+                        <div className="xl:w-4/8 hidden xl:block flex items-center justify-center text-2xl font-bold">
+                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874111/getStarted_xmbz2h.webp"
+                                className="object-cover w-full h-full rounded-4xl">
+                            </img>
                         </div>
 
                         {/* Right side */}
-                        <div className="flex-auto xl:flex-1 flex flex-col gap-4 xl:w-3/5 w-5/5 ">
+                        <div className="flex-auto xl:flex-1 flex flex-col gap-4 xl:w-4/8 w-5/5 ">
 
                             {/* 3 */}
-                            <div className="xl:h-1/4 hidden xl:block bg-green-100 border-2 border-green-200 flex items-center justify-center text-2xl font-bold text-green-800 rounded-lg">
-                                3
+                            <div className="xl:h-1/4 hidden xl:block flex">
+                                <p className="text-[4.7rem] font-bold text-white">
+                                    THE CHAPTERS
+                                </p>
                             </div>
 
                             {/* Two rows + archive */}
@@ -33,11 +39,11 @@ export default function Chapters() {
                                 {/* Left block */}
                                 <div className="flex flex-col flex-1 gap-4">
                                     {/* 4 */}
-                                    <div className="flex-1 bg-yellow-100 border-2 border-yellow-200 flex items-center justify-center text-xl font-bold text-yellow-800 rounded-xl">
+                                    <div className="flex-1 bg-neutral-900 flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         4
                                     </div>
                                     {/* 6 */}
-                                    <div className="flex-1 bg-teal-100 border-2 border-teal-200 flex items-center justify-center text-xl font-bold text-teal-800 rounded-xl">
+                                    <div className="flex-1 bg-neutral-900 flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         6
                                     </div>
                                 </div>
@@ -45,19 +51,21 @@ export default function Chapters() {
                                 {/* Middle block */}
                                 <div className="flex flex-col flex-1 gap-4">
                                     {/* 5 */}
-                                    <div className="flex-1 bg-purple-100 border-2 border-purple-200 flex items-center justify-center text-xl font-bold text-purple-800 rounded-xl">
+                                    <div className="flex-1 bg-neutral-900 flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         5
                                     </div>
                                     {/* 7 */}
-                                    <div className="flex-1 bg-orange-100 border-2 border-orange-200 flex items-center justify-center text-xl font-bold text-orange-800 rounded-xl">
+                                    <div className="flex-1 bg-neutral-900 flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         7
                                     </div>
                                 </div>
 
                                 {/* Right block: 8 */}
                                 <div className="w-1/4 flex flex-col">
-                                    <div className="flex-1 bg-indigo-100 border-2 border-indigo-200 flex items-center justify-center text-2xl font-bold text-indigo-800 rounded-xl">
-                                        8
+                                    <div className="flex-1 bg-neutral-900 flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874109/archiveImg_qigpzp.webp"
+                                            className="object-cover w-full h-full rounded-4xl">
+                                        </img>
                                     </div>
                                 </div>
                             </div>
