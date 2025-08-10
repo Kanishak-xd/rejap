@@ -17,10 +17,14 @@ export default function Chapters() {
                     {/* Main content: Left image + Right 3-column block */}
                     <div className="flex flex-1 flex-col xl:flex-row gap-4 h-auto">
                         {/* Left image block [2] */}
-                        <div className="xl:w-4/8 hidden xl:block flex items-center justify-center text-2xl font-bold">
+                        <div className="xl:w-4/8 hidden xl:block flex items-center justify-center relative">
                             <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874111/getStarted_xmbz2h.webp"
                                 className="object-cover w-full h-full rounded-4xl">
                             </img>
+                            <div className="absolute bottom-6 left-6 text-white">
+                                <p className="font-bold text-6xl text-shadow-lg">GET STARTED</p>
+                                <p className="font-light text-3xl text-shadow-lg">START WITH CHAPTER ONE</p>
+                            </div>
                         </div>
 
                         {/* Right side */}
@@ -62,10 +66,14 @@ export default function Chapters() {
 
                                 {/* Archive block [8] */}
                                 <div className="w-1/4 flex flex-col">
-                                    <div className="flex-1 bg-neutral-900 flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                    <div className="flex-1 relative overflow-hidden hover:text-black text-white bg-neutral-900 flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874109/archiveImg_qigpzp.webp"
-                                            className="object-cover w-full h-full rounded-4xl">
+                                            className="hover:scale-120 transition object-cover w-full h-full rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         </img>
+                                        <div className="absolute bottom-3 sm:bottom-5 xl:bottom-6 w-full flex flex-col items-center">
+                                            <p className="font-bold text-[0.7rem] sm:text-xl xl:text-xl text-shadow-lg">ARCHIVE</p>
+                                            <p className="font-light text-[0.6rem] sm:text-lg xl:text-lg text-shadow-lg">RESOURCES</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
