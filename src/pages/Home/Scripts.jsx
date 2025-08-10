@@ -64,7 +64,7 @@ export default function Scripts() {
                 </div>
 
                 {/* Scroll Down Section */}
-                <div className="w-full mt-10 md:mt-16 animate-float">
+                <div className="w-full mt-10 md:mt-16 animate-float hidden md:block">
                     <div className="flex flex-col justify-center items-center">
                         <a href="#chaptersSection" className="text-center flex flex-col items-center">
                             <p className="font-bold text-amber-50 text-base sm:text-lg md:text-2xl mt-2">
