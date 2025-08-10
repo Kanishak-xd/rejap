@@ -25,19 +25,25 @@ export default function SignUpPwd({ password, setPassword }) {
         else if (!rules.number) setMessage("At least 1 number");
         else if (!rules.special) setMessage("At least 1 special character");
         else if (!rules.noSpace) setMessage("No spaces allowed");
-        else setMessage(""); // All good
+        else setMessage("");
     }, [password, touched]);
 
     return (
-        <div className='w-full h-[20%] flex flex-col justify-start items-start'>
-            <h2 className='font-outfit font-medium text-[1.5rem] text-white cursor-default mb-1'>Password</h2>
+        <div className='w-full h-20 sm:h-20 flex flex-col justify-center items-start mb-2'>
+            <h2 className='font-outfit font-medium text-[1.3rem] sm:text-[1.5rem] text-white cursor-default'>
+                Password
+            </h2>
             <input
-                type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)}
-                onBlur={() => setTouched(true)} onFocus={() => setTouched(true)}
-                className="w-full px-4 py-3 rounded-md bg-[#1A1A1A] text-white focus:outline-none focus:ring-2 focus:ring-white"
+                type="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                onBlur={() => setTouched(true)}
+                onFocus={() => setTouched(true)}
+                className="w-full px-4 sm:px-4 py-3 sm:py-3 rounded-md bg-[#1A1A1A] text-white text-base sm:text-base focus:outline-none focus:ring-2 focus:ring-white"
             />
             {message && (
-                <p className="text-red-400 text-sm mt-2 font-outfit">
+                <p className="text-red-400 text-sm sm:text-sm mt-2 font-outfit">
                     {message}
                 </p>
             )}

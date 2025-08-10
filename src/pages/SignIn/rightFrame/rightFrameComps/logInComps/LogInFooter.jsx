@@ -1,28 +1,30 @@
-import React from 'react'
+import React from 'react';
 
-export default function LogInFooter({ setMode, handleLogin, status, isLoading }) {
+export default function LogInFooter({ setMode, handleLogin, status, isLoading, setShowModal }) {
   return (
-    <div className='w-full h-[10%] flex flex-col justify-center items-center'>
+    <div className='w-full h-28 sm:h-28 flex flex-col justify-center items-center gap-1'>
       <button
         onClick={handleLogin}
         disabled={isLoading}
-        className="w-full text-center mt-8 bg-white text-black font-outfit font-semibold text-3xl/13 rounded-md cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full text-center bg-white text-black font-outfit font-semibold text-xl sm:text-3xl/13 rounded-md cursor-pointer hover:-translate-y-0.5 transition-transform duration-200 ease-in-out py-2 sm:py-0 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isLoading ? 'Logging in...' : 'Log in'}
       </button>
-      <p className="text-sm text-green-300 mt-2">{status}</p>
+      <p className="text-sm sm:text-sm text-green-300">{status}</p>
       <button
         onClick={() => setMode('signup')}
-        className="font-outfit font-regular text-[1rem] mt-2 text-[#717171] cursor-pointer hover:underline transition-all"
+        className="font-outfit font-regular text-[1rem] sm:text-[1rem] text-[#717171] cursor-pointer hover:underline transition-all"
       >
         Don't have an account? <span className="text-white">Sign up</span>
       </button>
+
+      {/* opens the modal */}
       <button
-        onClick={() => setMode('forgot')}
-        className="text-sm text-white mt-2 hover:underline"
+        onClick={() => setShowModal(true)}
+        className="text-sm sm:text-sm text-white hover:underline"
       >
         Forgot password?
       </button>
     </div>
-  )
+  );
 }

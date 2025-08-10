@@ -19,7 +19,6 @@ export default function SignUpUser({ username, setUsername }) {
             return;
         }
 
-        // Only letters allowed
         if (!/^[a-zA-Z]+$/.test(trimmed)) {
             setError('Username must contain only letters');
             return;
@@ -48,23 +47,25 @@ export default function SignUpUser({ username, setUsername }) {
     }, [username]);
 
     return (
-        <div className='w-full h-[20%] flex flex-col justify-center items-start'>
-            <h2 className='font-outfit font-medium text-[1.5rem] text-white cursor-default mb-1'>Username</h2>
+        <div className='w-full h-20 sm:h-20 flex flex-col justify-center items-start'>
+            <h2 className='font-outfit font-medium text-[1.3rem] sm:text-[1.5rem] text-white cursor-default'>
+                Username
+            </h2>
             <input
                 type="text"
                 placeholder="Enter your username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className={`w-full px-4 py-3 rounded-md bg-[#1A1A1A] text-white focus:outline-none focus:ring-2 ${available === false
+                className={`w-full px-4 sm:px-4 py-3 sm:py-3 rounded-md bg-[#1A1A1A] text-white text-base sm:text-base focus:outline-none focus:ring-2 ${available === false
                     ? 'focus:ring-red-500'
                     : available === true
                         ? 'focus:ring-[#8FD14F]'
                         : 'focus:ring-white'
                     }`}
             />
-            {error && <p className="text-red-400 text-sm mt-1">{error}</p>}
+            {error && <p className="text-red-400 text-sm sm:text-sm mt-1">{error}</p>}
             {!error && available && (
-                <p className="text-[#8FD14F] text-sm mt-1">Username is available</p>
+                <p className="text-[#8FD14F] text-sm sm:text-sm mt-1">Username is available</p>
             )}
         </div>
     );

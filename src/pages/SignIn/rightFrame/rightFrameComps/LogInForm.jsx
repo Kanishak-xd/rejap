@@ -9,12 +9,15 @@ import LogInEmail from './logInComps/LogInEmail.jsx';
 import LogInPwd from './logInComps/LogInPwd.jsx';
 import LogInFooter from './logInComps/LogInFooter.jsx';
 
-
 export default function LogInForm({ setMode }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [status, setStatus] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+
+    const [showModal, setShowModal] = useState(false);
+    const [resetEmail, setResetEmail] = useState('');
+    const [resetStatus, setResetStatus] = useState('');
 
     const navigate = useNavigate();
     const { showToast } = useToast();
@@ -32,14 +35,12 @@ export default function LogInForm({ setMode }) {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
 
-            // Get user data from backend instead of Firestore
             try {
                 const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${user.uid}`);
                 if (res.ok) {
                     const userData = await res.json();
                     showToast(`Welcome back, ${userData.username}!`);
 
-                    // Update logs
                     await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/logs`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
@@ -56,7 +57,6 @@ export default function LogInForm({ setMode }) {
 
             setStatus("Logged in successfully!");
 
-            // Add a small delay to ensure AuthContext updates
             setTimeout(() => {
                 navigate("/");
             }, 100);
@@ -79,12 +79,56 @@ export default function LogInForm({ setMode }) {
         }
     };
 
+    // Handle password reset
+    const handleReset = async () => {
+        if (!resetEmail) {
+            setResetStatus('Please enter your email.');
+            return;
+        }
+
+        try {
+            await sendPasswordResetEmail(auth, resetEmail);
+            setResetStatus('Reset link sent to your email.');
+        } catch (err) {
+            setResetStatus(err.message);
+        }
+    };
+
     return (
-        <div className='w-2/3 h-160 flex flex-col'>
+        <div className='w-full max-w-xs flex flex-col mx-auto gap-y-6 sm:gap-y-10 xl:gap-y-9'>
             <LogInHeader />
             <LogInEmail email={email} setEmail={setEmail} />
-            <LogInPwd password={password} setPassword={setPassword} />
-            <LogInFooter setMode={setMode} handleLogin={handleLogin} status={status} isLoading={isLoading} />
+            <LogInPwd password={password} setPassword={setPassword} setShowModal={setShowModal} />
+            <LogInFooter setMode={setMode} handleLogin={handleLogin} status={status} isLoading={isLoading} setShowModal={setShowModal} />
+
+            {/* Shared Modal */}
+            {showModal && (
+                <div className="fixed inset-0 flex justify-center items-center z-50 bg-black bg-opacity-60">
+                    <div className="bg-[#121212] text-white p-5 sm:p-6 rounded-lg w-80 shadow-lg relative">
+                        <h2 className="text-lg font-semibold mb-2">Reset Password</h2>
+                        <input type="email" placeholder="Enter your email" value={resetEmail}
+                            onChange={(e) => setResetEmail(e.target.value)}
+                            className="w-full px-3 py-2 rounded bg-[#1A1A1A] text-white focus:outline-none focus:ring-2 focus:ring-white text-sm"
+                        />
+                        <button onClick={handleReset}
+                            className="w-full mt-4 bg-white hover:bg-neutral-300 text-black font-bold py-2 rounded transition text-sm"
+                        >
+                            Send Reset Link
+                        </button>
+                        <p className="text-xs text-green-400 mt-2">{resetStatus}</p>
+                        <button
+                            onClick={() => {
+                                setShowModal(false);
+                                setResetEmail('');
+                                setResetStatus('');
+                            }}
+                            className="absolute top-2 right-3 text-gray-400 hover:text-white text-lg"
+                        >
+                            ×
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }

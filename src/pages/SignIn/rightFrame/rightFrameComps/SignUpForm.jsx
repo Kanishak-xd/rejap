@@ -69,7 +69,7 @@ export default function SignUpForm({ setMode }) {
     };
 
     return (
-        <div className='w-2/3 h-160 flex flex-col'>
+        <div className='w-full max-w-xs flex flex-col mx-auto gap-y-2 sm:gap-y-3 xl:gap-y-2'>
             <SignUpHeader />
             <SignUpUser username={username} setUsername={setUsername} />
             <SignUpEmail email={email} setEmail={setEmail} />
