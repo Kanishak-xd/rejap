@@ -4,30 +4,67 @@ export default function Chapters() {
     return (
         <>
             <section id="chaptersSection" className="w-full h-screen mt-50 flex justify-center items-center text-white font-outfit">
-                <div className="grid w-8/10 h-9/12 grid-cols-6 grid-rows-4 gap-5 relative">
-                    <div className="col-span-3 row-span-4">
-                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748958693/chapLeft_hoegrp.webp" className="h-32/33 w-full" alt="Woman with red umbrella" />
-                        <div className="absolute bottom-[8%] left-[2.5%] text-shadow-lg">
-                            <p className="leading-none text-[clamp(1rem,4vw,5rem)] font-bold">GET STARTED</p><p className="text-[clamp(0.5rem,3vw,2rem)] leading-none">START WITH CHAPTER 1</p>
-                        </div>
+                <div className="flex flex-col h-[70vh] w-11/12 max-w-6xl mx-auto gap-4">
+                    {/* 1 */}
+                    <div
+                        className="h-1/6 bg-pink-100 border-2 border-pink-200 flex items-center justify-center text-2xl font-bold text-pink-800 rounded-lg xl:hidden"
+                    >
+                        1
                     </div>
-                    <div className="col-span-3 col-start-4"><p className="text-[clamp(2rem,5vw,6rem)] font-bold text-shadow-lg mt-5">THE CHAPTERS</p></div>
-                    <div className="col-span-2 row-span-3 col-start-4 row-start-2">
-                        <div className="grid grid-cols-2 grid-rows-2 gap-5 h-20/21 w-full">
-                            <Link to="/levels" className="bg-neutral-800 rounded-4xl flex justify-center items-center group hover:bg-neutral-300 transition-colors"><div className="w-6/8 h-6/8 flex flex-col justify-end"><div className=" w-full flex items-center justify-center"><img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/torii_sbc71f.webp" className="w-10/16 h-8/9 mr-1" alt="Torii gate" /></div><p className="mt-2 text-2xl font-bold text-shadow-lg group-hover:text-black">CHAPTER: 1</p><p className="mt-1 text-2xl/4 text-shadow-lg group-hover:text-black">HIRAGANA</p></div></Link>
-                            <Link to="/levels" className="bg-neutral-800 rounded-4xl flex justify-center items-center group hover:bg-neutral-300 transition-colors"><div className="w-6/8 h-6/8 flex flex-col justify-end"><div className=" w-full flex items-center justify-center"><img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sushi_ss7txh.webp" className="w-10/16 h-8/9 mr-1" alt="Sushi" /></div><p className="mt-2 text-2xl font-bold text-shadow-lg group-hover:text-black">CHAPTER: 2</p><p className="mt-1 text-2xl/4 text-shadow-lg group-hover:text-black">KATAKANA</p></div></Link>
-                            <Link to="/levels#kanji" className="bg-neutral-800 rounded-4xl flex justify-center items-center group hover:bg-neutral-300 transition-colors"><div className="w-6/8 h-6/8 flex flex-col justify-end"><div className=" w-full flex items-center justify-center"><img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sensu_iusuf7.webp" className="w-10/16 h-8/9 mr-1" alt="Sensu fan" /></div><p className="mt-2 text-2xl font-bold text-shadow-lg group-hover:text-black">CHAPTER: 3</p><p className="mt-1 text-2xl/4 text-shadow-lg group-hover:text-black">KANJI</p></div></Link>
-                            <Link to="/levels#time" className="bg-neutral-800 rounded-4xl flex justify-center items-center group hover:bg-neutral-300 transition-colors"><div className="w-6/8 h-6/8 flex flex-col justify-end"><div className=" w-full flex items-center justify-center"><img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/maneki-neko_cugqw9.webp" className="w-10/16 h-8/9 mr-1" alt="Maneki-neko" /></div><p className="mt-2 text-2xl font-bold text-shadow-lg group-hover:text-black">CHAPTER: 4</p><p className="mt-1 text-2xl/4 text-shadow-lg group-hover:text-black">TIME</p></div></Link>
+
+                    {/* Main content: Left Image + Right 3-column block */}
+                    <div className="flex flex-1 flex-col xl:flex-row gap-4 h-auto">
+                        {/* 2 */}
+                        <div className="xl:w-2/5 hidden xl:block bg-blue-100 border-2 border-blue-200 flex items-center justify-center text-2xl font-bold text-blue-800 rounded-lg">
+                            2
                         </div>
-                    </div>
-                    <div className="row-span-3 col-start-6 row-start-2 relative group hover:text-black hover:cursor-pointer">
-                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748962013/archiveButton_tjjimm.png" className="w-5/6 h-20/21" alt="Archive resources button" />
-                        <div className="absolute bottom-[8%] left-[11%] hover:text-black">
-                            <p className="font-bold text-shadow-lg text-2xl">ARCHIVE</p><p className="text-shadow-lg text-2xl">RESOURCES</p>
+
+                        {/* Right side */}
+                        <div className="flex-auto xl:flex-1 flex flex-col gap-4 xl:w-3/5 w-5/5 ">
+
+                            {/* 3 */}
+                            <div className="xl:h-1/4 hidden xl:block bg-green-100 border-2 border-green-200 flex items-center justify-center text-2xl font-bold text-green-800 rounded-lg">
+                                3
+                            </div>
+
+                            {/* Two rows + archive */}
+                            <div className="xl:h-3/4 h-2/4 sm:h-4/4 flex gap-4">
+
+                                {/* Left block */}
+                                <div className="flex flex-col flex-1 gap-4">
+                                    {/* 4 */}
+                                    <div className="flex-1 bg-yellow-100 border-2 border-yellow-200 flex items-center justify-center text-xl font-bold text-yellow-800 rounded-xl">
+                                        4
+                                    </div>
+                                    {/* 6 */}
+                                    <div className="flex-1 bg-teal-100 border-2 border-teal-200 flex items-center justify-center text-xl font-bold text-teal-800 rounded-xl">
+                                        6
+                                    </div>
+                                </div>
+
+                                {/* Middle block */}
+                                <div className="flex flex-col flex-1 gap-4">
+                                    {/* 5 */}
+                                    <div className="flex-1 bg-purple-100 border-2 border-purple-200 flex items-center justify-center text-xl font-bold text-purple-800 rounded-xl">
+                                        5
+                                    </div>
+                                    {/* 7 */}
+                                    <div className="flex-1 bg-orange-100 border-2 border-orange-200 flex items-center justify-center text-xl font-bold text-orange-800 rounded-xl">
+                                        7
+                                    </div>
+                                </div>
+
+                                {/* Right block: 8 */}
+                                <div className="w-1/4 flex flex-col">
+                                    <div className="flex-1 bg-indigo-100 border-2 border-indigo-200 flex items-center justify-center text-2xl font-bold text-indigo-800 rounded-xl">
+                                        8
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
         </>
-    )
+    );
 }
