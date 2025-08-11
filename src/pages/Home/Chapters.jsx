@@ -43,7 +43,7 @@ export default function Chapters() {
                                 {/* Hiragana + Kanji column */}
                                 <div className="flex flex-col flex-1 gap-4">
                                     {/* Hiragana block [4] */}
-                                    <Link to="/levels" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                    <Link to="/levels#hiragana" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
                                             <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/torii_sbc71f.webp" className="w-10 h-10 sm:w-20 sm:h-20"></img>
                                             <div className="flex flex-col justify-center items-start">
@@ -53,7 +53,7 @@ export default function Chapters() {
                                         </div>
                                     </Link>
                                     {/* Kanji block [6] */}
-                                    <Link to="/levels" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                    <Link to="/levels#kanji" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
                                             <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sensu_iusuf7.webp" className="w-10 h-10 sm:w-20 sm:h-20"></img>
                                             <div className="flex flex-col justify-center items-start">
@@ -67,7 +67,7 @@ export default function Chapters() {
                                 {/* Katakana + Time column */}
                                 <div className="flex flex-col flex-1 gap-4">
                                     {/* Katakana block [5] */}
-                                    <Link to="/levels" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                    <Link to="/levels#katakana" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
                                             <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sushi_ss7txh.webp" className="w-10 h-10 sm:w-20 sm:h-20"></img>
                                             <div className="flex flex-col justify-center items-start">
