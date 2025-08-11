@@ -44,11 +44,23 @@
   - Interactive quizzes with HP bar
   - Retry and next level options
   - Progress auto-saved
+- **Responsive Design**: Fully responsive across all devices - mobile, tablet, and desktop with adaptive layouts and touch-friendly interactions
 - **Modern UI**: Responsive, dark-themed, and visually engaging with TailwindCSS, DaisyUI & HyperUI.
 - **Cloudinary CDN**: Fast image hosting and delivery for all user and app images.
 - **Figma**: UI/UX designed in Figma before development.
 - **Vercel**: Frontend hosted on Vercel for fast, global delivery.
 - **Render**: Backend hosted on Render for reliability and scalability.
+
+---
+
+## Responsive Design Features
+
+REJAP features a comprehensive **responsive design** that ensures optimal user experience across all device types:
+
+- **Multi-Device Support**: Fully responsive across mobile (320px+), tablet (768px+), and desktop (1024px+) with adaptive layouts
+- **Touch & Mouse Optimized**: Touch-friendly interactions for mobile/tablet, enhanced hover effects for desktop
+- **Fluid Layouts**: Flexible grids, adaptive typography, and consistent spacing that scales smoothly across all screen sizes
+- **Performance Optimized**: Fast loading and smooth interactions maintained across all devices and network conditions
 
 ---
 
