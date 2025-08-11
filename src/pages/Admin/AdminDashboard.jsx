@@ -1,7 +1,6 @@
 import React from 'react'
 import UserTable from './UserTable'
 import AuditLogs from './AuditLogs'
-import Footer from '../../components/Footer'
 
 export default function AdminDashboard() {
     return (

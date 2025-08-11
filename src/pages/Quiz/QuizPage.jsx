@@ -21,6 +21,11 @@ export default function QuizPage() {
 
   const hasLoggedRef = useRef(false);
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [chapter, level]);
+
   useEffect(() => {
     if (!user || !levelData || hasLoggedRef.current) return;
 

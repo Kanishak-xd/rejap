@@ -12,6 +12,11 @@ export default function LevelIntro() {
 
     const levelData = syllableData[chapterId]?.[levelId];
 
+    // Scroll to top when component mounts
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [chapterId, levelId]);
+
     useEffect(() => {
         if (user) {
             fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/progress/${user.uid}`)
