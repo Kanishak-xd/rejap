@@ -22,7 +22,7 @@ export default function Levels() {
   }, [location]);
   return (
     <div className="bg-neutral-950">
-      <div className="flex flex-col gap-12 pt-36 pb-16 pl-42 min-h-screen w-2/3 text-white font-outfit">
+      <div className="flex flex-col gap-8 pt-24 pb-12 px-4 sm:px-8 md:px-16 lg:px-20 xl:px-24 min-h-screen w-full max-w-7xl mx-auto text-white font-outfit">
         <HiraganaLevels chapter="hiragana" />
         <KatakanaLevels chapter="katakana" />
         <KanjiLevels chapter="kanji" />
