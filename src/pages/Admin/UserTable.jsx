@@ -159,7 +159,7 @@ export default function UserTable() {
                 {/* Lessons Filter */}
                 <details className="group relative">
                     <summary className="flex items-center gap-2 border-b border-gray-300 pb-1 text-gray-300 cursor-pointer">
-                        <span className="text-sm font-medium">Lessons Completed</span>
+                        <span className="text-sm font-medium">Lessons</span>
                         <span className="transition-transform group-open:-rotate-180">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"

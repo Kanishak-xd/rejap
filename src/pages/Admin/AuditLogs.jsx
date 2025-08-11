@@ -63,9 +63,9 @@ export default function AuditLogs() {
     };
 
     return (
-        <div className="bg-neutral-900 w-full rounded-lg max-w-8xl text-white shadow max-h-116 overflow-y-auto border-2 border-neutral-900">
+        <div className="bg-neutral-900 w-full rounded-lg max-w-8xl text-white shadow max-h-96 sm:max-h-[28rem] md:max-h-116 overflow-y-auto overflow-x-hidden border-2 border-neutral-900">
             {logs.map((log, idx) => (
-                <p key={idx} className="mb-0.5 text-gray-300 bg-neutral-950 hover:bg-neutral-900 pt-2 pb-2 pl-5">
+                <p key={idx} className="mb-0.5 text-gray-300 bg-neutral-950 hover:bg-neutral-900 py-2 pl-3 sm:pl-4 md:pl-5 pr-2 sm:pr-3 text-sm sm:text-base break-words">
                     <span className="font-semibold text-white">
                         {log.username || 'Unknown User'}
                     </span>{" "}
@@ -75,13 +75,13 @@ export default function AuditLogs() {
             ))}
 
             {hasMore && (
-                <div ref={observerRef} className="text-center text-gray-500 mt-4">
+                <div ref={observerRef} className="text-center text-gray-500 mt-4 text-sm sm:text-base py-2">
                     {loading ? 'Loading more logs...' : 'Scroll to load more'}
                 </div>
             )}
 
             {!hasMore && (
-                <div className="text-left text-gray-500 bg-neutral-950 pt-5 pb-3 pl-5">
+                <div className="text-left text-gray-500 bg-neutral-950 pt-4 sm:pt-5 pb-2 sm:pb-3 pl-3 sm:pl-5 text-sm sm:text-base">
                     No more logs
                 </div>
             )}
