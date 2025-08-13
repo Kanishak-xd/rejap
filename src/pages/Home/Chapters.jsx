@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Chapters() {
     return (
         <>
-            <section id="chaptersSection" className="w-full h-[60vh] sm:h-screen mt-20 sm:mt-50 flex justify-center items-center text-white font-outfit">
+            <section id="chaptersSection" className="w-full min-h-screen flex justify-center items-center text-white font-outfit">
                 <div className="flex flex-col h-[65vh] w-11/12 max-w-6xl mx-auto gap-0 sm:gap-4">
                     {/* 1 */}
                     <div

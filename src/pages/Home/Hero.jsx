@@ -11,7 +11,7 @@ export default function Hero() {
                     fun quizzes & puzzles for free.
                 </p>
                 <div className="flex justify-center sm:justify-center md:justify-start xl:justify-start">
-                    <a href="#scriptsSection">
+                    <a href="#chaptersSection">
                         <button className="mt-4 sm:mt-4 md:mt-5 xl:mt-8 2xl:mt-8 text-[#F3F3EE] font-bold bg-[#141414] border-2 border-amber-50 text-[1.2rem] sm:text-[1.2rem] md:text-[1.2rem] xl:text-xl 2xl:text-2xl px-3 py-1.5 sm:px-3 sm:py-2 md:px-4 md:py-2 xl:px-6 xl:py-3 2xl:px-6 2xl:py-3 rounded-[8px] sm:rounded-[8px] md:rounded-[12px] xl:rounded-[12px] transition hover:scale-105">
                             GET STARTED
                         </button>
