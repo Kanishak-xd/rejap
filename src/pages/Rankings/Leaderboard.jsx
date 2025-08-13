@@ -34,7 +34,7 @@ export default function Leaderboard() {
     }, [user]);
 
     return (
-        <div className="pt-24 px-4 sm:px-5 md:px-8 lg:px-10 xl:px-6 min-h-screen bg-black text-white flex items-center flex-col">
+        <div className="pt-24 px-4 sm:px-5 md:px-8 lg:px-10 xl:px-6 min-h-screen bg-neutral-950 text-white flex items-center flex-col">
             <div className="w-full max-w-5xl">
                 {/* Heading */}
                 <h1 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold font-outfit mb-6 text-center">

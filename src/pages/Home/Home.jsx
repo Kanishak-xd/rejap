@@ -6,7 +6,7 @@ import ScriptsMobile from './ScriptsMobile.jsx'
 
 export default function Home() {
     return (
-        <>
+        <div className='bg-neutral-950'>
             <Strip />
             <Hero />
             <div className="block xl:hidden">
@@ -16,6 +16,6 @@ export default function Home() {
                 <Scripts />
             </div>
             <Chapters />
-        </>
+        </div>
     )
 }

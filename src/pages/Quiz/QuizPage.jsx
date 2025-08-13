@@ -157,7 +157,7 @@ export default function QuizPage() {
   }
 
   return (
-    <div className="flex flex-col items-center pt-20 sm:pt-20 px-4 sm:px-6 py-6 sm:py-8 min-h-screen bg-black text-white font-outfit">
+    <div className="flex flex-col items-center pt-20 sm:pt-20 px-4 sm:px-6 py-6 sm:py-8 min-h-screen bg-neutral-950 text-white font-outfit">
       <div className="w-full h-20 sm:h-30 md:h-40 relative flex items-center justify-center">
         <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752022256/sakura-3_l8klit.webp" className="w-full h-full object-cover rounded-t-xl sm:rounded-t-2xl" alt="Sakura background" />
         <h1 className="text-2xl sm:text-5xl md:text-6xl font-bold absolute text-center bottom-5 sm:bottom-8 md:bottom-12 px-4">

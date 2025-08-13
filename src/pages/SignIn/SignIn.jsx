@@ -4,7 +4,7 @@ import RightFrame from './rightFrame/RightFrame.jsx';
 
 export default function SignIn() {
     return (
-        <div className='w-full h-dvh flex flex-col sm:flex-row justify-center items-center gap-6 px-4 py-8'>
+        <div className='w-full h-dvh flex flex-col sm:flex-row justify-center items-center gap-6 px-4 py-8 bg-neutral-950'>
             {/* LeftFrame */}
             <div className="hidden xl:block xl:w-[54%] h-[88%] max-h-[800px]">
                 <LeftFrame />

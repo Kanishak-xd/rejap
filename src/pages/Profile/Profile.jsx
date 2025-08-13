@@ -154,7 +154,7 @@ export default function Profile() {
     };
 
     return (
-        <div className="min-h-screen bg-black text-white font-outfit flex flex-col items-center pt-16 sm:pt-20 px-4 sm:px-6">
+        <div className="min-h-screen bg-neutral-950 text-white font-outfit flex flex-col items-center pt-16 sm:pt-20 px-4 sm:px-6">
             <div className='w-full max-w-4xl flex flex-col'>
                 <p className='font-bold text-3xl sm:text-4xl md:text-5xl pb-6 sm:pb-7'>PROFILE</p>
                 <div className='flex bg-[#171717] items-center w-full min-h-24 sm:min-h-40 md:min-h-49 h-auto rounded-lg sm:flex-row gap-4 sm:gap-0'>
@@ -184,7 +184,7 @@ export default function Profile() {
                         <div className="flex flex-col justify-center py-3 pl-4 flex-1">
                             <p className='font-semibold text-base sm:text-xl'>Chapter 1: Hiragana</p>
                             <p className='font-regular text-sm sm:text-lg'>Levels completed: {hDone}</p>
-                            <div className="w-5/6 sm:w-5/7 mt-1 sm:mt-2 bg-gray-200 rounded-xs dark:bg-black flex justify-start items-center h-2 sm:h-3">
+                            <div className="w-5/6 sm:w-5/7 mt-1 sm:mt-2 rounded-xs bg-black flex justify-start items-center h-2 sm:h-3">
                                 <div className="bg-[#BFECFF] h-[70%] p-0.5 leading-none mx-0.5 rounded-xs" style={{ width: `${hWidth}%` }}></div>
                             </div>
                         </div>
@@ -198,7 +198,7 @@ export default function Profile() {
                         <div className="flex flex-col justify-center py-3 pl-4 flex-1">
                             <p className='font-semibold text-base sm:text-xl'>Chapter 2: Katakana</p>
                             <p className='font-regular text-sm sm:text-lg'>Levels completed: {kDone}</p>
-                            <div className="w-5/6 sm:w-5/7 mt-1 sm:mt-2 bg-gray-200 rounded-xs dark:bg-black flex justify-start items-center h-2 sm:h-3">
+                            <div className="w-5/6 sm:w-5/7 mt-1 sm:mt-2 rounded-xs bg-black flex justify-start items-center h-2 sm:h-3">
                                 <div className="bg-[#CDC1FF] h-[70%] p-0.5 leading-none mx-0.5 rounded-xs" style={{ width: `${kWidth}%` }}></div>
                             </div>
                         </div>
@@ -212,7 +212,7 @@ export default function Profile() {
                         <div className="flex flex-col justify-center py-3 pl-4 flex-1">
                             <p className='font-semibold text-base sm:text-xl'>Chapter 3: Kanji</p>
                             <p className='font-regular text-sm sm:text-lg'>Levels completed: {kjDone}</p>
-                            <div className="w-5/6 sm:w-5/7 mt-1 sm:mt-2 bg-gray-200 rounded-xs dark:bg-black flex justify-start items-center h-2 sm:h-3">
+                            <div className="w-5/6 sm:w-5/7 mt-1 sm:mt-2 rounded-xs bg-black flex justify-start items-center h-2 sm:h-3">
                                 <div className="bg-[#FFF6E3] h-[70%] p-0.5 leading-none mx-0.5 rounded-xs" style={{ width: `${kjWidth}%` }}></div>
                             </div>
                         </div>
@@ -226,7 +226,7 @@ export default function Profile() {
                         <div className="flex flex-col justify-center py-3 pl-4 flex-1">
                             <p className='font-semibold text-base sm:text-xl'>Chapter 4: Time</p>
                             <p className='font-regular text-sm sm:text-lg'>Levels completed: {tDone}</p>
-                            <div className="w-5/6 sm:w-5/7 mt-1 sm:mt-2 bg-gray-200 rounded-xs dark:bg-black flex justify-start items-center h-2 sm:h-3">
+                            <div className="w-5/6 sm:w-5/7 mt-1 sm:mt-2 rounded-xs bg-black flex justify-start items-center h-2 sm:h-3">
                                 <div className="bg-[#FFCCEA] h-[70%] p-0.5 leading-none mx-0.5 rounded-xs" style={{ width: `${tWidth}%` }}></div>
                             </div>
                         </div>

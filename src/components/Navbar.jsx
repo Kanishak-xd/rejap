@@ -34,7 +34,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="text-[#F3F3EE] font-outfit flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 fixed top-0 left-0 w-full z-50">
+            <nav className="text-[#F3F3EE] font-outfit flex justify-between items-center px-4 sm:px-6 md:px-10 py-4 fixed top-0 left-0 w-full z-50 bg-neutral-950 border-b border-neutral-700">
                 <Link to="/" className="text-inherit sm:text-xl md:text-2xl xl:text-2xl font-semibold">
                     REJAP
                 </Link>

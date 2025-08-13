@@ -19,7 +19,7 @@ export default function SupportInfo() {
         }`;
 
     return (
-        <div className='bg-black min-h-screen flex justify-start items-center flex-col font-sans'>
+        <div className='bg-neutral-950 min-h-screen flex justify-start items-center flex-col font-sans'>
             <Navbar />
             <div className='flex justify-start items-start w-full max-w-5xl px-4 sm:px-6 md:px-8 pt-24 sm:pt-28 md:pt-32 flex-col'>
                 <p className='text-2xl sm:text-4xl md:text-5xl text-white font-outfit font-bold text-left'>Support & Info</p>

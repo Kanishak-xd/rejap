@@ -1,6 +1,6 @@
 export default function Hero() {
     return (
-        <section className="min-h-screen flex flex-col-reverse sm:flex-col-reverse md:flex-row xl:flex-row justify-center items-center px-4 sm:px-6 md:px-10 gap-8 md:gap-24 bg-black pt-10 sm:pt-0 pb-12 sm:pb-24">
+        <section className="min-h-screen flex flex-col-reverse sm:flex-col-reverse md:flex-row xl:flex-row justify-center items-center px-4 sm:px-6 md:px-10 gap-8 md:gap-24 pt-10 sm:pt-0 pb-12 sm:pb-24">
             <div className="flex flex-col max-w-[700px]">
                 <p className="font-outfit font-bold text-2xl sm:text-2xl md:text-4xl xl:text-5xl 2xl:text-6xl/17 mt-10 sm:mt-10 md:mt-0 xl:mt-0 text-center sm:text-center md:text-left xl:text-left 2xl:text-left text-[#F3F3EE] cursor-default leading-tight">
                     Master Japanese — <br />One Lesson at a Time

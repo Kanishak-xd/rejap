@@ -21,7 +21,7 @@ export default function Strip() {
   }, [messages.length]);
 
   return (
-    <div className="pt-18">
+    <div className="pt-14 sm:pt-15 md:pt-16">
       <div className="animated-gradient w-full h-6 flex items-center justify-center overflow-hidden">
         <WordsPullUp
           text={messages[currentMessageIndex]}
