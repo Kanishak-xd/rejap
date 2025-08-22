@@ -4,6 +4,9 @@ const router = express.Router();
 
 router.post("/upsert", async (req, res) => {
   const { uid, username, email, profilePic } = req.body;
+  console.log("Upsert payload:", { uid, username, email, profilePic });
+  const existingBefore = await db.collection("users").findOne({ _id: uid });
+  console.log("Existing user before upsert:", existingBefore);
 
   try {
     if (username) {
@@ -26,7 +29,9 @@ router.post("/upsert", async (req, res) => {
       }
 
       // Uniqueness check
-      const existing = await db.collection("users").findOne({ username: cleanUsername });
+      const existing = await db
+        .collection("users")
+        .findOne({ username: cleanUsername });
       if (existing && existing._id.toString() !== uid) {
         return res.status(409).json({ error: "Username already taken" });
       }
@@ -48,6 +53,8 @@ router.post("/upsert", async (req, res) => {
       },
       { upsert: true }
     );
+    const afterUpsert = await db.collection("users").findOne({ _id: uid });
+    console.log("Existing user after upsert:", afterUpsert);
 
     res.status(200).send("User stored/updated successfully");
   } catch (err) {
@@ -56,7 +63,7 @@ router.post("/upsert", async (req, res) => {
   }
 });
 
-router.post('/progress', async (req, res) => {
+router.post("/progress", async (req, res) => {
   const { uid, chapter, level } = req.body;
 
   console.log("Incoming progress update:", { uid, chapter, level });
@@ -65,12 +72,14 @@ router.post('/progress', async (req, res) => {
     const filter = { _id: uid };
     const update = {
       $addToSet: {
-        [`progress.${chapter}`]: level
-      }
+        [`progress.${chapter}`]: level,
+      },
     };
     const options = { upsert: true };
 
-    const result = await db.collection("users").updateOne(filter, update, options);
+    const result = await db
+      .collection("users")
+      .updateOne(filter, update, options);
     console.log("MongoDB update result:", result);
 
     res.status(200).json({ success: true });
@@ -110,10 +119,10 @@ router.get("/leaderboard", async (req, res) => {
   try {
     const users = await db.collection("users").find().toArray();
 
-    const processed = users.map(user => {
+    const processed = users.map((user) => {
       let count = 0;
       const progress = user.progress || {};
-      Object.values(progress).forEach(arr => {
+      Object.values(progress).forEach((arr) => {
         count += Array.isArray(arr) ? arr.length : 0;
       });
 
@@ -124,7 +133,9 @@ router.get("/leaderboard", async (req, res) => {
       };
     });
 
-    const sorted = processed.sort((a, b) => b.levelsCompleted - a.levelsCompleted);
+    const sorted = processed.sort(
+      (a, b) => b.levelsCompleted - a.levelsCompleted
+    );
 
     res.json(sorted);
   } catch (err) {
@@ -133,7 +144,7 @@ router.get("/leaderboard", async (req, res) => {
   }
 });
 
-router.get('/all', async (req, res) => {
+router.get("/all", async (req, res) => {
   try {
     const users = await db.collection("users").find().toArray();
     res.json(users);
@@ -145,9 +156,11 @@ router.get('/all', async (req, res) => {
 
 router.get("/:uid", async (req, res) => {
   const { uid } = req.params;
+  console.log("Fetch GET /api/users/:uid for uid =", uid);
 
   try {
     const user = await db.collection("users").findOne({ _id: uid });
+    console.log("DB record for GET /:uid:", user);
 
     if (!user) {
       // Create a default record if not found (optional fallback)
@@ -166,12 +179,12 @@ router.get("/:uid", async (req, res) => {
   }
 });
 
-router.get('/check-username/:username', async (req, res) => {
+router.get("/check-username/:username", async (req, res) => {
   const username = req.params.username;
 
   try {
-    const user = await db.collection('users').findOne({
-      username: { $regex: `^${username}$`, $options: 'i' }
+    const user = await db.collection("users").findOne({
+      username: { $regex: `^${username}$`, $options: "i" },
     });
     if (user) {
       return res.status(200).json({ exists: true });
@@ -184,10 +197,10 @@ router.get('/check-username/:username', async (req, res) => {
   }
 });
 
-router.get('/check-email', async (req, res) => {
+router.get("/check-email", async (req, res) => {
   const email = req.query.email?.toLowerCase();
   try {
-    const existingUser = await db.collection('users').findOne({ email });
+    const existingUser = await db.collection("users").findOne({ email });
     res.status(200).json({ exists: !!existingUser });
   } catch (err) {
     console.error("Email check error:", err);

@@ -88,8 +88,6 @@ export default function Profile() {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
                     uid,
-                    email,
-                    username,
                     profilePic: imageUrl,
                 }),
             });
@@ -254,10 +252,12 @@ export default function Profile() {
                 </button>
 
                 {selectedFile && (
-                    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-neutral-800 px-3 py-2 rounded shadow-lg text-white z-50 flex gap-4 sm:gap-6 items-center">
+                    <>
+                        <div className="fixed inset-0 bg-black/60 z-40" />
+                        <div className="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-neutral-900 px-3 py-2 rounded-lg shadow-lg text-white z-50 flex gap-4 sm:gap-6 items-center">
                         <button
                             onClick={handleSave}
-                            className="font-semibold bg-white h-7 sm:h-8 px-2 text-black hover:cursor-pointer hover:scale-105 rounded-sm text-sm sm:text-base transition"
+                            className="font-semibold bg-gray-200 hover:bg-white h-7 sm:h-8 px-2 text-black hover:cursor-pointer rounded-sm text-sm sm:text-base transition"
                         >
                             Save changes
                         </button>
@@ -271,6 +271,7 @@ export default function Profile() {
                             Cancel
                         </button>
                     </div>
+</>
                 )}
 
                 {showSuccessToast && (

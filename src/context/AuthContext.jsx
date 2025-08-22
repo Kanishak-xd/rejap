@@ -14,19 +14,21 @@ export const AuthProvider = ({ children }) => {
             setLoading(false);
 
             if (currentUser) {
-                let username = currentUser.displayName || "Anonymous";
+                let username = currentUser.displayName; // only use if provided
 
                 // Send to MongoDB
                 try {
+                    const payload = {
+                        uid: currentUser.uid,
+                        email: currentUser.email || "",
+                        profilePic: currentUser.photoURL || "",
+                    };
+                    if (username) payload.username = username;
+                    
                     const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/upsert`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({
-                            uid: currentUser.uid,
-                            email: currentUser.email || "",
-                            username,
-                            profilePic: currentUser.photoURL || "",
-                        }),
+                        body: JSON.stringify(payload),
                     });
 
                     if (response.ok) {
