@@ -61,10 +61,21 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
                         <>
                             <div className="avatar">
                                 <div className="mask mask-squircle h-9 w-9">
-                                    <img
-                                        src={profilePic && profilePic.trim() !== "" ? profilePic : "/default-avatar.webp"}
-                                        alt="User Avatar"
-                                    />
+                                <img
+                                    src={
+                                        profilePic?.trim() &&
+                                        profilePic.trim() !== "null" &&
+                                        profilePic.trim() !== "undefined" &&
+                                        (profilePic.trim().startsWith("http://") || profilePic.trim().startsWith("https://"))
+                                        ? profilePic.trim()
+                                        : "/default-avatar.webp"
+                                    }
+                                    alt="User Avatar"
+                                    onError={(e) => {
+                                        e.target.src = "/default-avatar.webp"; // Final fallback if image fails
+                                    }}
+                                    className="h-9 w-9 object-cover rounded-full"
+                                />
                                 </div>
                             </div>
                             <h2 className="font-semibold truncate">{username}</h2>
