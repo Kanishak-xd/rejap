@@ -18,10 +18,10 @@ export default function Navbar() {
                 const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/${user.uid}`);
                 if (res.ok) {
                     const userData = await res.json();
-                    console.log("Fetched user from /api/users/:uid →", userData);
+
                     setUsername(userData.username);
                     setEmail(userData.email);
-                    setProfilePic(userData.profilePic);
+                    setProfilePic(userData.profilePic?.trim() || "");
                 }
             } else {
                 setUsername(null);
