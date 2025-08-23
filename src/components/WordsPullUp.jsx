@@ -1,8 +1,7 @@
-'use client';
 import { motion, useInView } from 'framer-motion';
 import * as React from 'react';
 
-export function WordsPullUp({
+export default function WordsPullUp({
     text, className = '',
 }) {
     const splittedText = text.split(' ');

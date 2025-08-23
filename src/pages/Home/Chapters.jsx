@@ -18,8 +18,8 @@ export default function Chapters() {
                     <div className="flex flex-1 flex-col xl:flex-row gap-4 h-auto">
                         {/* Left image block [2] */}
                         <div className="xl:w-4/8 hidden xl:block flex items-center justify-center relative">
-                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874111/getStarted_xmbz2h.webp"
-                                className="object-cover w-full h-full rounded-4xl">
+                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/f_auto,q_auto,w_600/v1748874111/getStarted_xmbz2h.webp"
+                                width="600" height="360" className="object-cover w-full h-full rounded-4xl" alt="umbrella-women-thumbnail">
                             </img>
                             <div className="absolute bottom-6 left-6 text-white">
                                 <p className="font-bold text-6xl text-shadow-lg">GET STARTED</p>
@@ -45,7 +45,7 @@ export default function Chapters() {
                                     {/* Hiragana block [4] */}
                                     <Link to="/levels" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
-                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/torii_sbc71f.webp" className="w-10 h-10 sm:w-20 sm:h-20"></img>
+                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/f_auto,q_auto,w_40/v1751840508/torii_sbc71f.webp" width="40" height="40" className="w-10 h-10 sm:w-20 sm:h-20" alt="torii-gate"></img>
                                             <div className="flex flex-col justify-center items-start">
                                                 <p className="font-semibold text-[0.5rem] sm:text-[1.1rem]/5">CHAPTER ONE</p>
                                                 <p className="text-[0.6rem] sm:text-[1.1rem]">HIRAGANA</p>
@@ -55,7 +55,7 @@ export default function Chapters() {
                                     {/* Kanji block [6] */}
                                     <Link to="/levels#kanji" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
-                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sensu_iusuf7.webp" className="w-10 h-10 sm:w-20 sm:h-20"></img>
+                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sensu_iusuf7.webp" className="w-10 h-10 sm:w-20 sm:h-20" alt="sensu-fan"></img>
                                             <div className="flex flex-col justify-center items-start">
                                                 <p className="font-semibold text-[0.5rem] sm:text-[1.1rem]/5">CHAPTER THREE</p>
                                                 <p className="text-[0.5rem] sm:text-[1.1rem]">KANJI</p>
@@ -69,7 +69,7 @@ export default function Chapters() {
                                     {/* Katakana block [5] */}
                                     <Link to="/levels#katakana" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
-                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sushi_ss7txh.webp" className="w-10 h-10 sm:w-20 sm:h-20"></img>
+                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/f_auto,q_auto,w_40/v1751840508/sushi_ss7txh.webp" width="40" height="40" className="w-10 h-10 sm:w-20 sm:h-20" alt="sushi"></img>
                                             <div className="flex flex-col justify-center items-start">
                                                 <p className="font-semibold text-[0.5rem] sm:text-[1.1rem]/5">CHAPTER TWO</p>
                                                 <p className="text-[0.6rem] sm:text-[1.1rem]">KATAKANA</p>
@@ -79,7 +79,7 @@ export default function Chapters() {
                                     {/* Time block [7] */}
                                     <Link to="/levels#time" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
-                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/maneki-neko_cugqw9.webp" className="w-10 h-10 sm:w-20 sm:h-20"></img>
+                                            <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/f_auto,q_auto,w_40/v1751840508/maneki-neko_cugqw9.webp" width="40" height="40" className="w-10 h-10 sm:w-20 sm:h-20" alt="maneki-neko"></img>
                                             <div className="flex flex-col justify-center items-start">
                                                 <p className="font-semibold text-[0.5rem] sm:text-[1.1rem]/5">CHAPTER FOUR</p>
                                                 <p className="text-[0.5rem] sm:text-[1.1rem]">TIME</p>
@@ -91,8 +91,8 @@ export default function Chapters() {
                                 {/* Archive block [8] */}
                                 <div className="w-1/4 flex flex-col">
                                     <div className="flex-1 relative overflow-hidden hover:text-black text-white bg-neutral-900 flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
-                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874109/archiveImg_qigpzp.webp"
-                                            className="hover:scale-120 transition object-cover w-full h-full rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                        <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/f_auto,q_auto,w_600/v1748874109/archiveImg_qigpzp.webp" alt="castle"
+                                            width="600" height="400" className="hover:scale-120 transition object-cover w-full h-full rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         </img>
                                         <div className="absolute bottom-3 sm:bottom-5 xl:bottom-6 w-full flex flex-col items-center">
                                             <p className="font-bold text-[0.7rem] sm:text-xl xl:text-xl text-shadow-lg">ARCHIVE</p>

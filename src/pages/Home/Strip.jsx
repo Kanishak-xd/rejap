@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { WordsPullUp } from '../../components/WordsPullUp';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
+const WordsPullUp = lazy(() => import('../../components/WordsPullUp'));
 
 export default function Strip() {
   const messages = [

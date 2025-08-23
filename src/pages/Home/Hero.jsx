@@ -1,7 +1,7 @@
 export default function Hero() {
     return (
         <section className="min-h-screen flex flex-col-reverse sm:flex-col-reverse md:flex-row xl:flex-row justify-center items-center px-4 sm:px-6 md:px-10 gap-8 md:gap-24 pt-10 sm:pt-0 pb-12 sm:pb-24">
-            <div className="flex flex-col max-w-[700px]">
+            <div className="flex flex-col max-w-[700px] min-h-[300px]">
                 <p className="font-outfit font-bold text-2xl sm:text-2xl md:text-4xl xl:text-5xl 2xl:text-6xl/17 mt-10 sm:mt-10 md:mt-0 xl:mt-0 text-center sm:text-center md:text-left xl:text-left 2xl:text-left text-[#F3F3EE] cursor-default leading-tight">
                     Master Japanese — <br />One Lesson at a Time
                 </p>
@@ -19,11 +19,13 @@ export default function Hero() {
                 </div>
             </div>
             <div className="flex justify-center items-center max-w-[200px] sm:max-w-[200px] md:max-w-[200px] xl:max-w-[280px] max-h-[200px] sm:max-h-[200px] md:max-h-[200px] xl:max-h-[280px]">
-                <img
-                    src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748898722/ramen-shop_caqgsz.png"
-                    alt="Ramen shop illustration"
-                    className="w-full h-auto object-contain"
-                />
+            <img
+                src="https://res.cloudinary.com/dykzzd9sy/image/upload/f_auto,q_auto,w_auto/v1748898722/ramen-shop_caqgsz.png"
+                alt="Ramen shop illustration"
+                width="280"
+                height="420"
+                className="w-full h-auto object-contain"
+            />
             </div>
         </section>
     );

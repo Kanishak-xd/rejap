@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React from 'react';
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -47,7 +46,12 @@ export default function Navbar() {
                     </ul>
 
                     {/* Hamburger Button */}
-                    <button onClick={() => setIsSidebarOpen(true)} className='text-2xl'>
+                    <button
+                      onClick={() => setIsSidebarOpen(true)}
+                      className='text-2xl'
+                      aria-label="Open menu"
+                      title="Open menu"
+                    >
                         <FiMenu />
                     </button>
                 </div>

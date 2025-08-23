@@ -1,8 +1,23 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// vite.config.js
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-})
+  build: {
+    minify: "esbuild",
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom"],
+          firebase: ["firebase/app", "firebase/auth", "firebase/firestore"],
+          ui: ["framer-motion", "react-icons"],
+          router: ["react-router-dom"],
+        },
+      },
+      chunkSizeWarningLimit: 1000,
+    },
+  },
+});

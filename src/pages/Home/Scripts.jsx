@@ -21,6 +21,8 @@ export default function Scripts() {
                         <img
                             src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874095/card-1_hghjn7.webp"
                             className="rounded-md w-full max-w-50 sm:max-w-50 md:max-w-400"
+                            width="288"
+                            height="436"
                             alt="Hiragana card"
                         />
                         <p className="font-outfit font-bold text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-amber-50 cursor-default mt-4">
@@ -36,6 +38,8 @@ export default function Scripts() {
                         <img
                             src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874096/card-2_ucxqzl.webp"
                             className="rounded-md w-full max-w-50 sm:max-w-50 md:max-w-400"
+                            width="288"
+                            height="436"
                             alt="Katakana card"
                         />
                         <p className="font-outfit font-bold text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-amber-50 cursor-default mt-4">
@@ -51,6 +55,8 @@ export default function Scripts() {
                         <img
                             src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1748874096/card-3_g9gaml.webp"
                             className="rounded-md w-full max-w-50 sm:max-w-50 md:max-w-400"
+                            width="288"
+                            height="436"
                             alt="Kanji card"
                         />
                         <p className="font-outfit font-bold text-xl sm:text-2xl lg:text-3xl xl:text-4xl text-amber-50 cursor-default mt-4">

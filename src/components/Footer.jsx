@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function Footer() {
+useEffect(() => {
+        console.time('footer-mounted');
+    }, []);
     return (
-        <footer className="bg-black text-neutral-300 border-t border-neutral-800 flex justify-center items-center w-full mt-auto">
+        <footer className="bg-black text-neutral-300 border-t border-neutral-800 flex justify-center items-center w-full mt-auto min-h-[150px]">
             <div className="container flex flex-col lg:flex-row justify-between py-12 px-9 sm:px-9 md:px-8 mx-auto max-w-7xl">
 
                 {/* Left section: Logo and copyright */}
