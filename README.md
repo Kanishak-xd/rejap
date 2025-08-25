@@ -91,20 +91,17 @@ REJAP features a comprehensive **responsive design** that ensures optimal user e
 ## Screenshots
 
 <p align="left">
-  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752250411/new-home_jnxr31.gif" alt="Home Page" width="400"/>
+  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1756110402/brave_QxLr8l4ren_byvss2.gif" alt="Home Page with sidebar" width="400"/>
   <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752205138/signin_ktcmvd.gif" alt="Login & SignUp" width="400"/>
-  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752204326/profile_fdykii.gif" alt="Profile Page" width="400"/>
-  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752206070/2ee2d5ab-5732-4640-bfd0-abb0408da565.png" alt="Leaderboard" width="400"/>
+  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1756110635/brave_AbUVTeFNLf_jbh4sd.gif" alt="Profile Page with leaderboard" width="400"/>
   <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752204603/admin_ufdpql.gif" alt="Admin Dashboard" width="400"/>
-  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752204639/f19b050e-3c39-4ddc-82da-442844956abe.png" alt="Level Selection" width="400"/>
-  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752204691/cf2e6573-bf04-4988-a8f9-54baccc3c51a.png" alt="Level Intro" width="400"/>
-  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752204718/af90f077-95af-408a-ba82-885fffc28122.png" alt="Quiz Page" width="400"/>
-  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752204119/da91f9da-a549-4d4c-919f-590d3c0391f4.png" alt="Sidebar" width="400"/>
+  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1756110479/brave_a9e2P9lpwr_b0ewg1.gif" alt="Level selection with level intro" width="400"/>
+  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1756110575/brave_31ON16hYei_vmm7zy.gif" alt="Quiz Page" width="400"/>
+  <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1756110689/brave_dQh1dPmSEg_gss7o3.gif" alt="Support Page" width="400"/>
   <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1752205443/447c164b-7c1b-4a57-b2f3-9cda8f7d312d.png" alt="Figma Design" width="400"/>
 </p>
 
-> _All images are delivered via Cloudinary CDN for fast loading._
-> _UI/UX was designed in Figma before development._
+> _All images are delivered via Cloudinary CDN for fast loading._ > _UI/UX was designed in Figma before development._
 
 ---
 
