@@ -7,6 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+frontend/node_modules
+frontend/dist
+backend/node_modules
 node_modules
 dist
 dist-ssr
@@ -24,13 +27,14 @@ dist-ssr
 *.sw?
 
 # Image assets
-public/homepage/chapters/*
-public/homepage/hero/*
-public/homepage/scripts/*
-public/profilepage/*
-public/levelintropage/*
-public/rankingspage/*
+frontend/public/homepage/chapters/*
+frontend/public/homepage/hero/*
+frontend/public/homepage/scripts/*
+frontend/public/profilepage/*
+frontend/public/levelintropage/*
+frontend/public/rankingspage/*
 
 # Secrets
 backend/.env
+frontend/.env
 .env
