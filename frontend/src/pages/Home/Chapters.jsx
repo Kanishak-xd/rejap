@@ -6,10 +6,8 @@ export default function Chapters() {
             <section id="chaptersSection" className="w-full min-h-screen flex justify-center items-center text-white font-outfit">
                 <div className="flex flex-col h-[65vh] w-11/12 max-w-6xl mx-auto gap-0 sm:gap-4">
                     {/* 1 */}
-                    <div
-                        className="h-1/6 flex items-center xl:hidden"
-                    >
-                        <p className="text-[2.48rem] sm:text-[4.9rem] md:text-[5.67rem] font-bold text-white">
+                    <div className="flex items-center xl:hidden mb-4">
+                        <p className="text-[2.48rem] sm:text-[4.9rem] md:text-[5.67rem] font-bold text-white leading-tight">
                             THE CHAPTERS
                         </p>
                     </div>
@@ -28,22 +26,22 @@ export default function Chapters() {
                         </div>
 
                         {/* Right side */}
-                        <div className="flex-auto xl:flex-1 flex flex-col gap-4 xl:w-4/8 w-5/5 ">
+                        <div className="flex-auto xl:flex-1 flex flex-col gap-4 xl:w-4/8 w-full">
 
                             {/* 3 */}
-                            <div className="xl:h-1/4 hidden xl:block flex">
-                                <p className="text-[4.7rem] font-bold text-white">
+                            <div className="xl:h-1/4 hidden xl:block flex items-end pb-2">
+                                <p className="text-[4.2rem] font-bold text-white leading-none">
                                     THE CHAPTERS
                                 </p>
                             </div>
 
                             {/* Two columns + archive block */}
-                            <div className="xl:h-3/4 h-2/4 sm:h-4/4 flex gap-4">
+                            <div className="xl:h-3/4 h-[50vh] sm:h-[60vh] xl:min-h-0 flex gap-4">
 
                                 {/* Hiragana + Kanji column */}
                                 <div className="flex flex-col flex-1 gap-4">
                                     {/* Hiragana block [4] */}
-                                    <Link to="/levels" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                    <Link to="/levels#hiragana" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
                                             <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/torii_sbc71f.webp" width="40" height="40" className="w-10 h-10 sm:w-20 sm:h-20" alt="torii-gate"></img>
                                             <div className="flex flex-col justify-center items-start">
