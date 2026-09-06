@@ -1,11 +1,31 @@
 import { useEffect, useState } from "react";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase.jsx";
-import { Link } from "react-router-dom";
-import { FiMenu } from 'react-icons/fi';
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { FiMenu, FiChevronDown } from 'react-icons/fi';
 
 export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
     const [isAdmin, setIsAdmin] = useState(false);
+    const [chaptersOpen, setChaptersOpen] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    // Navigates to /levels and sets the hash, always triggering a hashchange event.
+    const scrollToSection = (hash) => {
+        if (location.pathname !== "/levels") {
+            navigate("/levels");
+            // Let the page mount, then set the hash to trigger the scroll effect.
+            setTimeout(() => { window.location.hash = hash; }, 100);
+        } else {
+            // Already on /levels — force a hashchange by clearing then setting.
+            window.location.hash = "";
+            requestAnimationFrame(() => { window.location.hash = hash; });
+        }
+        if (window.innerWidth < 1280) setIsOpen(false);
+    };
+
+
+
 
     useEffect(() => {
         const user = auth.currentUser;
@@ -96,16 +116,41 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
                         <p>Leaderboard</p>
                     </Link>
 
-                    <Link
-                        to="/levels"
-                        onClick={() => window.innerWidth < 1280 && setIsOpen(false)}
-                        className="py-2 rounded-md hover:bg-neutral-800 items-center justify-start flex flex-row gap-3 px-2 transition-colors"
-                    >
-                        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24">
-                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.03v13m0-13c-2.819-.831-4.715-1.076-8.029-1.023A.99.99 0 0 0 3 6v11c0 .563.466 1.014 1.03 1.007 3.122-.043 5.018.212 7.97 1.023m0-13c2.819-.831 4.715-1.076 8.029-1.023A.99.99 0 0 1 21 6v11c0 .563-.466 1.014-1.03 1.007-3.122-.043-5.018.212-7.97 1.023" />
-                        </svg>
-                        <p>Chapters</p>
-                    </Link>
+
+                    <div>
+                        <button
+                            onClick={() => setChaptersOpen(!chaptersOpen)}
+                            className="w-full py-2 rounded-md hover:bg-neutral-800 items-center justify-start flex flex-row gap-3 px-2 transition-colors"
+                        >
+                            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.03v13m0-13c-2.819-.831-4.715-1.076-8.029-1.023A.99.99 0 0 0 3 6v11c0 .563.466 1.014 1.03 1.007 3.122-.043 5.018.212 7.97 1.023m0-13c2.819-.831 4.715-1.076 8.029-1.023A.99.99 0 0 1 21 6v11c0 .563-.466 1.014-1.03 1.007-3.122-.043-5.018.212-7.97 1.023" />
+                            </svg>
+                            <p className="flex-1 text-left">Chapters</p>
+                            <FiChevronDown
+                                className={`w-4 h-4 text-neutral-400 transition-transform duration-200 ${chaptersOpen ? "rotate-180" : ""}`}
+                            />
+                        </button>
+
+                        {chaptersOpen && (
+                            <div className="ml-5 mt-1 flex flex-col gap-1 border-l border-neutral-700 pl-3">
+                                {[
+                                    { label: "Hiragana", hash: "#hiragana" },
+                                    { label: "Katakana", hash: "#katakana" },
+                                    { label: "Kanji", hash: "#kanji" },
+                                    { label: "Time", hash: "#time" },
+                                ].map(({ label, hash }) => (
+                                    <button
+                                        key={hash}
+                                        onClick={() => scrollToSection(hash)}
+                                        className="py-1.5 px-2 rounded-md text-md text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors text-left"
+                                    >
+                                        {label}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
 
                     {isAdmin && (
                         <Link
@@ -160,7 +205,7 @@ export default function Sidebar({ isOpen, setIsOpen, username, profilePic }) {
                     >
                         <div className="avatar">
                             <div className="h-10 w-10 rounded-xl bg-neutral-800 flex items-center justify-center border border-neutral-700">
-                                <svg className="w-6 h-6 text-neutral-400" fill="none" viewBox="0 0 24 24">
+                                <svg className="w-6 h-6 m-1.5 text-neutral-400" fill="none" viewBox="0 0 24 24">
                                     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14a7 7 0 00-7 7h14a7 7 0 00-7-7zM16 7a4 4 0 11-8 0 4 4 0 018 0z" />
                                 </svg>
                             </div>

@@ -32,7 +32,7 @@ export default function HiraganaLevels({ chapter }) {
             <div className="flex h-14 sm:h-16 md:h-18 gap-3 sm:gap-4 mb-4">
                 <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/torii_sbc71f.webp"
                     className="h-9 sm:h-14 w-9 sm:w-14 mt-1" alt="Torii gate" />
-                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 mt-1.5" id="hiragana">Chapter 1: Hiragana</h2>
+                <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 mt-1.5 scroll-mt-24" id="hiragana">Chapter 1: Hiragana</h2>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
                 {[...Array(10)].map((_, i) => {

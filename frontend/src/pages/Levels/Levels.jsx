@@ -8,18 +8,27 @@ import { useLocation } from "react-router-dom";
 export default function Levels() {
   const location = useLocation();
 
-  useEffect(() => {
-    if (!location.hash) {
+  const scrollToHash = (hash) => {
+    if (!hash) {
       window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      const el = document.querySelector(location.hash);
-      if (el) {
-        const yCoordinate = el.getBoundingClientRect().top + window.scrollY;
-        const yOffset = -90;
-        window.scrollTo({ top: yCoordinate + yOffset, behavior: "smooth" });
-      }
+      return;
     }
+    const el = document.querySelector(hash);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  // Handle React Router navigation (entering the page with a hash in the URL).
+  useEffect(() => {
+    scrollToHash(location.hash);
   }, [location]);
+
+  // Handle same-page hash changes triggered by window.location.hash = "..." .
+  useEffect(() => {
+    const onHashChange = () => scrollToHash(window.location.hash);
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
 
   return (
     <div className="bg-neutral-950">

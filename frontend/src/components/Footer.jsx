@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import React, { useEffect } from 'react';
 
 export default function Footer() {
-useEffect(() => {
+    useEffect(() => {
         console.time('footer-mounted');
     }, []);
     return (
@@ -30,10 +30,10 @@ useEffect(() => {
                                 <Link to="/" className="hover:text-white transition-colors duration-200">Home Page</Link>
                             </li>
                             <li>
-                                <Link to="/levels" className="hover:text-white transition-colors duration-200">Ch. 1: Hiragana</Link>
+                                <Link to="/levels#hiragana" className="hover:text-white transition-colors duration-200">Ch. 1: Hiragana</Link>
                             </li>
                             <li>
-                                <Link to="/levels" className="hover:text-white transition-colors duration-200">Ch. 2: Katakana</Link>
+                                <Link to="/levels#katakana" className="hover:text-white transition-colors duration-200">Ch. 2: Katakana</Link>
                             </li>
                             <li>
                                 <Link to="/levels#kanji" className="hover:text-white transition-colors duration-200">Ch. 3: Kanji</Link>

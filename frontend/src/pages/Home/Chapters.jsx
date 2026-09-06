@@ -1,6 +1,18 @@
-import { Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Chapters() {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const scrollToSection = (hash) => {
+        if (location.pathname !== "/levels") {
+            navigate("/levels");
+            setTimeout(() => { window.location.hash = hash; }, 100);
+        } else {
+            window.location.hash = "";
+            requestAnimationFrame(() => { window.location.hash = hash; });
+        }
+    };
     return (
         <>
             <section id="chaptersSection" className="w-full min-h-screen flex justify-center items-center text-white font-outfit">
@@ -41,7 +53,7 @@ export default function Chapters() {
                                 {/* Hiragana + Kanji column */}
                                 <div className="flex flex-col flex-1 gap-4">
                                     {/* Hiragana block [4] */}
-                                    <Link to="/levels#hiragana" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                    <button onClick={() => scrollToSection("#hiragana")} className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
                                             <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/torii_sbc71f.webp" width="40" height="40" className="w-10 h-10 sm:w-20 sm:h-20" alt="torii-gate"></img>
                                             <div className="flex flex-col justify-center items-start">
@@ -49,9 +61,9 @@ export default function Chapters() {
                                                 <p className="text-[0.6rem] sm:text-[1.1rem]">HIRAGANA</p>
                                             </div>
                                         </div>
-                                    </Link>
+                                    </button>
                                     {/* Kanji block [6] */}
-                                    <Link to="/levels#kanji" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                    <button onClick={() => scrollToSection("#kanji")} className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
                                             <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sensu_iusuf7.webp" className="w-10 h-10 sm:w-20 sm:h-20" alt="sensu-fan"></img>
                                             <div className="flex flex-col justify-center items-start">
@@ -59,13 +71,13 @@ export default function Chapters() {
                                                 <p className="text-[0.5rem] sm:text-[1.1rem]">KANJI</p>
                                             </div>
                                         </div>
-                                    </Link>
+                                    </button>
                                 </div>
 
                                 {/* Katakana + Time column */}
                                 <div className="flex flex-col flex-1 gap-4">
                                     {/* Katakana block [5] */}
-                                    <Link to="/levels#katakana" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                    <button onClick={() => scrollToSection("#katakana")} className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
                                             <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/sushi_ss7txh.webp" width="40" height="40" className="w-10 h-10 sm:w-20 sm:h-20" alt="sushi"></img>
                                             <div className="flex flex-col justify-center items-start">
@@ -73,9 +85,9 @@ export default function Chapters() {
                                                 <p className="text-[0.6rem] sm:text-[1.1rem]">KATAKANA</p>
                                             </div>
                                         </div>
-                                    </Link>
+                                    </button>
                                     {/* Time block [7] */}
-                                    <Link to="/levels#time" className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
+                                    <button onClick={() => scrollToSection("#time")} className="flex-1 bg-neutral-900 text-white hover:text-black hover:bg-neutral-100 transition-all duration-100 text-left flex items-center justify-center rounded-2xl sm:rounded-3xl md:rounded-3xl xl:rounded-4xl">
                                         <div className="flex flex-col items-center justify-center gap-2 w-3/4 h-full">
                                             <img src="https://res.cloudinary.com/dykzzd9sy/image/upload/v1751840508/maneki-neko_cugqw9.webp" width="40" height="40" className="w-10 h-10 sm:w-20 sm:h-20" alt="maneki-neko"></img>
                                             <div className="flex flex-col justify-center items-start">
@@ -83,7 +95,7 @@ export default function Chapters() {
                                                 <p className="text-[0.5rem] sm:text-[1.1rem]">TIME</p>
                                             </div>
                                         </div>
-                                    </Link>
+                                    </button>
                                 </div>
 
                                 {/* Archive block [8] */}
